@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
             this.stpnlDangNhap = new DevExpress.Utils.Layout.StackPanel();
-            this.hlDangKy = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.hlDangKy = new DevExpress.XtraEditors.HyperlinkLabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stpnlDangNhap)).BeginInit();
             this.stpnlDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -53,6 +53,18 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(620, 174);
             this.panelControl1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(620, 174);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // btnDangNhap
             // 
@@ -83,17 +95,6 @@
             this.stpnlDangNhap.TabIndex = 5;
             this.stpnlDangNhap.UseSkinIndents = true;
             // 
-            // hlDangKy
-            // 
-            this.hlDangKy.Appearance.Font = new System.Drawing.Font("UTM Avo", 16F);
-            this.hlDangKy.Appearance.Options.UseFont = true;
-            this.hlDangKy.Location = new System.Drawing.Point(267, 214);
-            this.hlDangKy.Name = "hlDangKy";
-            this.hlDangKy.Size = new System.Drawing.Size(86, 29);
-            this.hlDangKy.TabIndex = 5;
-            this.hlDangKy.Text = "Đăng Ký";
-            this.hlDangKy.Click += new System.EventHandler(this.hlDangKy_Click);
-            // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(159, 16);
@@ -107,6 +108,7 @@
             this.txtUsername.Size = new System.Drawing.Size(302, 61);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // txtPassword
             // 
@@ -123,21 +125,22 @@
             this.txtPassword.Size = new System.Drawing.Size(302, 61);
             this.txtPassword.TabIndex = 0;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
-            // pictureBox1
+            // hlDangKy
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(620, 174);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.hlDangKy.Appearance.Font = new System.Drawing.Font("UTM Avo", 16F);
+            this.hlDangKy.Appearance.Options.UseFont = true;
+            this.hlDangKy.Location = new System.Drawing.Point(267, 214);
+            this.hlDangKy.Name = "hlDangKy";
+            this.hlDangKy.Size = new System.Drawing.Size(86, 29);
+            this.hlDangKy.TabIndex = 5;
+            this.hlDangKy.Text = "Đăng Ký";
+            this.hlDangKy.Click += new System.EventHandler(this.hlDangKy_Click);
             // 
             // frmDangNhap
             // 
+            this.AcceptButton = this.btnDangNhap;
             this.ActiveGlowColor = System.Drawing.Color.White;
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
@@ -156,12 +159,12 @@
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stpnlDangNhap)).EndInit();
             this.stpnlDangNhap.ResumeLayout(false);
             this.stpnlDangNhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

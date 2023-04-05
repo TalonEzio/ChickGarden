@@ -39,17 +39,17 @@ namespace GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "" || txtPassword.Text == "") return;
+            if (txtPassword.Text.Length < 6|| txtPassword.Text.Length < 6) return;
             TrangThai trangThai = TaiKhoanBLL.Instance.DangNhap(txtUsername.Text, txtPassword.Text);
             if (trangThai == TrangThai.ThatBai)
             {
-                XtraMessageBox.Show("Đăng nhập thất bại","Trạng thái",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                XtraMessageBox.Show("Đăng nhập thất bại", "Trạng thái", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 XtraMessageBox.Show("Đăng nhập thành công", "Trạng thái", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } 
-                
+            }
+
         }
 
         private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
@@ -58,6 +58,26 @@ namespace GUI
             {
                 e.Handled = true;
             }    
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if(txtPassword.Text.Length < 6)
+            {
+                txtPassword.ErrorText = "Độ dài chưa hợp lệ";
+                txtPassword.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
+                txtPassword.Focus();
+            }
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtUsername.Text.Length < 6)
+            {
+                txtUsername.ErrorText = "Độ dài chưa hợp lệ";
+                txtUsername.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
+                txtUsername.Focus();
+            }
         }
     }
 }

@@ -36,7 +36,15 @@ namespace DAL
             };
 			cmd.Parameters.AddWithValue("@Username", username);
 
-			string hashPassword = cmd.ExecuteScalar().ToString();
+			string hashPassword;
+			using (SqlDataReader reader = cmd.ExecuteReader())
+			{
+				if (!reader.HasRows) return TrangThai.ThatBai;
+
+				reader.Read();
+				hashPassword = reader.GetString(0);
+
+			}
 
             DatabaseAccess.Instance.DongKetNoi();
 
