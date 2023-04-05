@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace DTO
 {
-    public class Class1
+    public class TaiKhoan
     {
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
