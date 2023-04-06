@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
             this.stpnlDangNhap = new DevExpress.Utils.Layout.StackPanel();
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
-            this.hlDangKy = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.hlQuenMatKhau = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.btnDangKy = new DevExpress.XtraEditors.SimpleButton();
+            this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -42,6 +46,9 @@
             this.stpnlDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -51,7 +58,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(620, 174);
+            this.panelControl1.Size = new System.Drawing.Size(645, 174);
             this.panelControl1.TabIndex = 3;
             // 
             // pictureBox1
@@ -61,7 +68,7 @@
             this.pictureBox1.Image = global::GUI.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(620, 174);
+            this.pictureBox1.Size = new System.Drawing.Size(645, 174);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -72,7 +79,7 @@
             this.btnDangNhap.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.btnDangNhap.Appearance.Options.UseBorderColor = true;
             this.btnDangNhap.Appearance.Options.UseFont = true;
-            this.btnDangNhap.Location = new System.Drawing.Point(230, 158);
+            this.btnDangNhap.Location = new System.Drawing.Point(122, 20);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(160, 52);
             this.btnDangNhap.TabIndex = 4;
@@ -85,22 +92,23 @@
             this.stpnlDangNhap.Appearance.Options.UseBackColor = true;
             this.stpnlDangNhap.Controls.Add(this.txtUsername);
             this.stpnlDangNhap.Controls.Add(this.txtPassword);
-            this.stpnlDangNhap.Controls.Add(this.btnDangNhap);
-            this.stpnlDangNhap.Controls.Add(this.hlDangKy);
+            this.stpnlDangNhap.Controls.Add(this.panelControl2);
             this.stpnlDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stpnlDangNhap.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.TopDown;
             this.stpnlDangNhap.Location = new System.Drawing.Point(0, 174);
             this.stpnlDangNhap.Name = "stpnlDangNhap";
-            this.stpnlDangNhap.Size = new System.Drawing.Size(620, 323);
+            this.stpnlDangNhap.Size = new System.Drawing.Size(645, 278);
             this.stpnlDangNhap.TabIndex = 5;
             this.stpnlDangNhap.UseSkinIndents = true;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(159, 16);
+            this.txtUsername.Location = new System.Drawing.Point(171, 16);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(6);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Properties.AdvancedModeOptions.Label = "Tài khoản";
+            this.txtUsername.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.txtUsername.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
             this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.txtUsername.Properties.Appearance.Options.UseFont = true;
             this.txtUsername.Properties.AutoHeight = false;
@@ -108,15 +116,16 @@
             this.txtUsername.Size = new System.Drawing.Size(302, 61);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
-            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // txtPassword
             // 
             this.txtPassword.EditValue = "";
-            this.txtPassword.Location = new System.Drawing.Point(159, 89);
+            this.txtPassword.Location = new System.Drawing.Point(171, 89);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(6);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.AdvancedModeOptions.Label = "Mật khẩu";
+            this.txtPassword.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.txtPassword.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
             this.txtPassword.Properties.AutoHeight = false;
@@ -125,18 +134,44 @@
             this.txtPassword.Size = new System.Drawing.Size(302, 61);
             this.txtPassword.TabIndex = 0;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
-            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
-            // hlDangKy
+            // panelControl2
             // 
-            this.hlDangKy.Appearance.Font = new System.Drawing.Font("UTM Avo", 16F);
-            this.hlDangKy.Appearance.Options.UseFont = true;
-            this.hlDangKy.Location = new System.Drawing.Point(267, 214);
-            this.hlDangKy.Name = "hlDangKy";
-            this.hlDangKy.Size = new System.Drawing.Size(86, 29);
-            this.hlDangKy.TabIndex = 5;
-            this.hlDangKy.Text = "Đăng Ký";
-            this.hlDangKy.Click += new System.EventHandler(this.hlDangKy_Click);
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.hlQuenMatKhau);
+            this.panelControl2.Controls.Add(this.btnDangKy);
+            this.panelControl2.Controls.Add(this.btnDangNhap);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(4, 158);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(638, 109);
+            this.panelControl2.TabIndex = 6;
+            // 
+            // hlQuenMatKhau
+            // 
+            this.hlQuenMatKhau.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.hlQuenMatKhau.Appearance.Options.UseFont = true;
+            this.hlQuenMatKhau.Location = new System.Drawing.Point(240, 78);
+            this.hlQuenMatKhau.Name = "hlQuenMatKhau";
+            this.hlQuenMatKhau.Size = new System.Drawing.Size(158, 26);
+            this.hlQuenMatKhau.TabIndex = 6;
+            this.hlQuenMatKhau.Text = "Quên mật khẩu?";
+            this.hlQuenMatKhau.Click += new System.EventHandler(this.hlQuenMatKhau_Click);
+            // 
+            // btnDangKy
+            // 
+            this.btnDangKy.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDangKy.Appearance.Options.UseFont = true;
+            this.btnDangKy.Location = new System.Drawing.Point(350, 20);
+            this.btnDangKy.Name = "btnDangKy";
+            this.btnDangKy.Size = new System.Drawing.Size(160, 52);
+            this.btnDangKy.TabIndex = 5;
+            this.btnDangKy.Text = "Đăng Ký";
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
+            // 
+            // err
+            // 
+            this.err.ContainerControl = this;
             // 
             // frmDangNhap
             // 
@@ -147,7 +182,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 497);
+            this.ClientSize = new System.Drawing.Size(645, 452);
             this.Controls.Add(this.stpnlDangNhap);
             this.Controls.Add(this.panelControl1);
             this.Font = new System.Drawing.Font("UTM Avo", 14F);
@@ -156,15 +191,19 @@
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangNhap_FormClosing);
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stpnlDangNhap)).EndInit();
             this.stpnlDangNhap.ResumeLayout(false);
-            this.stpnlDangNhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,7 +216,10 @@
         private DevExpress.XtraEditors.SimpleButton btnDangNhap;
         private DevExpress.Utils.Layout.StackPanel stpnlDangNhap;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private DevExpress.XtraEditors.HyperlinkLabelControl hlDangKy;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.HyperlinkLabelControl hlQuenMatKhau;
+        private DevExpress.XtraEditors.SimpleButton btnDangKy;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider err;
     }
 }
 

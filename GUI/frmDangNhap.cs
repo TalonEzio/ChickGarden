@@ -36,10 +36,27 @@ namespace GUI
             frmDangKy.ShowDialog();
             this.Show();
         }
+        bool CheckInput()
+        {
+            err.ClearErrors();
+            err.SetIconAlignment(txtUsername, ErrorIconAlignment.MiddleRight);
+            err.SetIconAlignment(txtPassword, ErrorIconAlignment.MiddleRight);
 
+            if (txtPassword.Text.Length < 6 ) {
+                err.SetError(txtPassword, "Độ dài phải trên 6");
+                return false;   
+            }
+            if (txtUsername.Text.Length < 6)
+            {
+                err.SetError(txtUsername, "Độ dài phải trên 6");
+                return false;
+
+            }
+            return true;
+        }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text.Length < 6|| txtPassword.Text.Length < 6) return;
+            if (CheckInput() == false) return;
             TrangThai trangThai = TaiKhoanBLL.Instance.DangNhap(txtUsername.Text, txtPassword.Text);
             if (trangThai == TrangThai.ThatBai)
             {
@@ -60,23 +77,27 @@ namespace GUI
             }    
         }
 
-        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        private void hlQuenMatKhau_Click(object sender, EventArgs e)
         {
-            if(txtPassword.Text.Length < 6)
-            {
-                txtPassword.ErrorText = "Độ dài chưa hợp lệ";
-                txtPassword.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
-                txtPassword.Focus();
-            }
+            System.Diagnostics.Process.Start("https://facebook.com/vuthemanh1707");
         }
 
-        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text.Length < 6)
+            frmDangKy frmDangKy = new frmDangKy();
+            txtPassword.Text = txtUsername.Text = "";
+            this.Hide();
+            frmDangKy.ShowDialog();
+            this.Show();
+
+        }
+
+        private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult = XtraMessageBox.Show("Bạn có muốn thoát không?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
             {
-                txtUsername.ErrorText = "Độ dài chưa hợp lệ";
-                txtUsername.ErrorImageOptions.Alignment = ErrorIconAlignment.MiddleRight;
-                txtUsername.Focus();
+                e.Cancel = true;
             }
         }
     }

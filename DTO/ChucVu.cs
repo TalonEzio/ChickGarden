@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public enum TrangThai
+    public class ChucVu
     {
-        ThanhCong,
-        ThatBai,
-        UserDaTonTai
+        public int MaChucVu { get; set; }
+        public string TenChucVu { get; set; }
     }
 }

@@ -29,5 +29,12 @@ namespace BLL
 		{
 			return TaiKhoanDAO.Instance.DangNhap(username, password);
 		}
+		public TrangThai DangKy(TaiKhoan taiKhoan,ChucVu chucVu)
+		{
+			TrangThai trangThai = TaiKhoanDAO.Instance.KiemTraTaiKhoan(taiKhoan.Username);
+			if (trangThai == TrangThai.UserDaTonTai) return trangThai;
+
+			return TaiKhoanDAO.Instance.DangKy(taiKhoan,chucVu);
+		}
 	}
 }

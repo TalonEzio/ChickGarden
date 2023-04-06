@@ -53,14 +53,66 @@ namespace DAL
 				return TrangThai.ThanhCong;
 			}
 			return TrangThai.ThatBai;
-
-			//Test
-			//if(inputPassword == password)
-			//{
-			//	return TrangThai.ThanhCong;
-			//}
-			//return TrangThai.ThatBai;
 		}
+		public TrangThai KiemTraTaiKhoan(string username) {
+			DatabaseAccess.Instance.MoKetNoi();
+            SqlCommand cmd = new SqlCommand()
+            {
+                CommandType = System.Data.CommandType.StoredProcedure,
+                CommandText = "usp_LayMatKhau",
+                Connection = DatabaseAccess.Instance.conn
+            };
+            cmd.Parameters.AddWithValue("@Username", username);
 
-	}
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows) return TrangThai.UserDaTonTai;
+
+            }
+
+            DatabaseAccess.Instance.DongKetNoi();
+
+            return TrangThai.ThanhCong;
+        }
+        public TrangThai DangKy(TaiKhoan taiKhoan,ChucVu chucVu)
+		{
+            DatabaseAccess.Instance.MoKetNoi();
+
+            SqlCommand cmd = new SqlCommand()
+			{
+				CommandType = System.Data.CommandType.StoredProcedure,
+				CommandText = "usp_DangKy",
+				Connection = DatabaseAccess.Instance.conn
+			};
+			cmd.Parameters.AddWithValue("@Username", taiKhoan.Username);
+			cmd.Parameters.AddWithValue("@Password",BC.HashPassword(taiKhoan.Password));
+			cmd.Parameters.AddWithValue("@RawPassword", taiKhoan.Password);
+			cmd.Parameters.AddWithValue("@Ho", taiKhoan.Ho);
+			cmd.Parameters.AddWithValue("@Ten",taiKhoan.Ten);
+			cmd.Parameters.AddWithValue("@NgaySinh", taiKhoan.NgaySinh);
+			cmd.Parameters.AddWithValue("@GioiTinh", taiKhoan.GioiTinh);
+			cmd.Parameters.AddWithValue("@QueQuan", taiKhoan.QueQuan);
+			cmd.Parameters.AddWithValue("@SoDienThoai",taiKhoan.SoDienThoai);
+			cmd.Parameters.AddWithValue("@MaChucVu", chucVu.MaChucVu);
+			try
+			{
+				cmd.ExecuteNonQuery();
+                DatabaseAccess.Instance.DongKetNoi();
+                return TrangThai.ThanhCong;
+            }
+			catch (Exception ex)
+			{
+                return TrangThai.ThatBai;
+            }
+			finally
+			{
+                DatabaseAccess.Instance.DongKetNoi();
+
+            }
+
+
+        }
+
+
+    }
 }
