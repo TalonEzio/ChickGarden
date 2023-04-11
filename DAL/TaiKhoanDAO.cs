@@ -41,7 +41,7 @@ namespace DAL
 			}
 			return TrangThai.ThatBai;
 		}
-		public TrangThai KiemTraTaiKhoan(string username) {
+		private TrangThai KiemTraTaiKhoan(string username) {
 			DataTable dt = DatabaseAccess.Instance.ExecuteReader(
 					"usp_LayMatKhau", 
 					CachThucHien.StoredProcedure, 
@@ -55,14 +55,18 @@ namespace DAL
         }
         public TrangThai DangKy(TaiKhoan taiKhoan,ChucVu chucVu)
 		{
-			int result = DatabaseAccess.Instance.ExecuteNonQuery(
+
+            TrangThai trangThai = KiemTraTaiKhoan(taiKhoan.Username);
+            if (trangThai == TrangThai.UserDaTonTai) return trangThai;
+
+            int result = DatabaseAccess.Instance.ExecuteNonQuery(
 				"usp_DangKy",
 				CachThucHien.StoredProcedure,
 				new string[] {"@Username", "@Password", "@RawPassword", "@MaChucVu" },
 				new object[] { taiKhoan.Username,BC.HashPassword(taiKhoan.Password),taiKhoan.Password,chucVu.MaChucVu
 				});
-			if (result == 0) return TrangThai.ThatBai;
-			return TrangThai.ThanhCong;
+			trangThai = (result == 0) ? TrangThai.ThatBai : TrangThai.ThanhCong;
+			return trangThai;
         }
 
 
