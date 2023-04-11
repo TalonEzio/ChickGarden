@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,27 +27,13 @@ namespace DAL
 		}
 		public TrangThai DangNhap(string username, string password)
 		{
-			DatabaseAccess.Instance.MoKetNoi();
+			string hashPassword = String.Empty;
+			DataTable dt = DatabaseAccess.Instance.ExecuteReader("usp_LayMatKhau", CachThucHien.StoredProcedure,
+				new string[] { "@Username" },
+				new object[] { username });
 
-			SqlCommand cmd = new SqlCommand()
-			{
-				CommandType = System.Data.CommandType.StoredProcedure,
-				CommandText = "usp_LayMatKhau",
-				Connection = DatabaseAccess.Instance.conn
-            };
-			cmd.Parameters.AddWithValue("@Username", username);
-
-			string hashPassword;
-			using (SqlDataReader reader = cmd.ExecuteReader())
-			{
-				if (!reader.HasRows) return TrangThai.ThatBai;
-
-				reader.Read();
-				hashPassword = reader.GetString(0);
-
-			}
-
-            DatabaseAccess.Instance.DongKetNoi();
+			if (dt.Rows.Count == 0) return TrangThai.ThatBai;
+			hashPassword = dt.Rows[0].ItemArray[0].ToString();
 
 			if (BC.Verify(password, hashPassword))
 			{
@@ -55,62 +42,27 @@ namespace DAL
 			return TrangThai.ThatBai;
 		}
 		public TrangThai KiemTraTaiKhoan(string username) {
-			DatabaseAccess.Instance.MoKetNoi();
-            SqlCommand cmd = new SqlCommand()
-            {
-                CommandType = System.Data.CommandType.StoredProcedure,
-                CommandText = "usp_LayMatKhau",
-                Connection = DatabaseAccess.Instance.conn
-            };
-            cmd.Parameters.AddWithValue("@Username", username);
+			DataTable dt = DatabaseAccess.Instance.ExecuteReader(
+					"usp_LayMatKhau", 
+					CachThucHien.StoredProcedure, 
+					new string[] { "@Username" }, 
+					new object[] { username }
+				);
 
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                if (reader.HasRows) return TrangThai.UserDaTonTai;
+			if(dt.Rows.Count == 0) return TrangThai.ThatBai;
 
-            }
-
-            DatabaseAccess.Instance.DongKetNoi();
-
-            return TrangThai.ThanhCong;
+            return TrangThai.UserDaTonTai;
         }
         public TrangThai DangKy(TaiKhoan taiKhoan,ChucVu chucVu)
 		{
-            DatabaseAccess.Instance.MoKetNoi();
-
-            SqlCommand cmd = new SqlCommand()
-			{
-				CommandType = System.Data.CommandType.StoredProcedure,
-				CommandText = "usp_DangKy",
-				Connection = DatabaseAccess.Instance.conn
-			};
-			cmd.Parameters.AddWithValue("@Username", taiKhoan.Username);
-			cmd.Parameters.AddWithValue("@Password",BC.HashPassword(taiKhoan.Password));
-			cmd.Parameters.AddWithValue("@RawPassword", taiKhoan.Password);
-			cmd.Parameters.AddWithValue("@Ho", taiKhoan.Ho);
-			cmd.Parameters.AddWithValue("@Ten",taiKhoan.Ten);
-			cmd.Parameters.AddWithValue("@NgaySinh", taiKhoan.NgaySinh);
-			cmd.Parameters.AddWithValue("@GioiTinh", taiKhoan.GioiTinh);
-			cmd.Parameters.AddWithValue("@QueQuan", taiKhoan.QueQuan);
-			cmd.Parameters.AddWithValue("@SoDienThoai",taiKhoan.SoDienThoai);
-			cmd.Parameters.AddWithValue("@MaChucVu", chucVu.MaChucVu);
-			try
-			{
-				cmd.ExecuteNonQuery();
-                DatabaseAccess.Instance.DongKetNoi();
-                return TrangThai.ThanhCong;
-            }
-			catch (Exception ex)
-			{
-                return TrangThai.ThatBai;
-            }
-			finally
-			{
-                DatabaseAccess.Instance.DongKetNoi();
-
-            }
-
-
+			int result = DatabaseAccess.Instance.ExecuteNonQuery(
+				"usp_DangKy",
+				CachThucHien.StoredProcedure,
+				new string[] {"@Username", "@Password", "@RawPassword", "@MaChucVu" },
+				new object[] { taiKhoan.Username,BC.HashPassword(taiKhoan.Password),taiKhoan.Password,chucVu.MaChucVu
+				});
+			if (result == 0) return TrangThai.ThatBai;
+			return TrangThai.ThanhCong;
         }
 
 

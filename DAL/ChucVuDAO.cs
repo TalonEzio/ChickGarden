@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,27 +27,14 @@ namespace DAL
         }
         public List<ChucVu> LayChucVu()
         {
-            DatabaseAccess.Instance.MoKetNoi();
-            SqlCommand cmd = new SqlCommand()
-            {
-                CommandType = System.Data.CommandType.StoredProcedure,
-                CommandText = "usp_LayChucVu",
-                Connection = DatabaseAccess.Instance.conn
-            };
-            cmd.Parameters.Clear();
+            DataTable dt = DatabaseAccess.Instance.ExecuteReader("usp_LayChucVu",CachThucHien.StoredProcedure);
             List<ChucVu> DSCV = new List<ChucVu> ();
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            
+            foreach (DataRow dr in dt.Rows)
             {
-                while (reader.Read ())
-                {
-                    ChucVu cv = new ChucVu ();
-                    cv.MaChucVu = reader.GetInt32(0);
-                    cv.TenChucVu = reader.GetString(1);
-
-                    DSCV.Add(cv);
-                }
+                DSCV.Add(new ChucVu
+                { MaChucVu = dr.ItemArray[0].ToString(), TenChucVu = dr.ItemArray[1].ToString() });
             }
-            DatabaseAccess.Instance.DongKetNoi();
 
             return DSCV;
         }

@@ -65,6 +65,10 @@ namespace GUI
             else
             {
                 XtraMessageBox.Show("Đăng nhập thành công", "Trạng thái", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmTrangChu frmTrangChu = new frmTrangChu();
+                this.Hide();
+                frmTrangChu.ShowDialog();
+                this.Show();
             }
 
         }

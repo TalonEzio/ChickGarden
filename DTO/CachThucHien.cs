@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class ChucVu
+    public enum CachThucHien
     {
-        public string MaChucVu { get; set; }
-        public string TenChucVu { get; set; }
+        Query = 0,
+        StoredProcedure = 1
     }
 }

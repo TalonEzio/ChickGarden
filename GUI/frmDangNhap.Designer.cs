@@ -30,25 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
             this.stpnlDangNhap = new DevExpress.Utils.Layout.StackPanel();
-            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
-            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.hlQuenMatKhau = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.btnDangKy = new DevExpress.XtraEditors.SimpleButton();
             this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stpnlDangNhap)).BeginInit();
             this.stpnlDangNhap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -60,18 +60,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(645, 174);
             this.panelControl1.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::GUI.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(645, 174);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnDangNhap
             // 
@@ -100,40 +88,6 @@
             this.stpnlDangNhap.Size = new System.Drawing.Size(645, 278);
             this.stpnlDangNhap.TabIndex = 5;
             this.stpnlDangNhap.UseSkinIndents = true;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(171, 16);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(6);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Properties.AdvancedModeOptions.Label = "Tài khoản";
-            this.txtUsername.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.txtUsername.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
-            this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.txtUsername.Properties.Appearance.Options.UseFont = true;
-            this.txtUsername.Properties.AutoHeight = false;
-            this.txtUsername.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtUsername.Size = new System.Drawing.Size(302, 61);
-            this.txtUsername.TabIndex = 1;
-            this.txtUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.EditValue = "";
-            this.txtPassword.Location = new System.Drawing.Point(171, 89);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(6);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Properties.AdvancedModeOptions.Label = "Mật khẩu";
-            this.txtPassword.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.txtPassword.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
-            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.txtPassword.Properties.Appearance.Options.UseFont = true;
-            this.txtPassword.Properties.AutoHeight = false;
-            this.txtPassword.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtPassword.Properties.UseSystemPasswordChar = true;
-            this.txtPassword.Size = new System.Drawing.Size(302, 61);
-            this.txtPassword.TabIndex = 0;
-            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
             // 
             // panelControl2
             // 
@@ -173,6 +127,53 @@
             // 
             this.err.ContainerControl = this;
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(171, 16);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(6);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Properties.AdvancedModeOptions.Label = "Tài khoản";
+            this.txtUsername.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.txtUsername.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
+            this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.txtUsername.Properties.Appearance.Options.UseFont = true;
+            this.txtUsername.Properties.AutoHeight = false;
+            this.txtUsername.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtUsername.Size = new System.Drawing.Size(302, 61);
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.ToolTipIconType = DevExpress.Utils.ToolTipIconType.WindLogo;
+            this.txtUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.EditValue = "";
+            this.txtPassword.Location = new System.Drawing.Point(171, 89);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(6);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.AdvancedModeOptions.Label = "Mật khẩu";
+            this.txtPassword.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.txtPassword.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
+            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.AutoHeight = false;
+            this.txtPassword.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtPassword.Properties.UseSystemPasswordChar = true;
+            this.txtPassword.Size = new System.Drawing.Size(302, 61);
+            this.txtPassword.TabIndex = 0;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::GUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(645, 174);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
@@ -195,15 +196,15 @@
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stpnlDangNhap)).EndInit();
             this.stpnlDangNhap.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

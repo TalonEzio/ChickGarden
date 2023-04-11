@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,8 @@ namespace DAL
 
         private static DatabaseAccess instance;
         public static DatabaseAccess Instance
-        { get
+        {
+            get
             {
                 if (instance == null)
                 {
@@ -28,7 +31,7 @@ namespace DAL
 
         public void MoKetNoi()
         {
-            if(conn == null)
+            if (conn == null)
             {
                 conn = new SqlConnection(strConn);
             }
@@ -45,9 +48,9 @@ namespace DAL
                 }
             }
         }
-        public void DongKetNoi() 
+        public void DongKetNoi()
         {
-            if(conn != null && conn.State == System.Data.ConnectionState.Open) 
+            if (conn != null && conn.State == System.Data.ConnectionState.Open)
             {
                 conn.Close();
             }
@@ -62,6 +65,98 @@ namespace DAL
             builder.Password = "manhngu123";
 
             return builder.ToString();
+        }
+
+        public int ExecuteNonQuery(string commandText, CachThucHien cachThucHien = CachThucHien.Query, string[] parameterName = null, object[] parameterValue = null)
+        {
+            if (parameterName == null) parameterName = new string[0];
+            if (parameterValue == null) parameterValue = new object[0];
+            MoKetNoi();
+            SqlCommand cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandType = cachThucHien == CachThucHien.Query ? CommandType.Text : CommandType.StoredProcedure,
+                CommandText = commandText
+            };
+
+            if (parameterName.Length != parameterValue.Length)
+            {
+                throw new ArgumentException("Hai dau vao phai cung do dai");
+            }
+            if (parameterName != null)
+            {
+                for (int i = 0; i < parameterName.Length; ++i)
+                {
+                    cmd.Parameters.AddWithValue(parameterName[i], parameterValue[i]);
+                }
+            }
+            int result = cmd.ExecuteNonQuery();
+            DongKetNoi();
+            return result;
+        }
+        public DataTable ExecuteReader(string commandText, CachThucHien cachThucHien = CachThucHien.Query, string[] parameterName = null, object[] parameterValue = null)
+        {
+            if (parameterName == null) parameterName = new string[0];
+            if (parameterValue == null) parameterValue = new object[0];
+
+            DataTable dataTable = new DataTable();
+
+            MoKetNoi();
+
+            SqlCommand cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandType = cachThucHien == CachThucHien.Query ? CommandType.Text : CommandType.StoredProcedure,
+                CommandText = commandText
+            };
+
+            if (parameterName.Length != parameterValue.Length)
+            {
+                throw new ArgumentException("Hai dau vao phai cung do dai");
+            }
+
+            for (int i = 0; i < parameterName.Length; ++i)
+            {
+                cmd.Parameters.AddWithValue(parameterName[i], parameterValue[i]);
+            }
+
+            dataTable.Load(cmd.ExecuteReader());
+
+            DongKetNoi();
+
+
+            return dataTable;
+        }
+
+        public int ExecuteScalar(string commandText, CachThucHien cachThucHien = CachThucHien.Query, string[] parameterName = null, object[] parameterValue = null)
+        {
+            if (parameterName == null) parameterName = new string[0];
+            if (parameterValue == null) parameterValue = new object[0];
+
+            MoKetNoi();
+
+            SqlCommand cmd = new SqlCommand()
+            {
+                Connection = conn,
+                CommandType = cachThucHien == CachThucHien.Query ? CommandType.Text : CommandType.StoredProcedure,
+                CommandText = commandText
+            };
+
+            if (parameterName.Length != parameterValue.Length)
+            {
+                throw new ArgumentException("Hai dau vao phai cung do dai");
+            }
+            if (parameterName != null)
+            {
+                for (int i = 0; i < parameterName.Length; ++i)
+                {
+                    cmd.Parameters.AddWithValue(parameterName[i], parameterValue[i]);
+                }
+            }
+            int result = (int)cmd.ExecuteScalar();
+            DongKetNoi();
+
+            return result;
         }
     }
 
