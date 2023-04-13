@@ -43,12 +43,12 @@ namespace GUI
             err.SetIconAlignment(txtPassword, ErrorIconAlignment.MiddleRight);
 
             if (txtPassword.Text.Length < 6 ) {
-                err.SetError(txtPassword, "Độ dài phải trên 6");
+                err.SetError(txtPassword, "Mật khẩu phải 6 ký tự trở lên");
                 return false;   
             }
             if (txtUsername.Text.Length < 6)
             {
-                err.SetError(txtUsername, "Độ dài phải trên 6");
+                err.SetError(txtUsername, "Mật khẩu phải 6 ký tự trở lên");
                 return false;
 
             }
@@ -65,7 +65,14 @@ namespace GUI
             else
             {
                 XtraMessageBox.Show("Đăng nhập thành công", "Trạng thái", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmTrangChu frmTrangChu = new frmTrangChu();
+
+                TaiKhoan taiKhoan = new TaiKhoan()
+                { 
+                    Username = txtUsername.Text,
+                    Password = txtPassword.Text
+                };
+
+                frmTrangChu frmTrangChu = new frmTrangChu(taiKhoan);
                 this.Hide();
                 frmTrangChu.ShowDialog();
                 this.Show();

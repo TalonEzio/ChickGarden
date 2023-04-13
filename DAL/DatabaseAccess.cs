@@ -83,12 +83,9 @@ namespace DAL
             {
                 throw new ArgumentException("Hai dau vao phai cung do dai");
             }
-            if (parameterName != null)
+            for (int i = 0; i < parameterName.Length; ++i)
             {
-                for (int i = 0; i < parameterName.Length; ++i)
-                {
-                    cmd.Parameters.AddWithValue(parameterName[i], parameterValue[i]);
-                }
+                cmd.Parameters.AddWithValue(parameterName[i], parameterValue[i]);
             }
             int result = cmd.ExecuteNonQuery();
             DongKetNoi();
@@ -146,12 +143,9 @@ namespace DAL
             {
                 throw new ArgumentException("Hai dau vao phai cung do dai");
             }
-            if (parameterName != null)
+            for (int i = 0; i < parameterName.Length; ++i)
             {
-                for (int i = 0; i < parameterName.Length; ++i)
-                {
-                    cmd.Parameters.AddWithValue(parameterName[i], parameterValue[i]);
-                }
+                cmd.Parameters.AddWithValue(parameterName[i], parameterValue[i]);
             }
             int result = (int)cmd.ExecuteScalar();
             DongKetNoi();

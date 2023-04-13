@@ -31,9 +31,11 @@ namespace BLL
 		}
 		public TrangThai DangKy(TaiKhoan taiKhoan,ChucVu chucVu)
 		{
-
-
 			return TaiKhoanDAO.Instance.DangKy(taiKhoan,chucVu);
 		}
+		public TrangThai DoiMatKhau(TaiKhoan taiKhoan,string newPassword)
+		{
+			return TaiKhoanDAO.Instance.DoiMatKhau(taiKhoan, newPassword);
+		}	
 	}
 }

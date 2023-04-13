@@ -69,6 +69,17 @@ namespace DAL
 			return trangThai;
         }
 
+		public TrangThai DoiMatKhau(TaiKhoan taiKhoan, string newPassword)
+		{
+			string hashPassword = BC.HashPassword(newPassword);
+			int result = DatabaseAccess.Instance.ExecuteNonQuery(
+				"usp_DoiMatKhau", CachThucHien.StoredProcedure,
+				new string[] {"@Username","@Password","@RawPassword"},
+				new string[] {taiKhoan.Username,hashPassword,newPassword}
+				);
+			if (result == 0) return TrangThai.ThatBai;
+			return TrangThai.ThanhCong;
+		}
 
     }
 }
