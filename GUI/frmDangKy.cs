@@ -92,6 +92,7 @@ namespace GUI
             leChucVu.Properties.DisplayMember = "TenChucVu";
             leChucVu.Properties.ValueMember = "MaChucVu";
             leChucVu.Properties.NullText = "Chọn chức vụ";
+            leChucVu.Properties.PopulateColumns();
         }
 
         private void txtSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)

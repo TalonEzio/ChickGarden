@@ -30,30 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grbTTCN = new DevExpress.XtraEditors.GroupControl();
-            this.grbChucVu = new DevExpress.XtraEditors.GroupControl();
-            this.leChucVu = new DevExpress.XtraEditors.LookUpEdit();
             this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
+            this.grbChucVu = new DevExpress.XtraEditors.GroupControl();
+            this.leChucVu = new DevExpress.XtraEditors.LookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnLamLai = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDangKy = new DevExpress.XtraEditors.SimpleButton();
-            this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
+            this.btnDangKy = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLamLai = new DevExpress.XtraEditors.SimpleButton();
+            this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grbTTCN)).BeginInit();
             this.grbTTCN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grbChucVu)).BeginInit();
-            this.grbChucVu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leChucVu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
             this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grbChucVu)).BeginInit();
+            this.grbChucVu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leChucVu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
             this.stackPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
             // grbTTCN
@@ -67,29 +67,6 @@
             this.grbTTCN.Size = new System.Drawing.Size(437, 271);
             this.grbTTCN.TabIndex = 0;
             this.grbTTCN.Text = "Thông tin cá nhân";
-            // 
-            // grbChucVu
-            // 
-            this.grbChucVu.AppearanceCaption.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.grbChucVu.AppearanceCaption.Options.UseFont = true;
-            this.grbChucVu.Controls.Add(this.leChucVu);
-            this.grbChucVu.Location = new System.Drawing.Point(18, 158);
-            this.grbChucVu.Name = "grbChucVu";
-            this.grbChucVu.Size = new System.Drawing.Size(396, 61);
-            this.grbChucVu.TabIndex = 12;
-            this.grbChucVu.Text = "Chức Vụ";
-            // 
-            // leChucVu
-            // 
-            this.leChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leChucVu.Location = new System.Drawing.Point(2, 27);
-            this.leChucVu.Name = "leChucVu";
-            this.leChucVu.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.leChucVu.Properties.Appearance.Options.UseFont = true;
-            this.leChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.leChucVu.Size = new System.Drawing.Size(392, 32);
-            this.leChucVu.TabIndex = 13;
             // 
             // stackPanel1
             // 
@@ -137,6 +114,39 @@
             this.txtPassword.Size = new System.Drawing.Size(396, 61);
             this.txtPassword.TabIndex = 13;
             // 
+            // grbChucVu
+            // 
+            this.grbChucVu.AppearanceCaption.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.grbChucVu.AppearanceCaption.Options.UseFont = true;
+            this.grbChucVu.Controls.Add(this.leChucVu);
+            this.grbChucVu.Location = new System.Drawing.Point(18, 158);
+            this.grbChucVu.Name = "grbChucVu";
+            this.grbChucVu.Size = new System.Drawing.Size(396, 61);
+            this.grbChucVu.TabIndex = 12;
+            this.grbChucVu.Text = "Chức Vụ";
+            // 
+            // leChucVu
+            // 
+            this.leChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leChucVu.Location = new System.Drawing.Point(2, 27);
+            this.leChucVu.Name = "leChucVu";
+            this.leChucVu.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.leChucVu.Properties.Appearance.Options.UseFont = true;
+            this.leChucVu.Properties.AppearanceDisabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.leChucVu.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.leChucVu.Properties.AppearanceDropDown.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.leChucVu.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.leChucVu.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.leChucVu.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.leChucVu.Properties.AppearanceFocused.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.leChucVu.Properties.AppearanceFocused.Options.UseFont = true;
+            this.leChucVu.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.leChucVu.Properties.AppearanceReadOnly.Options.UseFont = true;
+            this.leChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leChucVu.Size = new System.Drawing.Size(392, 32);
+            this.leChucVu.TabIndex = 13;
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.stackPanel2);
@@ -145,32 +155,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(437, 78);
             this.panelControl1.TabIndex = 1;
-            // 
-            // btnLamLai
-            // 
-            this.btnLamLai.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.btnLamLai.Appearance.Options.UseFont = true;
-            this.btnLamLai.Location = new System.Drawing.Point(154, 13);
-            this.btnLamLai.Name = "btnLamLai";
-            this.btnLamLai.Size = new System.Drawing.Size(131, 46);
-            this.btnLamLai.TabIndex = 1;
-            this.btnLamLai.Text = "Làm lại";
-            this.btnLamLai.Click += new System.EventHandler(this.btnLamLai_Click);
-            // 
-            // btnDangKy
-            // 
-            this.btnDangKy.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.btnDangKy.Appearance.Options.UseFont = true;
-            this.btnDangKy.Location = new System.Drawing.Point(289, 13);
-            this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(131, 46);
-            this.btnDangKy.TabIndex = 0;
-            this.btnDangKy.Text = "Đăng ký";
-            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
-            // 
-            // err
-            // 
-            this.err.ContainerControl = this;
             // 
             // stackPanel2
             // 
@@ -184,6 +168,32 @@
             this.stackPanel2.TabIndex = 2;
             this.stackPanel2.UseSkinIndents = true;
             // 
+            // btnDangKy
+            // 
+            this.btnDangKy.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDangKy.Appearance.Options.UseFont = true;
+            this.btnDangKy.Location = new System.Drawing.Point(289, 13);
+            this.btnDangKy.Name = "btnDangKy";
+            this.btnDangKy.Size = new System.Drawing.Size(131, 46);
+            this.btnDangKy.TabIndex = 0;
+            this.btnDangKy.Text = "Đăng ký";
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
+            // 
+            // btnLamLai
+            // 
+            this.btnLamLai.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnLamLai.Appearance.Options.UseFont = true;
+            this.btnLamLai.Location = new System.Drawing.Point(154, 13);
+            this.btnLamLai.Name = "btnLamLai";
+            this.btnLamLai.Size = new System.Drawing.Size(131, 46);
+            this.btnLamLai.TabIndex = 1;
+            this.btnLamLai.Text = "Làm lại";
+            this.btnLamLai.Click += new System.EventHandler(this.btnLamLai_Click);
+            // 
+            // err
+            // 
+            this.err.ContainerControl = this;
+            // 
             // frmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,26 +201,29 @@
             this.ClientSize = new System.Drawing.Size(437, 349);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.grbTTCN);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(439, 381);
+            this.MinimumSize = new System.Drawing.Size(439, 381);
             this.Name = "frmDangKy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDangKy";
+            this.Text = "Đăng ký tài khoản";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangKy_FormClosing);
             this.Load += new System.EventHandler(this.frmDangKy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grbTTCN)).EndInit();
             this.grbTTCN.ResumeLayout(false);
             this.grbTTCN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grbChucVu)).EndInit();
-            this.grbChucVu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.leChucVu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
             this.stackPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grbChucVu)).EndInit();
+            this.grbChucVu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.leChucVu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
             this.stackPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
 
         }
