@@ -16,7 +16,7 @@ namespace GUI.UserControls
 {
     public partial class ucDoiMatKhau : UserControl
     {
-        public delegate void ForceExitSend(object sender,bool isForce);
+        public delegate void ForceExitSend(object sender,bool forceExit);
         public event ForceExitSend ForceSend;
         private TaiKhoan taiKhoan;
         public ucDoiMatKhau()

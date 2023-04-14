@@ -41,6 +41,9 @@ namespace BLL
 		{
             TaiKhoanDAO.Instance.LayQuyen(taiKhoan);
         }
-
+        public TrangThai XoaTaiKhoan(string username)
+        {
+            return TaiKhoanDAO.Instance.XoaTaiKhoan(username);
+        }
     }
 }

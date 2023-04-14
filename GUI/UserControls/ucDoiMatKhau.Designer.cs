@@ -32,20 +32,23 @@
             this.txtMatKhauHienTai = new DevExpress.XtraEditors.TextEdit();
             this.txtMatKhauMoi = new DevExpress.XtraEditors.TextEdit();
             this.txtXacNhan = new DevExpress.XtraEditors.TextEdit();
-            this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
             this.btnDoiMatKhau = new DevExpress.XtraEditors.SimpleButton();
             this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.grDoiMatKhau = new DevExpress.XtraEditors.GroupControl();
+            this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauHienTai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauMoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
-            this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grDoiMatKhau)).BeginInit();
+            this.grDoiMatKhau.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
+            this.stackPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtMatKhauHienTai
             // 
-            this.txtMatKhauHienTai.Location = new System.Drawing.Point(156, 30);
+            this.txtMatKhauHienTai.Location = new System.Drawing.Point(154, 30);
             this.txtMatKhauHienTai.Margin = new System.Windows.Forms.Padding(3, 20, 3, 30);
             this.txtMatKhauHienTai.Name = "txtMatKhauHienTai";
             this.txtMatKhauHienTai.Properties.AdvancedModeOptions.Label = "Mật khẩu hiện tại";
@@ -62,7 +65,7 @@
             // 
             // txtMatKhauMoi
             // 
-            this.txtMatKhauMoi.Location = new System.Drawing.Point(156, 120);
+            this.txtMatKhauMoi.Location = new System.Drawing.Point(154, 120);
             this.txtMatKhauMoi.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
             this.txtMatKhauMoi.Name = "txtMatKhauMoi";
             this.txtMatKhauMoi.Properties.AdvancedModeOptions.Label = "Mật khẩu mới";
@@ -80,7 +83,7 @@
             // 
             // txtXacNhan
             // 
-            this.txtXacNhan.Location = new System.Drawing.Point(156, 210);
+            this.txtXacNhan.Location = new System.Drawing.Point(154, 210);
             this.txtXacNhan.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
             this.txtXacNhan.Name = "txtXacNhan";
             this.txtXacNhan.Properties.AdvancedModeOptions.Label = "Xác nhận mật khẩu";
@@ -96,25 +99,11 @@
             this.txtXacNhan.Size = new System.Drawing.Size(245, 57);
             this.txtXacNhan.TabIndex = 2;
             // 
-            // stackPanel1
-            // 
-            this.stackPanel1.Controls.Add(this.txtMatKhauHienTai);
-            this.stackPanel1.Controls.Add(this.txtMatKhauMoi);
-            this.stackPanel1.Controls.Add(this.txtXacNhan);
-            this.stackPanel1.Controls.Add(this.btnDoiMatKhau);
-            this.stackPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.TopDown;
-            this.stackPanel1.Location = new System.Drawing.Point(0, 0);
-            this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(558, 421);
-            this.stackPanel1.TabIndex = 3;
-            this.stackPanel1.UseSkinIndents = true;
-            // 
             // btnDoiMatKhau
             // 
             this.btnDoiMatKhau.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.btnDoiMatKhau.Appearance.Options.UseFont = true;
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(188, 299);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(186, 299);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(182, 55);
             this.btnDoiMatKhau.TabIndex = 3;
@@ -125,20 +114,50 @@
             // 
             this.err.ContainerControl = this;
             // 
+            // grDoiMatKhau
+            // 
+            this.grDoiMatKhau.AppearanceCaption.Font = new System.Drawing.Font("UTM Avo", 16F);
+            this.grDoiMatKhau.AppearanceCaption.Options.UseFont = true;
+            this.grDoiMatKhau.ContentImage = global::GUI.Properties.Resources.DoAn;
+            this.grDoiMatKhau.Controls.Add(this.stackPanel2);
+            this.grDoiMatKhau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grDoiMatKhau.GroupStyle = DevExpress.Utils.GroupStyle.Card;
+            this.grDoiMatKhau.Location = new System.Drawing.Point(0, 0);
+            this.grDoiMatKhau.Name = "grDoiMatKhau";
+            this.grDoiMatKhau.Size = new System.Drawing.Size(558, 421);
+            this.grDoiMatKhau.TabIndex = 4;
+            this.grDoiMatKhau.Text = "Đổi mật khẩu";
+            // 
+            // stackPanel2
+            // 
+            this.stackPanel2.Controls.Add(this.txtMatKhauHienTai);
+            this.stackPanel2.Controls.Add(this.txtMatKhauMoi);
+            this.stackPanel2.Controls.Add(this.txtXacNhan);
+            this.stackPanel2.Controls.Add(this.btnDoiMatKhau);
+            this.stackPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stackPanel2.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.TopDown;
+            this.stackPanel2.Location = new System.Drawing.Point(2, 30);
+            this.stackPanel2.Name = "stackPanel2";
+            this.stackPanel2.Size = new System.Drawing.Size(554, 389);
+            this.stackPanel2.TabIndex = 0;
+            this.stackPanel2.UseSkinIndents = true;
+            // 
             // ucDoiMatKhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.stackPanel1);
+            this.Controls.Add(this.grDoiMatKhau);
             this.Name = "ucDoiMatKhau";
             this.Size = new System.Drawing.Size(558, 421);
             this.Load += new System.EventHandler(this.ucDoiMatKhau_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauHienTai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhauMoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXacNhan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
-            this.stackPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grDoiMatKhau)).EndInit();
+            this.grDoiMatKhau.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
+            this.stackPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -148,8 +167,9 @@
         private DevExpress.XtraEditors.TextEdit txtMatKhauHienTai;
         private DevExpress.XtraEditors.TextEdit txtMatKhauMoi;
         private DevExpress.XtraEditors.TextEdit txtXacNhan;
-        private DevExpress.Utils.Layout.StackPanel stackPanel1;
         private DevExpress.XtraEditors.SimpleButton btnDoiMatKhau;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider err;
+        private DevExpress.XtraEditors.GroupControl grDoiMatKhau;
+        private DevExpress.Utils.Layout.StackPanel stackPanel2;
     }
 }

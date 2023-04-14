@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucThongTinCaNhan));
             this.grbTTCN = new DevExpress.XtraEditors.GroupControl();
             this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
@@ -42,10 +43,10 @@
             this.rdoKhac = new System.Windows.Forms.RadioButton();
             this.txtQueQuan = new DevExpress.XtraEditors.TextEdit();
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCapNhat = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXoaTaiKhoan = new DevExpress.XtraEditors.SimpleButton();
+            this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grbTTCN)).BeginInit();
             this.grbTTCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
@@ -59,9 +60,9 @@
             this.stackPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
             this.stackPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
             // grbTTCN
@@ -69,10 +70,10 @@
             this.grbTTCN.AppearanceCaption.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.grbTTCN.AppearanceCaption.Options.UseFont = true;
             this.grbTTCN.Controls.Add(this.stackPanel1);
-            this.grbTTCN.Dock = System.Windows.Forms.DockStyle.Right;
-            this.grbTTCN.Location = new System.Drawing.Point(295, 0);
+            this.grbTTCN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbTTCN.Location = new System.Drawing.Point(0, 0);
             this.grbTTCN.Name = "grbTTCN";
-            this.grbTTCN.Size = new System.Drawing.Size(646, 616);
+            this.grbTTCN.Size = new System.Drawing.Size(500, 520);
             this.grbTTCN.TabIndex = 1;
             this.grbTTCN.Text = "Thông tin cá nhân";
             // 
@@ -91,13 +92,13 @@
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.TopDown;
             this.stackPanel1.Location = new System.Drawing.Point(2, 27);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(642, 587);
+            this.stackPanel1.Size = new System.Drawing.Size(496, 491);
             this.stackPanel1.TabIndex = 15;
             this.stackPanel1.UseSkinIndents = true;
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(124, 16);
+            this.txtHoTen.Location = new System.Drawing.Point(51, 16);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(6);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Properties.AdvancedModeOptions.Label = "Họ Tên";
@@ -115,7 +116,7 @@
             this.stkNgaySinh.Controls.Add(this.labelControl1);
             this.stkNgaySinh.Controls.Add(this.dtpNgaySinh);
             this.stkNgaySinh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.stkNgaySinh.Location = new System.Drawing.Point(115, 84);
+            this.stkNgaySinh.Location = new System.Drawing.Point(42, 84);
             this.stkNgaySinh.Name = "stkNgaySinh";
             this.stkNgaySinh.Size = new System.Drawing.Size(411, 38);
             this.stkNgaySinh.TabIndex = 15;
@@ -153,7 +154,7 @@
             this.stackPanel4.Controls.Add(this.rdoNam);
             this.stackPanel4.Controls.Add(this.rdoNu);
             this.stackPanel4.Controls.Add(this.rdoKhac);
-            this.stackPanel4.Location = new System.Drawing.Point(113, 126);
+            this.stackPanel4.Location = new System.Drawing.Point(40, 126);
             this.stackPanel4.Name = "stackPanel4";
             this.stackPanel4.Size = new System.Drawing.Size(416, 36);
             this.stackPanel4.TabIndex = 16;
@@ -209,7 +210,7 @@
             // txtQueQuan
             // 
             this.txtQueQuan.EditValue = "";
-            this.txtQueQuan.Location = new System.Drawing.Point(123, 170);
+            this.txtQueQuan.Location = new System.Drawing.Point(50, 170);
             this.txtQueQuan.Margin = new System.Windows.Forms.Padding(6);
             this.txtQueQuan.Name = "txtQueQuan";
             this.txtQueQuan.Properties.AdvancedModeOptions.Label = "Quê quán";
@@ -224,7 +225,7 @@
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(123, 239);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(50, 239);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Properties.AdvancedModeOptions.Label = "Số điện thoại";
             this.txtSoDienThoai.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
@@ -238,58 +239,52 @@
             this.txtSoDienThoai.Size = new System.Drawing.Size(396, 61);
             this.txtSoDienThoai.TabIndex = 17;
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureEdit1.EditValue = global::GUI.Properties.Resources.ThongTinCaNhan;
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.pictureEdit1.Size = new System.Drawing.Size(295, 616);
-            this.pictureEdit1.TabIndex = 2;
-            // 
             // stackPanel2
             // 
-            this.stackPanel2.Controls.Add(this.simpleButton1);
-            this.stackPanel2.Controls.Add(this.simpleButton2);
-            this.stackPanel2.Location = new System.Drawing.Point(116, 304);
+            this.stackPanel2.Controls.Add(this.btnCapNhat);
+            this.stackPanel2.Controls.Add(this.btnXoaTaiKhoan);
+            this.stackPanel2.Location = new System.Drawing.Point(43, 304);
             this.stackPanel2.Name = "stackPanel2";
             this.stackPanel2.Size = new System.Drawing.Size(409, 140);
             this.stackPanel2.TabIndex = 18;
             this.stackPanel2.UseSkinIndents = true;
             // 
-            // simpleButton1
+            // btnCapNhat
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(13, 41);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(188, 57);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Cập nhật";
+            this.btnCapNhat.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnCapNhat.Appearance.Options.UseFont = true;
+            this.btnCapNhat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnCapNhat.Location = new System.Drawing.Point(13, 41);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(188, 57);
+            this.btnCapNhat.TabIndex = 0;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
-            // simpleButton2
+            // btnXoaTaiKhoan
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(205, 41);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(188, 57);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "Xóa tài khoản";
+            this.btnXoaTaiKhoan.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnXoaTaiKhoan.Appearance.Options.UseFont = true;
+            this.btnXoaTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btnXoaTaiKhoan.Location = new System.Drawing.Point(205, 41);
+            this.btnXoaTaiKhoan.Name = "btnXoaTaiKhoan";
+            this.btnXoaTaiKhoan.Size = new System.Drawing.Size(188, 57);
+            this.btnXoaTaiKhoan.TabIndex = 1;
+            this.btnXoaTaiKhoan.Text = "Xóa tài khoản";
+            this.btnXoaTaiKhoan.Click += new System.EventHandler(this.btnXoaTaiKhoan_Click);
+            // 
+            // err
+            // 
+            this.err.ContainerControl = this;
             // 
             // ucThongTinCaNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.grbTTCN);
             this.Name = "ucThongTinCaNhan";
-            this.Size = new System.Drawing.Size(941, 616);
+            this.Size = new System.Drawing.Size(500, 520);
+            this.Load += new System.EventHandler(this.ucThongTinCaNhan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grbTTCN)).EndInit();
             this.grbTTCN.ResumeLayout(false);
             this.grbTTCN.PerformLayout();
@@ -306,9 +301,9 @@
             this.stackPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
             this.stackPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,9 +323,9 @@
         private System.Windows.Forms.RadioButton rdoKhac;
         private DevExpress.XtraEditors.TextEdit txtQueQuan;
         private DevExpress.XtraEditors.TextEdit txtSoDienThoai;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.Utils.Layout.StackPanel stackPanel2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btnCapNhat;
+        private DevExpress.XtraEditors.SimpleButton btnXoaTaiKhoan;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider err;
     }
 }

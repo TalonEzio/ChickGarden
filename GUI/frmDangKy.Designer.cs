@@ -42,6 +42,9 @@
             this.rdoKhac = new System.Windows.Forms.RadioButton();
             this.txtQueQuan = new DevExpress.XtraEditors.TextEdit();
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
+            this.stackPanel3 = new DevExpress.Utils.Layout.StackPanel();
+            this.txtTaiKhoan = new DevExpress.XtraEditors.TextEdit();
+            this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
             this.grbChucVu = new DevExpress.XtraEditors.GroupControl();
             this.leChucVu = new DevExpress.XtraEditors.LookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -49,9 +52,6 @@
             this.btnDangKy = new DevExpress.XtraEditors.SimpleButton();
             this.btnLamLai = new DevExpress.XtraEditors.SimpleButton();
             this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.stackPanel3 = new DevExpress.Utils.Layout.StackPanel();
-            this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
-            this.txtTaiKhoan = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grbTTCN)).BeginInit();
             this.grbTTCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
@@ -65,6 +65,10 @@
             this.stackPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel3)).BeginInit();
+            this.stackPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaiKhoan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grbChucVu)).BeginInit();
             this.grbChucVu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leChucVu.Properties)).BeginInit();
@@ -73,10 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
             this.stackPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stackPanel3)).BeginInit();
-            this.stackPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTaiKhoan.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grbTTCN
@@ -253,6 +253,49 @@
             this.txtSoDienThoai.TabIndex = 17;
             this.txtSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDienThoai_KeyPress);
             // 
+            // stackPanel3
+            // 
+            this.stackPanel3.Controls.Add(this.txtTaiKhoan);
+            this.stackPanel3.Controls.Add(this.txtMatKhau);
+            this.stackPanel3.Location = new System.Drawing.Point(38, 304);
+            this.stackPanel3.Name = "stackPanel3";
+            this.stackPanel3.Size = new System.Drawing.Size(430, 86);
+            this.stackPanel3.TabIndex = 18;
+            this.stackPanel3.UseSkinIndents = true;
+            // 
+            // txtTaiKhoan
+            // 
+            this.txtTaiKhoan.EditValue = "";
+            this.txtTaiKhoan.Location = new System.Drawing.Point(17, 12);
+            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTaiKhoan.Name = "txtTaiKhoan";
+            this.txtTaiKhoan.Properties.AdvancedModeOptions.Label = "Tài khoản";
+            this.txtTaiKhoan.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.txtTaiKhoan.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
+            this.txtTaiKhoan.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.txtTaiKhoan.Properties.Appearance.Options.UseFont = true;
+            this.txtTaiKhoan.Properties.AutoHeight = false;
+            this.txtTaiKhoan.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtTaiKhoan.Size = new System.Drawing.Size(193, 61);
+            this.txtTaiKhoan.TabIndex = 13;
+            // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.Location = new System.Drawing.Point(218, 12);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Properties.AdvancedModeOptions.Label = "Mật khẩu";
+            this.txtMatKhau.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.txtMatKhau.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
+            this.txtMatKhau.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.txtMatKhau.Properties.Appearance.Options.UseFont = true;
+            this.txtMatKhau.Properties.AppearanceFocused.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.txtMatKhau.Properties.AppearanceFocused.Options.UseFont = true;
+            this.txtMatKhau.Properties.AutoHeight = false;
+            this.txtMatKhau.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtMatKhau.Properties.UseSystemPasswordChar = true;
+            this.txtMatKhau.Size = new System.Drawing.Size(193, 61);
+            this.txtMatKhau.TabIndex = 17;
+            // 
             // grbChucVu
             // 
             this.grbChucVu.AppearanceCaption.Font = new System.Drawing.Font("UTM Avo", 14F);
@@ -333,49 +376,6 @@
             // 
             this.err.ContainerControl = this;
             // 
-            // stackPanel3
-            // 
-            this.stackPanel3.Controls.Add(this.txtTaiKhoan);
-            this.stackPanel3.Controls.Add(this.txtMatKhau);
-            this.stackPanel3.Location = new System.Drawing.Point(38, 304);
-            this.stackPanel3.Name = "stackPanel3";
-            this.stackPanel3.Size = new System.Drawing.Size(430, 86);
-            this.stackPanel3.TabIndex = 18;
-            this.stackPanel3.UseSkinIndents = true;
-            // 
-            // txtMatKhau
-            // 
-            this.txtMatKhau.Location = new System.Drawing.Point(218, 12);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Properties.AdvancedModeOptions.Label = "Mật khẩu";
-            this.txtMatKhau.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.txtMatKhau.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
-            this.txtMatKhau.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.txtMatKhau.Properties.Appearance.Options.UseFont = true;
-            this.txtMatKhau.Properties.AppearanceFocused.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.txtMatKhau.Properties.AppearanceFocused.Options.UseFont = true;
-            this.txtMatKhau.Properties.AutoHeight = false;
-            this.txtMatKhau.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtMatKhau.Properties.UseSystemPasswordChar = true;
-            this.txtMatKhau.Size = new System.Drawing.Size(193, 61);
-            this.txtMatKhau.TabIndex = 17;
-            // 
-            // txtTaiKhoan
-            // 
-            this.txtTaiKhoan.EditValue = "";
-            this.txtTaiKhoan.Location = new System.Drawing.Point(17, 12);
-            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Properties.AdvancedModeOptions.Label = "Tài khoản";
-            this.txtTaiKhoan.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.txtTaiKhoan.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
-            this.txtTaiKhoan.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.txtTaiKhoan.Properties.Appearance.Options.UseFont = true;
-            this.txtTaiKhoan.Properties.AutoHeight = false;
-            this.txtTaiKhoan.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtTaiKhoan.Size = new System.Drawing.Size(193, 61);
-            this.txtTaiKhoan.TabIndex = 13;
-            // 
             // frmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +407,10 @@
             this.stackPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel3)).EndInit();
+            this.stackPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaiKhoan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grbChucVu)).EndInit();
             this.grbChucVu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.leChucVu.Properties)).EndInit();
@@ -415,10 +419,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
             this.stackPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stackPanel3)).EndInit();
-            this.stackPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTaiKhoan.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

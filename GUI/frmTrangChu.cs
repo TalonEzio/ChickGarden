@@ -86,11 +86,11 @@ namespace GUI
             ucDoiMatKhau.ForceSend += UcDoiMatKhau_ForceSend;
         }
 
-        private void UcDoiMatKhau_ForceSend(object sender, bool isForce)
+        private void UcDoiMatKhau_ForceSend(object sender, bool forceExit)
         {
-            if(isForce)
+            if(forceExit)
             {
-                forceExit = true;
+                this.forceExit = forceExit;
                 this.Close();
             }
         }
@@ -111,6 +111,17 @@ namespace GUI
                 mainContainer.AddControl(ucThongTinCaNhan);
             }
             ucThongTinCaNhan.BringToFront();
+
+            ucThongTinCaNhan.ForceSend += UcThongTinCaNhan_ForceSend;
+        }
+
+        private void UcThongTinCaNhan_ForceSend(object sender, bool forceExit)
+        {
+            if (forceExit)
+            {
+                this.forceExit = forceExit;
+                this.Close();
+            }
         }
     }
 }
