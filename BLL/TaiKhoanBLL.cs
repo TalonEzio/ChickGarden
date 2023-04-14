@@ -25,17 +25,22 @@ namespace BLL
 		}
 		public TaiKhoanBLL() { }
 
-		public TrangThai DangNhap(string username, string password)
+		public TrangThai DangNhap(TaiKhoan taiKhoan)
 		{
-			return TaiKhoanDAO.Instance.DangNhap(username, password);
+			return TaiKhoanDAO.Instance.DangNhap(taiKhoan);
 		}
-		public TrangThai DangKy(TaiKhoan taiKhoan,ChucVu chucVu)
+		public TrangThai DangKy(TaiKhoan taiKhoan,NhanVien nhanVien,ChucVu chucVu)
 		{
-			return TaiKhoanDAO.Instance.DangKy(taiKhoan,chucVu);
+			return TaiKhoanDAO.Instance.DangKy(taiKhoan,nhanVien, chucVu);
 		}
 		public TrangThai DoiMatKhau(TaiKhoan taiKhoan,string newPassword)
 		{
 			return TaiKhoanDAO.Instance.DoiMatKhau(taiKhoan, newPassword);
 		}	
-	}
+		public void LayQuyen(TaiKhoan taiKhoan)
+		{
+            TaiKhoanDAO.Instance.LayQuyen(taiKhoan);
+        }
+
+    }
 }

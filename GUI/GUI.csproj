@@ -109,6 +109,12 @@
     <Compile Include="UserControls\ucDoiMatKhau.Designer.cs">
       <DependentUpon>ucDoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucThongTinCaNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucThongTinCaNhan.Designer.cs">
+      <DependentUpon>ucThongTinCaNhan.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucDoiMatKhau.resx">
       <DependentUpon>ucDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucThongTinCaNhan.resx">
+      <DependentUpon>ucThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -178,6 +187,7 @@
     <Content Include="Resources\Icons\DanhSachNhanVien.png" />
     <Content Include="Resources\Icons\NhanVien.png" />
     <Content Include="Resources\Icons\DanhSachDoAn.png" />
+    <None Include="Resources\Images\ThongTinCaNhan.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

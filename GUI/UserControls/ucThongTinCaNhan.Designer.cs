@@ -1,13 +1,13 @@
-﻿namespace GUI
+﻿namespace GUI.UserControls
 {
-    partial class frmDangKy
+    partial class ucThongTinCaNhan
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,15 +20,15 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucThongTinCaNhan));
             this.grbTTCN = new DevExpress.XtraEditors.GroupControl();
             this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
             this.txtHoTen = new DevExpress.XtraEditors.TextEdit();
@@ -42,16 +42,10 @@
             this.rdoKhac = new System.Windows.Forms.RadioButton();
             this.txtQueQuan = new DevExpress.XtraEditors.TextEdit();
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
-            this.grbChucVu = new DevExpress.XtraEditors.GroupControl();
-            this.leChucVu = new DevExpress.XtraEditors.LookUpEdit();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
-            this.btnDangKy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLamLai = new DevExpress.XtraEditors.SimpleButton();
-            this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.stackPanel3 = new DevExpress.Utils.Layout.StackPanel();
-            this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
-            this.txtTaiKhoan = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grbTTCN)).BeginInit();
             this.grbTTCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
@@ -65,18 +59,9 @@
             this.stackPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grbChucVu)).BeginInit();
-            this.grbChucVu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leChucVu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
             this.stackPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stackPanel3)).BeginInit();
-            this.stackPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTaiKhoan.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grbTTCN
@@ -84,34 +69,35 @@
             this.grbTTCN.AppearanceCaption.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.grbTTCN.AppearanceCaption.Options.UseFont = true;
             this.grbTTCN.Controls.Add(this.stackPanel1);
-            this.grbTTCN.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grbTTCN.Location = new System.Drawing.Point(0, 0);
+            this.grbTTCN.Dock = System.Windows.Forms.DockStyle.Right;
+            this.grbTTCN.Location = new System.Drawing.Point(295, 0);
             this.grbTTCN.Name = "grbTTCN";
-            this.grbTTCN.Size = new System.Drawing.Size(510, 504);
-            this.grbTTCN.TabIndex = 0;
+            this.grbTTCN.Size = new System.Drawing.Size(646, 616);
+            this.grbTTCN.TabIndex = 1;
             this.grbTTCN.Text = "Thông tin cá nhân";
             // 
             // stackPanel1
             // 
+            this.stackPanel1.Appearance.BackColor = System.Drawing.Color.White;
+            this.stackPanel1.Appearance.Options.UseBackColor = true;
             this.stackPanel1.AutoSize = true;
             this.stackPanel1.Controls.Add(this.txtHoTen);
             this.stackPanel1.Controls.Add(this.stkNgaySinh);
             this.stackPanel1.Controls.Add(this.stackPanel4);
             this.stackPanel1.Controls.Add(this.txtQueQuan);
             this.stackPanel1.Controls.Add(this.txtSoDienThoai);
-            this.stackPanel1.Controls.Add(this.stackPanel3);
-            this.stackPanel1.Controls.Add(this.grbChucVu);
+            this.stackPanel1.Controls.Add(this.stackPanel2);
             this.stackPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.TopDown;
             this.stackPanel1.Location = new System.Drawing.Point(2, 27);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(506, 475);
+            this.stackPanel1.Size = new System.Drawing.Size(642, 587);
             this.stackPanel1.TabIndex = 15;
             this.stackPanel1.UseSkinIndents = true;
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(56, 16);
+            this.txtHoTen.Location = new System.Drawing.Point(124, 16);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(6);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Properties.AdvancedModeOptions.Label = "Họ Tên";
@@ -129,7 +115,7 @@
             this.stkNgaySinh.Controls.Add(this.labelControl1);
             this.stkNgaySinh.Controls.Add(this.dtpNgaySinh);
             this.stkNgaySinh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.stkNgaySinh.Location = new System.Drawing.Point(47, 84);
+            this.stkNgaySinh.Location = new System.Drawing.Point(115, 84);
             this.stkNgaySinh.Name = "stkNgaySinh";
             this.stkNgaySinh.Size = new System.Drawing.Size(411, 38);
             this.stkNgaySinh.TabIndex = 15;
@@ -167,7 +153,7 @@
             this.stackPanel4.Controls.Add(this.rdoNam);
             this.stackPanel4.Controls.Add(this.rdoNu);
             this.stackPanel4.Controls.Add(this.rdoKhac);
-            this.stackPanel4.Location = new System.Drawing.Point(45, 126);
+            this.stackPanel4.Location = new System.Drawing.Point(113, 126);
             this.stackPanel4.Name = "stackPanel4";
             this.stackPanel4.Size = new System.Drawing.Size(416, 36);
             this.stackPanel4.TabIndex = 16;
@@ -223,7 +209,7 @@
             // txtQueQuan
             // 
             this.txtQueQuan.EditValue = "";
-            this.txtQueQuan.Location = new System.Drawing.Point(55, 170);
+            this.txtQueQuan.Location = new System.Drawing.Point(123, 170);
             this.txtQueQuan.Margin = new System.Windows.Forms.Padding(6);
             this.txtQueQuan.Name = "txtQueQuan";
             this.txtQueQuan.Properties.AdvancedModeOptions.Label = "Quê quán";
@@ -238,7 +224,7 @@
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(55, 239);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(123, 239);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Properties.AdvancedModeOptions.Label = "Số điện thoại";
             this.txtSoDienThoai.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
@@ -251,146 +237,59 @@
             this.txtSoDienThoai.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
             this.txtSoDienThoai.Size = new System.Drawing.Size(396, 61);
             this.txtSoDienThoai.TabIndex = 17;
-            this.txtSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDienThoai_KeyPress);
             // 
-            // grbChucVu
+            // pictureEdit1
             // 
-            this.grbChucVu.AppearanceCaption.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.grbChucVu.AppearanceCaption.Options.UseFont = true;
-            this.grbChucVu.Controls.Add(this.leChucVu);
-            this.grbChucVu.Location = new System.Drawing.Point(51, 394);
-            this.grbChucVu.Name = "grbChucVu";
-            this.grbChucVu.Size = new System.Drawing.Size(403, 61);
-            this.grbChucVu.TabIndex = 12;
-            this.grbChucVu.Text = "Chức Vụ";
-            // 
-            // leChucVu
-            // 
-            this.leChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leChucVu.Location = new System.Drawing.Point(2, 27);
-            this.leChucVu.Name = "leChucVu";
-            this.leChucVu.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.leChucVu.Properties.Appearance.Options.UseFont = true;
-            this.leChucVu.Properties.AppearanceDisabled.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.leChucVu.Properties.AppearanceDisabled.Options.UseFont = true;
-            this.leChucVu.Properties.AppearanceDropDown.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.leChucVu.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.leChucVu.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.leChucVu.Properties.AppearanceDropDownHeader.Options.UseFont = true;
-            this.leChucVu.Properties.AppearanceFocused.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.leChucVu.Properties.AppearanceFocused.Options.UseFont = true;
-            this.leChucVu.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.leChucVu.Properties.AppearanceReadOnly.Options.UseFont = true;
-            this.leChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.leChucVu.Size = new System.Drawing.Size(399, 32);
-            this.leChucVu.TabIndex = 13;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.stackPanel2);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 504);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(510, 72);
-            this.panelControl1.TabIndex = 1;
+            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureEdit1.EditValue = global::GUI.Properties.Resources.ThongTinCaNhan;
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.pictureEdit1.Size = new System.Drawing.Size(295, 616);
+            this.pictureEdit1.TabIndex = 2;
             // 
             // stackPanel2
             // 
-            this.stackPanel2.Controls.Add(this.btnDangKy);
-            this.stackPanel2.Controls.Add(this.btnLamLai);
-            this.stackPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stackPanel2.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel2.Location = new System.Drawing.Point(2, 2);
+            this.stackPanel2.Controls.Add(this.simpleButton1);
+            this.stackPanel2.Controls.Add(this.simpleButton2);
+            this.stackPanel2.Location = new System.Drawing.Point(116, 304);
             this.stackPanel2.Name = "stackPanel2";
-            this.stackPanel2.Size = new System.Drawing.Size(506, 68);
-            this.stackPanel2.TabIndex = 2;
+            this.stackPanel2.Size = new System.Drawing.Size(409, 140);
+            this.stackPanel2.TabIndex = 18;
             this.stackPanel2.UseSkinIndents = true;
             // 
-            // btnDangKy
+            // simpleButton1
             // 
-            this.btnDangKy.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.btnDangKy.Appearance.Options.UseFont = true;
-            this.btnDangKy.Location = new System.Drawing.Point(362, 10);
-            this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(131, 46);
-            this.btnDangKy.TabIndex = 0;
-            this.btnDangKy.Text = "Đăng ký";
-            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.Location = new System.Drawing.Point(13, 41);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(188, 57);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "Cập nhật";
             // 
-            // btnLamLai
+            // simpleButton2
             // 
-            this.btnLamLai.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.btnLamLai.Appearance.Options.UseFont = true;
-            this.btnLamLai.Location = new System.Drawing.Point(227, 10);
-            this.btnLamLai.Name = "btnLamLai";
-            this.btnLamLai.Size = new System.Drawing.Size(131, 46);
-            this.btnLamLai.TabIndex = 1;
-            this.btnLamLai.Text = "Làm lại";
-            this.btnLamLai.Click += new System.EventHandler(this.btnLamLai_Click);
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.Location = new System.Drawing.Point(205, 41);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(188, 57);
+            this.simpleButton2.TabIndex = 1;
+            this.simpleButton2.Text = "Xóa tài khoản";
             // 
-            // err
-            // 
-            this.err.ContainerControl = this;
-            // 
-            // stackPanel3
-            // 
-            this.stackPanel3.Controls.Add(this.txtTaiKhoan);
-            this.stackPanel3.Controls.Add(this.txtMatKhau);
-            this.stackPanel3.Location = new System.Drawing.Point(38, 304);
-            this.stackPanel3.Name = "stackPanel3";
-            this.stackPanel3.Size = new System.Drawing.Size(430, 86);
-            this.stackPanel3.TabIndex = 18;
-            this.stackPanel3.UseSkinIndents = true;
-            // 
-            // txtMatKhau
-            // 
-            this.txtMatKhau.Location = new System.Drawing.Point(218, 12);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Properties.AdvancedModeOptions.Label = "Mật khẩu";
-            this.txtMatKhau.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.txtMatKhau.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
-            this.txtMatKhau.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.txtMatKhau.Properties.Appearance.Options.UseFont = true;
-            this.txtMatKhau.Properties.AppearanceFocused.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.txtMatKhau.Properties.AppearanceFocused.Options.UseFont = true;
-            this.txtMatKhau.Properties.AutoHeight = false;
-            this.txtMatKhau.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtMatKhau.Properties.UseSystemPasswordChar = true;
-            this.txtMatKhau.Size = new System.Drawing.Size(193, 61);
-            this.txtMatKhau.TabIndex = 17;
-            // 
-            // txtTaiKhoan
-            // 
-            this.txtTaiKhoan.EditValue = "";
-            this.txtTaiKhoan.Location = new System.Drawing.Point(17, 12);
-            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Properties.AdvancedModeOptions.Label = "Tài khoản";
-            this.txtTaiKhoan.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.txtTaiKhoan.Properties.AdvancedModeOptions.ShiftedLabelAppearance.Options.UseFont = true;
-            this.txtTaiKhoan.Properties.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.txtTaiKhoan.Properties.Appearance.Options.UseFont = true;
-            this.txtTaiKhoan.Properties.AutoHeight = false;
-            this.txtTaiKhoan.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
-            this.txtTaiKhoan.Size = new System.Drawing.Size(193, 61);
-            this.txtTaiKhoan.TabIndex = 13;
-            // 
-            // frmDangKy
+            // ucThongTinCaNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 576);
-            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.grbTTCN);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1000, 1000);
-            this.MinimumSize = new System.Drawing.Size(439, 381);
-            this.Name = "frmDangKy";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng ký tài khoản";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangKy_FormClosing);
-            this.Load += new System.EventHandler(this.frmDangKy_Load);
+            this.Name = "ucThongTinCaNhan";
+            this.Size = new System.Drawing.Size(941, 616);
             ((System.ComponentModel.ISupportInitialize)(this.grbTTCN)).EndInit();
             this.grbTTCN.ResumeLayout(false);
             this.grbTTCN.PerformLayout();
@@ -407,18 +306,9 @@
             this.stackPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grbChucVu)).EndInit();
-            this.grbChucVu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.leChucVu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
             this.stackPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stackPanel3)).EndInit();
-            this.stackPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTaiKhoan.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,11 +316,6 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl grbTTCN;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton btnLamLai;
-        private DevExpress.XtraEditors.SimpleButton btnDangKy;
-        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider err;
-        private DevExpress.Utils.Layout.StackPanel stackPanel2;
         private DevExpress.Utils.Layout.StackPanel stackPanel1;
         private DevExpress.XtraEditors.TextEdit txtHoTen;
         private DevExpress.Utils.Layout.StackPanel stkNgaySinh;
@@ -442,11 +327,10 @@
         private System.Windows.Forms.RadioButton rdoNu;
         private System.Windows.Forms.RadioButton rdoKhac;
         private DevExpress.XtraEditors.TextEdit txtQueQuan;
-        private DevExpress.XtraEditors.GroupControl grbChucVu;
-        private DevExpress.XtraEditors.LookUpEdit leChucVu;
         private DevExpress.XtraEditors.TextEdit txtSoDienThoai;
-        private DevExpress.Utils.Layout.StackPanel stackPanel3;
-        private DevExpress.XtraEditors.TextEdit txtTaiKhoan;
-        private DevExpress.XtraEditors.TextEdit txtMatKhau;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.Utils.Layout.StackPanel stackPanel2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

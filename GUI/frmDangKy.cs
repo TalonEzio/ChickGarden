@@ -16,6 +16,8 @@ namespace GUI
 {
     public partial class frmDangKy : DevExpress.XtraEditors.XtraForm
     {
+        private bool forceExit = false;
+        DateTime maxAllowDate = new DateTime(DateTime.Now.Year - 18, DateTime.Now.Month, DateTime.Now.Day);
         public frmDangKy()
         {
             InitializeComponent();
@@ -23,7 +25,8 @@ namespace GUI
 
         private void btnLamLai_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = txtPassword.Text = "";
+            txtHoTen.Text = txtMatKhau.Text = txtQueQuan.Text = txtSoDienThoai.Text = txtTaiKhoan.Text = "";
+            dtpNgaySinh.DateTime = maxAllowDate;
             leChucVu.EditValue = null;
 
         }
@@ -31,17 +34,41 @@ namespace GUI
         bool CheckInput()
         {
             err.ClearErrors();
-            if (txtUsername.Text.Length <= 5)
+            if (txtHoTen.Text.Length < 5)
             {
-                err.SetIconAlignment(txtUsername, ErrorIconAlignment.MiddleRight);
-                err.SetError(txtUsername, "Yêu cầu nhập trên 5 ký tự");
+                err.SetIconAlignment(txtHoTen, ErrorIconAlignment.MiddleRight);
+                err.SetError(txtHoTen, "Yêu cầu nhập trên 5 ký tự");
                 return false;
             }
-
-            if (txtPassword.Text.Length <= 5)
+            int inputAge = DateTime.Now.Year - dtpNgaySinh.DateTime.Year;
+            if (inputAge < 18)
             {
-                err.SetIconAlignment(txtPassword, ErrorIconAlignment.MiddleRight);
-                err.SetError(txtPassword, "Yêu cầu nhập trên 5 ký tự");
+                err.SetIconAlignment(dtpNgaySinh, ErrorIconAlignment.MiddleRight);
+                err.SetError(dtpNgaySinh, "Yêu cầu tuổi từ 18 trở lên");
+                return false;
+            }
+            if (txtQueQuan.Text.Length <= 5)
+            {
+                err.SetIconAlignment(txtQueQuan, ErrorIconAlignment.MiddleRight);
+                err.SetError(txtQueQuan, "Yêu cầu nhập trên 5 ký tự");
+                return false;
+            }
+            if (txtSoDienThoai.Text.Length < 10 || txtSoDienThoai.Text.Length > 15)
+            {
+                err.SetIconAlignment(txtSoDienThoai, ErrorIconAlignment.MiddleRight);
+                err.SetError(txtSoDienThoai, "Yêu cầu số điện thoại chỉ từ 10 đến 15 ký tự");
+                return false;
+            }
+            if (txtTaiKhoan.Text.Length < 6)
+            {
+                err.SetIconAlignment(txtTaiKhoan, ErrorIconAlignment.MiddleRight);
+                err.SetError(txtTaiKhoan, "Yêu cầu tài khoản 6 ký tự trở lên");
+                return false;
+            }
+            if (txtMatKhau.Text.Length < 6)
+            {
+                err.SetIconAlignment(txtMatKhau, ErrorIconAlignment.MiddleRight);
+                err.SetError(txtMatKhau, "Yêu cầu tài khoản 6 ký tự trở lên");
                 return false;
             }
 
@@ -59,11 +86,28 @@ namespace GUI
             if (CheckInput() == false) return;
             TaiKhoan taiKhoan = new TaiKhoan()
             {
-                Username = txtUsername.Text,
-                Password = txtPassword.Text,
-
+                Username = txtTaiKhoan.Text,
+                Password = txtMatKhau.Text,
             };
-            TrangThai trangThai = TaiKhoanBLL.Instance.DangKy(taiKhoan, new ChucVu() { MaChucVu = leChucVu.EditValue.ToString() });
+
+            NhanVien nhanVien = new NhanVien()
+            {
+                HoTen = txtHoTen.Text,
+                NgaySinh = dtpNgaySinh.DateTime,
+                QueQuan = txtQueQuan.Text,
+                SoDienThoai = txtSoDienThoai.Text
+            };
+
+            if (rdoNam.Checked) nhanVien.GioiTinh = 0;
+            else if (rdoNu.Checked) nhanVien.GioiTinh = 1;
+            else nhanVien.GioiTinh = 2;
+
+            ChucVu chucVu = new ChucVu()
+            {
+                MaChucVu = (int)leChucVu.EditValue
+            };
+
+            TrangThai trangThai = TaiKhoanBLL.Instance.DangKy(taiKhoan, nhanVien, chucVu);
             if (trangThai == TrangThai.UserDaTonTai)
             {
                 XtraMessageBox.Show("Tài khoản đã có trong hệ thống!", "Trạng thái đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -75,11 +119,17 @@ namespace GUI
                 return;
             }
             XtraMessageBox.Show("Đăng ký thành công, vui lòng đăng nhập!", "Trạng thái đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            btnLamLai.PerformClick();
+
+            forceExit = true;
             this.Close();
         }
 
         private void frmDangKy_Load(object sender, EventArgs e)
         {
+            dtpNgaySinh.DateTime = maxAllowDate;
+            rdoNam.Checked = true;
             List<ChucVu> DSCV = ChucVuBLL.Instance.LayChucVu();
             if (DSCV == null)
             {
@@ -109,11 +159,14 @@ namespace GUI
 
         private void frmDangKy_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialogResult = XtraMessageBox.Show("Bạn có muốn thoát không?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.No)
+            if(!forceExit)
             {
-                e.Cancel = true;
-            }
+                DialogResult dialogResult = XtraMessageBox.Show("Bạn có muốn thoát không?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }    
         }
     }
 }

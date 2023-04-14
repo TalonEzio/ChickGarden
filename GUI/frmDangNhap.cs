@@ -57,23 +57,24 @@ namespace GUI
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             if (CheckInput() == false) return;
-            TrangThai trangThai = TaiKhoanBLL.Instance.DangNhap(txtUsername.Text, txtPassword.Text);
+            TaiKhoan taiKhoan = new TaiKhoan()
+            {
+                Username = txtUsername.Text,
+                Password = txtPassword.Text
+            };
+            TrangThai trangThai = TaiKhoanBLL.Instance.DangNhap(taiKhoan);
             if (trangThai == TrangThai.ThatBai)
             {
                 XtraMessageBox.Show("Đăng nhập thất bại", "Trạng thái", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+
                 XtraMessageBox.Show("Đăng nhập thành công", "Trạng thái", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                TaiKhoan taiKhoan = new TaiKhoan()
-                { 
-                    Username = txtUsername.Text,
-                    Password = txtPassword.Text
-                };
-
+                TaiKhoanBLL.Instance.LayQuyen(taiKhoan);
                 frmTrangChu frmTrangChu = new frmTrangChu(taiKhoan);
                 this.Hide();
+                txtUsername.Text = txtPassword.Text = "";
                 frmTrangChu.ShowDialog();
                 this.Show();
             }

@@ -29,11 +29,10 @@ namespace DAL
         {
             DataTable dt = DatabaseAccess.Instance.ExecuteReader("usp_LayChucVu",CachThucHien.StoredProcedure);
             List<ChucVu> DSCV = new List<ChucVu> ();
-            
             foreach (DataRow dr in dt.Rows)
             {
                 DSCV.Add(new ChucVu
-                { MaChucVu = dr.ItemArray[0].ToString(), TenChucVu = dr.ItemArray[1].ToString() });
+                { MaChucVu = int.Parse(dr.ItemArray[0].ToString()), TenChucVu = dr.ItemArray[1].ToString() });
             }
 
             return DSCV;

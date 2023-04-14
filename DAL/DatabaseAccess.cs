@@ -125,7 +125,7 @@ namespace DAL
             return dataTable;
         }
 
-        public int ExecuteScalar(string commandText, CachThucHien cachThucHien = CachThucHien.Query, string[] parameterName = null, object[] parameterValue = null)
+        public object ExecuteScalar(string commandText, CachThucHien cachThucHien = CachThucHien.Query, string[] parameterName = null, object[] parameterValue = null)
         {
             if (parameterName == null) parameterName = new string[0];
             if (parameterValue == null) parameterValue = new object[0];
@@ -147,7 +147,7 @@ namespace DAL
             {
                 cmd.Parameters.AddWithValue(parameterName[i], parameterValue[i]);
             }
-            int result = (int)cmd.ExecuteScalar();
+            object result = cmd.ExecuteScalar();
             DongKetNoi();
 
             return result;

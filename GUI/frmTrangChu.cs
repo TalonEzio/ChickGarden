@@ -94,5 +94,23 @@ namespace GUI
                 this.Close();
             }
         }
+
+        private void frmTrangChu_Load(object sender, EventArgs e)
+        {
+            btnNhanVien.Visible = !taiKhoan.isAdmin;
+        }
+
+        private ucThongTinCaNhan ucThongTinCaNhan;
+
+        private void btnHT_TTCN_Click(object sender, EventArgs e)
+        {
+            if (ucThongTinCaNhan == null)
+            {
+                ucThongTinCaNhan = new ucThongTinCaNhan(taiKhoan);
+                ucThongTinCaNhan.Dock = DockStyle.Fill;
+                mainContainer.AddControl(ucThongTinCaNhan);
+            }
+            ucThongTinCaNhan.BringToFront();
+        }
     }
 }
