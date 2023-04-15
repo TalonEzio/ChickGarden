@@ -2,6 +2,7 @@
 using DevExpress.Xpo.DB;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraPrinting;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,10 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using DevExpress.XtraGrid.Export;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.Utils;
+using DevExpress.XtraExport.Helpers;
 
 namespace GUI.UserControls
 {
@@ -29,7 +34,12 @@ namespace GUI.UserControls
         {
             InitializeComponent();
         }
-
+        private TaiKhoan taiKhoan;
+        public ucDanhSachNhanVien(TaiKhoan taiKhoan)
+        {
+            InitializeComponent();
+            this.taiKhoan = taiKhoan;
+        }
         private void ucDanhSachNhanVien_Load(object sender, EventArgs e)
         {
             btnReLoad.PerformClick();
@@ -61,7 +71,7 @@ namespace GUI.UserControls
         }
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            dataTable = NhanVienBLL.Instance.LayDanhSach();
+            dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
             grDSNV.DataSource = dataTable;
             CustomColumn();
             dataTable.GetChanges();
@@ -127,7 +137,7 @@ namespace GUI.UserControls
                 else
                 {
                     XtraMessageBox.Show($"Có {modifiedData.Rows.Count - successCount} dòng cập nhật lỗi, hãy xem lại dữ liệu đầu vào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                 }
             }
         }
@@ -191,6 +201,23 @@ namespace GUI.UserControls
             }
             grvDSNV.UpdateCurrentRow();
 
+        }
+
+        private void btnExportExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            sdExcel.Title = "Lưu tập tin Excel";
+            sdExcel.Filter = "Excel files (*.xlsx)|*.xlsx";
+            sdExcel.FileName = "Danh sách nhân viên.xlsx";
+
+            if (sdExcel.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = sdExcel.FileName;
+                grvDSNV.ExportToXlsx(filePath);
+                if (XtraMessageBox.Show("Export thành công, bạn muốn xem chứ?", "Export", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK && !string.IsNullOrEmpty(filePath))
+                {
+                    System.Diagnostics.Process.Start(filePath);
+                }
+            }
         }
     }
 }

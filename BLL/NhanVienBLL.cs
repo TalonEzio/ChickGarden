@@ -33,9 +33,9 @@ namespace BLL
         {
             return NhanVienDAO.Instance.CapNhatThongTin(nhanVien, maChucVu, username);
         }
-        public DataTable LayDanhSach()
+        public DataTable LayDanhSach(string username)
         {
-            return NhanVienDAO.Instance.LayDanhSach();
+            return NhanVienDAO.Instance.LayDanhSach(username);
         }
 
     }

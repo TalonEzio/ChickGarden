@@ -39,7 +39,6 @@
             this.btnNhanVien = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnNV_DSNV = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnDoAn = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnDA_LDA = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnDA_DSDA = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnHoaDon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnHD_PN = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -55,6 +54,7 @@
             this.btnHT_DMK = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnHT_DX = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
+            this.btnDA_LDA = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mainContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -175,19 +175,10 @@
             // btnDoAn
             // 
             this.btnDoAn.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.btnDA_LDA,
             this.btnDA_DSDA});
-            this.btnDoAn.Expanded = true;
             this.btnDoAn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoAn.ImageOptions.Image")));
             this.btnDoAn.Name = "btnDoAn";
             this.btnDoAn.Text = "Đồ ăn";
-            // 
-            // btnDA_LDA
-            // 
-            this.btnDA_LDA.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDA_LDA.ImageOptions.SvgImage")));
-            this.btnDA_LDA.Name = "btnDA_LDA";
-            this.btnDA_LDA.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnDA_LDA.Text = "Loại đồ ăn";
             // 
             // btnDA_DSDA
             // 
@@ -312,6 +303,13 @@
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
+            // btnDA_LDA
+            // 
+            this.btnDA_LDA.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDA_LDA.ImageOptions.SvgImage")));
+            this.btnDA_LDA.Name = "btnDA_LDA";
+            this.btnDA_LDA.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDA_LDA.Text = "Loại đồ ăn";
+            // 
             // frmTrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,7 +343,6 @@
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnNV_DSNV;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDoAn;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement btnDA_LDA;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDA_DSDA;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHoaDon;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHD_PN;
@@ -362,5 +359,6 @@
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHT_TTCN;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnDA_LDA;
     }
 }

@@ -50,9 +50,14 @@ namespace DAL
             if (result == 0) return TrangThai.ThatBai;
             return TrangThai.ThanhCong;   
         }
-        public DataTable LayDanhSach()
+        public DataTable LayDanhSach(string username)
         {
-            return DatabaseAccess.Instance.ExecuteReader("usp_LayDanhSachNhanVien", CachThucHien.StoredProcedure);
+            return DatabaseAccess.Instance.ExecuteReader(
+                "usp_LayDanhSachNhanVien", CachThucHien.StoredProcedure,
+                new string[] {"@username"},
+                new object[] { username }
+
+                );
         }
     }
 }

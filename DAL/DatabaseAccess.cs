@@ -11,7 +11,7 @@ namespace DAL
 {
     internal class DatabaseAccess
     {
-        private string strConn = BuildConnectionString();
+        string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["strConn"].ToString();
 
         public SqlConnection conn = null;
 
@@ -59,10 +59,9 @@ namespace DAL
         static string BuildConnectionString()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "TALONEZIO\\SQLEXPRESS";
+            builder.DataSource = ".\\SQLEXPRESS";
             builder.InitialCatalog = "ChickGarden";
-            builder.UserID = "sa";
-            builder.Password = "manhngu123";
+            builder.IntegratedSecurity = true;
 
             return builder.ToString();
         }

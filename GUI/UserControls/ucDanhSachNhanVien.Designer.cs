@@ -38,15 +38,19 @@
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnReLoad = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExportExcel = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.err = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.sdExcel = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grDSNV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDSNV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +62,7 @@
             this.grDSNV.Location = new System.Drawing.Point(0, 38);
             this.grDSNV.MainView = this.grvDSNV;
             this.grDSNV.Name = "grDSNV";
-            this.grDSNV.Size = new System.Drawing.Size(738, 425);
+            this.grDSNV.Size = new System.Drawing.Size(758, 345);
             this.grDSNV.TabIndex = 14;
             this.grDSNV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDSNV});
@@ -124,6 +128,8 @@
             this.grvDSNV.GridControl = this.grDSNV;
             this.grvDSNV.Name = "grvDSNV";
             this.grvDSNV.OptionsSelection.MultiSelect = true;
+            this.grvDSNV.OptionsView.RowAutoHeight = true;
+            this.grvDSNV.OptionsView.ShowFooter = true;
             // 
             // barManager1
             // 
@@ -140,10 +146,13 @@
             this.btnReLoad,
             this.btnAdd,
             this.btnSave,
-            this.btnDelete});
-            this.barManager1.MaxItemId = 13;
+            this.btnDelete,
+            this.btnExportExcel});
+            this.barManager1.MaxItemId = 15;
             this.barManager1.OptionsStubGlyphs.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.barManager1.OptionsStubGlyphs.UseFont = true;
+            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemComboBox1});
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -157,43 +166,55 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnAdd),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDelete),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnReLoad),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnReLoad)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExportExcel)});
             this.bar1.Text = "Tools";
             // 
             // btnAdd
             // 
-            this.btnAdd.Caption = "barButtonItem2";
+            this.btnAdd.Caption = "Thêm mới";
             this.btnAdd.Id = 10;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.Name = "btnAdd";
+            this.btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
             // btnDelete
             // 
-            this.btnDelete.Caption = "barButtonItem4";
+            this.btnDelete.Caption = "Xóa dòng đã chọn";
             this.btnDelete.Id = 12;
             this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
+            this.btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
             // btnSave
             // 
-            this.btnSave.Caption = "barButtonItem3";
+            this.btnSave.Caption = "Lưu";
             this.btnSave.Id = 11;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
             this.btnSave.Name = "btnSave";
+            this.btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // btnReLoad
             // 
-            this.btnReLoad.Caption = "barButtonItem1";
+            this.btnReLoad.Caption = "Tải lại";
             this.btnReLoad.Id = 9;
-            this.btnReLoad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnReLoad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReLoad.ImageOptions.Image")));
             this.btnReLoad.Name = "btnReLoad";
-            this.btnReLoad.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
+            this.btnReLoad.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnReLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Caption = "Xuất ra Excel";
+            this.btnExportExcel.Id = 13;
+            this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnExportExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExportExcel_ItemClick);
             // 
             // bar3
             // 
@@ -213,15 +234,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(738, 38);
+            this.barDockControlTop.Size = new System.Drawing.Size(758, 38);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 463);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 383);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(738, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(758, 20);
             // 
             // barDockControlLeft
             // 
@@ -229,19 +250,30 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 38);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 425);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 345);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(738, 38);
+            this.barDockControlRight.Location = new System.Drawing.Point(758, 38);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 425);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 345);
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
             // err
             // 
             this.err.ContainerControl = this;
+            // 
+            // sdExcel
+            // 
+            this.sdExcel.FileName = "xtraSaveFileDialog1";
             // 
             // ucDanhSachNhanVien
             // 
@@ -255,11 +287,12 @@
             this.Font = new System.Drawing.Font("UTM Avo", 16F);
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "ucDanhSachNhanVien";
-            this.Size = new System.Drawing.Size(738, 483);
+            this.Size = new System.Drawing.Size(758, 403);
             this.Load += new System.EventHandler(this.ucDanhSachNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grDSNV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDSNV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -281,5 +314,8 @@
         private DevExpress.XtraBars.BarButtonItem btnSave;
         internal DevExpress.XtraBars.BarButtonItem btnReLoad;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider err;
+        private DevExpress.XtraBars.BarButtonItem btnExportExcel;
+        private DevExpress.XtraEditors.XtraSaveFileDialog sdExcel;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
     }
 }

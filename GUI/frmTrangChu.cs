@@ -62,7 +62,7 @@ namespace GUI
         {
             if (ucDanhSachNhanVien == null)
             {
-                ucDanhSachNhanVien = new ucDanhSachNhanVien();
+                ucDanhSachNhanVien = new ucDanhSachNhanVien(taiKhoan);
                 ucDanhSachNhanVien.Dock = DockStyle.Fill;
                 mainContainer.AddControl(ucDanhSachNhanVien);
             }
@@ -128,5 +128,6 @@ namespace GUI
                 this.Close();
             }
         }
+
     }
 }
