@@ -253,7 +253,7 @@
             // 
             this.btnCapNhat.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.btnCapNhat.Appearance.Options.UseFont = true;
-            this.btnCapNhat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnCapNhat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCapNhat.ImageOptions.SvgImage")));
             this.btnCapNhat.Location = new System.Drawing.Point(13, 41);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(188, 57);
@@ -265,7 +265,7 @@
             // 
             this.btnXoaTaiKhoan.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.btnXoaTaiKhoan.Appearance.Options.UseFont = true;
-            this.btnXoaTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btnXoaTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXoaTaiKhoan.ImageOptions.SvgImage")));
             this.btnXoaTaiKhoan.Location = new System.Drawing.Point(205, 41);
             this.btnXoaTaiKhoan.Name = "btnXoaTaiKhoan";
             this.btnXoaTaiKhoan.Size = new System.Drawing.Size(188, 57);

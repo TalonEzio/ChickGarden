@@ -60,6 +60,7 @@
             this.txtMatKhauHienTai.Properties.AppearanceFocused.Options.UseFont = true;
             this.txtMatKhauHienTai.Properties.AutoHeight = false;
             this.txtMatKhauHienTai.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.txtMatKhauHienTai.Properties.UseSystemPasswordChar = true;
             this.txtMatKhauHienTai.Size = new System.Drawing.Size(245, 57);
             this.txtMatKhauHienTai.TabIndex = 0;
             // 
@@ -118,7 +119,6 @@
             // 
             this.grDoiMatKhau.AppearanceCaption.Font = new System.Drawing.Font("UTM Avo", 16F);
             this.grDoiMatKhau.AppearanceCaption.Options.UseFont = true;
-            this.grDoiMatKhau.ContentImage = global::GUI.Properties.Resources.DoAn;
             this.grDoiMatKhau.Controls.Add(this.stackPanel2);
             this.grDoiMatKhau.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grDoiMatKhau.GroupStyle = DevExpress.Utils.GroupStyle.Card;

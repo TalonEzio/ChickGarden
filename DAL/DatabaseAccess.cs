@@ -42,7 +42,7 @@ namespace DAL
                 {
                     conn.Open();
                 }
-                catch (Exception ex)
+                catch
                 {
                     throw new Exception("Lỗi kết nối csdl");
                 }

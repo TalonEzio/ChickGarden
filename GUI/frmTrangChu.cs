@@ -27,7 +27,7 @@ namespace GUI
             {
                 forceExit = value;
             }
-        }    
+        }
         private TaiKhoan taiKhoan;
         public frmTrangChu()
         {
@@ -46,7 +46,7 @@ namespace GUI
 
         private void frmTrangChu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!forceExit)
+            if (!forceExit)
             {
                 DialogResult dialogResult = XtraMessageBox.Show("Bạn có muốn thoát không?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.No)
@@ -54,19 +54,20 @@ namespace GUI
                     e.Cancel = true;
                 }
             }
-            
+
         }
 
         private ucDanhSachNhanVien ucDanhSachNhanVien = null;
         private void btnDSNV_Click(object sender, EventArgs e)
         {
-            if(ucDanhSachNhanVien == null)
+            if (ucDanhSachNhanVien == null)
             {
                 ucDanhSachNhanVien = new ucDanhSachNhanVien();
                 ucDanhSachNhanVien.Dock = DockStyle.Fill;
                 mainContainer.AddControl(ucDanhSachNhanVien);
             }
             ucDanhSachNhanVien.BringToFront();
+            ucDanhSachNhanVien.btnReLoad.PerformClick();
 
         }
 
@@ -88,16 +89,20 @@ namespace GUI
 
         private void UcDoiMatKhau_ForceSend(object sender, bool forceExit)
         {
-            if(forceExit)
+            if (forceExit)
             {
                 this.forceExit = forceExit;
                 this.Close();
             }
         }
 
+        void UsingRole()
+        {
+            btnNhanVien.Visible = taiKhoan.isAdmin;
+        }
         private void frmTrangChu_Load(object sender, EventArgs e)
         {
-            btnNhanVien.Visible = !taiKhoan.isAdmin;
+            UsingRole();
         }
 
         private ucThongTinCaNhan ucThongTinCaNhan;

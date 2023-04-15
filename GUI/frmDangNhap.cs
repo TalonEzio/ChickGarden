@@ -42,15 +42,25 @@ namespace GUI
             err.SetIconAlignment(txtUsername, ErrorIconAlignment.MiddleRight);
             err.SetIconAlignment(txtPassword, ErrorIconAlignment.MiddleRight);
 
-            if (txtPassword.Text.Length < 6 ) {
-                err.SetError(txtPassword, "Mật khẩu phải 6 ký tự trở lên");
-                return false;   
-            }
             if (txtUsername.Text.Length < 6)
             {
                 err.SetError(txtUsername, "Mật khẩu phải 6 ký tự trở lên");
                 return false;
-
+            }
+            if (txtUsername.Text.IndexOf(' ') > -1)
+            {
+                err.SetError(txtUsername, "Yêu cầu tài khoản không chứa khoảng trắng");
+                return false;
+            }
+            if (txtPassword.Text.Length < 6 ) {
+                err.SetError(txtPassword, "Mật khẩu phải 6 ký tự trở lên");
+                return false;   
+            }
+            
+            if (txtPassword.Text.IndexOf(' ') > -1)
+            {
+                err.SetError(txtPassword, "Yêu cầu mật khẩu không chứa khoảng trắng");
+                return false;
             }
             return true;
         }
@@ -71,7 +81,9 @@ namespace GUI
             {
 
                 XtraMessageBox.Show("Đăng nhập thành công", "Trạng thái", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 TaiKhoanBLL.Instance.LayQuyen(taiKhoan);
+
                 frmTrangChu frmTrangChu = new frmTrangChu(taiKhoan);
                 this.Hide();
                 txtUsername.Text = txtPassword.Text = "";

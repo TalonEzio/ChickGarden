@@ -96,12 +96,12 @@ namespace DAL
             if (result == 0) return TrangThai.ThatBai;
             return TrangThai.ThanhCong;
         }
-        public TrangThai XoaTaiKhoan(string username )
+        public TrangThai XoaTaiKhoan(string username)
         {
             int result = DatabaseAccess.Instance.ExecuteNonQuery("usp_XoaTaiKhoan",
                 CachThucHien.StoredProcedure,
-                new string[] {"@Username"},
-                new object[] {username}
+                new string[] { "@Username" },
+                new object[] { username }
                 );
             if (result == 0) return TrangThai.ThatBai;
             return TrangThai.ThanhCong;
