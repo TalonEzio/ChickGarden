@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,13 @@ namespace BLL
         {
             return NhanVienDAO.Instance.LayThongTinNhanVien(username);
         }
-        public TrangThai CapNhatThongTin(NhanVien nhanVien,string username)
+        public TrangThai CapNhatThongTin(NhanVien nhanVien,int maChucVu,string username)
         {
-            return NhanVienDAO.Instance.CapNhatThongTin(nhanVien,username);
+            return NhanVienDAO.Instance.CapNhatThongTin(nhanVien, maChucVu, username);
+        }
+        public DataTable LayDanhSach()
+        {
+            return NhanVienDAO.Instance.LayDanhSach();
         }
 
     }

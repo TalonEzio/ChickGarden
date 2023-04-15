@@ -100,7 +100,9 @@ namespace GUI.UserControls
                 else if (rdoNu.Checked) nhanVien.GioiTinh = 1;
                 else nhanVien.GioiTinh = 2;
 
-                TrangThai trangThai = NhanVienBLL.Instance.CapNhatThongTin(nhanVien, taiKhoan.Username);
+                int MaChucVu = taiKhoan.isAdmin ? 0 : 1;
+
+                TrangThai trangThai = NhanVienBLL.Instance.CapNhatThongTin(nhanVien, MaChucVu, taiKhoan.Username);
                 if(trangThai == TrangThai.ThanhCong)
                 {
                     XtraMessageBox.Show("Cập nhật thông tin mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -121,7 +123,7 @@ namespace GUI.UserControls
                 TrangThai trangThai = TaiKhoanBLL.Instance.XoaTaiKhoan(taiKhoan.Username);
                 if(trangThai == TrangThai.ThanhCong)
                 {
-                    XtraMessageBox.Show("Tài khoản đã xóa khỏi hệ thống", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("Tài khoản đã xóa khỏi hệ thống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.ForceSend?.Invoke(this, true);
 
                 }

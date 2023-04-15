@@ -65,10 +65,22 @@ namespace GUI
                 err.SetError(txtTaiKhoan, "Yêu cầu tài khoản 6 ký tự trở lên");
                 return false;
             }
+            if (txtTaiKhoan.Text.IndexOf(' ') > -1)
+            {
+                err.SetIconAlignment(txtTaiKhoan, ErrorIconAlignment.MiddleRight);
+                err.SetError(txtTaiKhoan, "Yêu cầu tài khoản không chứa khoảng trắng");
+                return false;
+            }
             if (txtMatKhau.Text.Length < 6)
             {
                 err.SetIconAlignment(txtMatKhau, ErrorIconAlignment.MiddleRight);
                 err.SetError(txtMatKhau, "Yêu cầu tài khoản 6 ký tự trở lên");
+                return false;
+            }
+            if (txtMatKhau.Text.IndexOf(' ') > -1)
+            {
+                err.SetIconAlignment(txtMatKhau, ErrorIconAlignment.MiddleRight);
+                err.SetError(txtMatKhau, "Yêu cầu mật khẩu không chứa khoảng trắng");
                 return false;
             }
 
@@ -118,7 +130,7 @@ namespace GUI
                 XtraMessageBox.Show("Có lỗi trong quá trình đăng ký, vui lòng thử lại!", "Trạng thái đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            XtraMessageBox.Show("Đăng ký thành công, vui lòng đăng nhập!", "Trạng thái đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show("Đăng ký thành công!", "Trạng thái đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             btnLamLai.PerformClick();
 

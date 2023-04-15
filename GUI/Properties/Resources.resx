@@ -127,7 +127,7 @@
   <data name="DoAn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\DoAn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ThongTinCaNhan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\ThongTinCaNhan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ReLoad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\ReLoad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

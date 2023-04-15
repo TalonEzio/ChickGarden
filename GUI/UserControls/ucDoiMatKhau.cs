@@ -39,19 +39,32 @@ namespace GUI.UserControls
                 err.SetError(txtMatKhauHienTai, "Mật khẩu phải 6 ký tự trở lên");
                 return false;
             }
-
+            if (txtMatKhauHienTai.Text.IndexOf(' ') > -1)
+            {
+                err.SetError(txtMatKhauHienTai, "Yêu cầu mật khẩu không chứa khoảng trắng");
+                return false;
+            }
             if (txtMatKhauMoi.Text.Length < 6)
             {
                 err.SetError(txtMatKhauMoi, "Mật khẩu phải 6 ký tự trở lên");
                 return false;
             }
-
+            if (txtMatKhauMoi.Text.IndexOf(' ') > -1)
+            {
+                err.SetError(txtMatKhauMoi, "Yêu cầu mật khẩu không chứa khoảng trắng");
+                return false;
+            }
             if (txtXacNhan.Text.Length < 6)
             {
                 err.SetError(txtXacNhan, "Mật khẩu phải 6 ký tự trở lên");
                 return false;
             }
-            if(txtMatKhauHienTai.Text != taiKhoan.Password)
+            if (txtXacNhan.Text.IndexOf(' ') > -1)
+            {
+                err.SetError(txtXacNhan, "Yêu cầu mật khẩu không chứa khoảng trắng");
+                return false;
+            }
+            if (txtMatKhauHienTai.Text != taiKhoan.Password)
             {
                 err.SetError(txtMatKhauHienTai, "Mật khẩu hiện tại không đúng");
                 return false;
