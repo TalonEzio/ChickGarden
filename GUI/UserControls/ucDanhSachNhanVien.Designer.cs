@@ -36,8 +36,8 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnReLoad = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnExportExcel = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -189,15 +189,6 @@
             this.btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
-            // btnSave
-            // 
-            this.btnSave.Caption = "Lưu";
-            this.btnSave.Id = 11;
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Name = "btnSave";
-            this.btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
-            // 
             // btnReLoad
             // 
             this.btnReLoad.Caption = "Tải lại";
@@ -206,6 +197,15 @@
             this.btnReLoad.Name = "btnReLoad";
             this.btnReLoad.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnReLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Caption = "Lưu";
+            this.btnSave.Id = 11;
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
+            this.btnSave.Name = "btnSave";
+            this.btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // btnExportExcel
             // 

@@ -82,7 +82,9 @@ namespace GUI
 
                 XtraMessageBox.Show("Đăng nhập thành công", "Trạng thái", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                TaiKhoanBLL.Instance.LayId(taiKhoan);
                 TaiKhoanBLL.Instance.LayQuyen(taiKhoan);
+
 
                 frmTrangChu frmTrangChu = new frmTrangChu(taiKhoan);
                 this.Hide();

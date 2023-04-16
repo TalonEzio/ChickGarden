@@ -107,6 +107,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucDanhSachDoAn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDanhSachDoAn.Designer.cs">
+      <DependentUpon>ucDanhSachDoAn.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucDanhSachNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +145,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDanhSachDoAn.resx">
+      <DependentUpon>ucDanhSachDoAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucDanhSachNhanVien.resx">
       <DependentUpon>ucDanhSachNhanVien.cs</DependentUpon>

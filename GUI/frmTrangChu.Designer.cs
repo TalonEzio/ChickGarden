@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
             DevExpress.XtraBars.Navigation.AccordionContextButton accordionContextButton1 = new DevExpress.XtraBars.Navigation.AccordionContextButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
             this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
@@ -55,36 +54,24 @@
             this.btnHT_DX = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.btnDA_LDA = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainContainer
             // 
             this.mainContainer.Appearance.BackColor = System.Drawing.Color.White;
             this.mainContainer.Appearance.Options.UseBackColor = true;
-            this.mainContainer.Controls.Add(this.pictureEdit1);
+            this.mainContainer.Controls.Add(this.pictureBox1);
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer.Location = new System.Drawing.Point(275, 31);
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(771, 680);
             this.mainContainer.TabIndex = 0;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
-            this.pictureEdit1.MenuManager = this.fluentFormDefaultManager1;
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.pictureEdit1.Size = new System.Drawing.Size(771, 96);
-            this.pictureEdit1.TabIndex = 0;
             // 
             // fluentFormDefaultManager1
             // 
@@ -176,6 +163,7 @@
             // 
             this.btnDoAn.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnDA_DSDA});
+            this.btnDoAn.Expanded = true;
             this.btnDoAn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoAn.ImageOptions.Image")));
             this.btnDoAn.Name = "btnDoAn";
             this.btnDoAn.Text = "Đồ ăn";
@@ -186,6 +174,7 @@
             this.btnDA_DSDA.Name = "btnDA_DSDA";
             this.btnDA_DSDA.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnDA_DSDA.Text = "Danh sách đồ ăn";
+            this.btnDA_DSDA.Click += new System.EventHandler(this.btnDA_DSDA_Click);
             // 
             // btnHoaDon
             // 
@@ -310,6 +299,17 @@
             this.btnDA_LDA.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnDA_LDA.Text = "Loại đồ ăn";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(771, 114);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmTrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,10 +327,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTrangChu_FormClosing);
             this.Load += new System.EventHandler(this.frmTrangChu_Load);
             this.mainContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,9 +356,9 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHeThong;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHT_DMK;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHT_DX;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHT_TTCN;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDA_LDA;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

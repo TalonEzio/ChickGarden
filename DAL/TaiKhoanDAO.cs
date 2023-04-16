@@ -48,6 +48,13 @@ namespace DAL
                 , new string[] { taiKhoan.Username }
                 ) == 1;
         }
+        public void LayId(TaiKhoan taiKhoan)
+        {
+            taiKhoan.TaiKhoanId = (int)DatabaseAccess.Instance.ExecuteScalar("usp_LayTaiKhoanId", CachThucHien.StoredProcedure,
+                new string[] { "@Username" }
+                , new string[] { taiKhoan.Username }
+                );
+        }
         private TrangThai KiemTraTaiKhoan(string username)
         {
             DataTable dt = DatabaseAccess.Instance.ExecuteReader(

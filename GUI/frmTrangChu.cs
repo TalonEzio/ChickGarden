@@ -67,7 +67,6 @@ namespace GUI
                 mainContainer.AddControl(ucDanhSachNhanVien);
             }
             ucDanhSachNhanVien.BringToFront();
-            ucDanhSachNhanVien.btnReLoad.PerformClick();
 
         }
 
@@ -128,6 +127,16 @@ namespace GUI
                 this.Close();
             }
         }
-
+        ucDanhSachDoAn ucDanhSachDoAn;
+        private void btnDA_DSDA_Click(object sender, EventArgs e)
+        {
+            if (ucDanhSachDoAn == null)
+            {
+                ucDanhSachDoAn = new ucDanhSachDoAn(taiKhoan);
+                ucDanhSachDoAn.Dock = DockStyle.Fill;
+                mainContainer.AddControl(ucDanhSachDoAn);
+            }
+            ucDanhSachDoAn.BringToFront();
+        }
     }
 }

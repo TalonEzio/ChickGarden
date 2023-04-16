@@ -45,5 +45,9 @@ namespace BLL
         {
             return TaiKhoanDAO.Instance.XoaTaiKhoan(username);
         }
+		public void LayId(TaiKhoan taiKhoan)
+		{
+			TaiKhoanDAO.Instance.LayId(taiKhoan);
+		}
     }
 }

@@ -30,6 +30,7 @@ namespace GUI.UserControls
             new ChucVu(){MaChucVu = 1,TenChucVu = "Quản lý"},
             new ChucVu(){MaChucVu = 2,TenChucVu = "Nhân viên"},
         };
+        private bool isDeleted = false;
         public ucDanhSachNhanVien()
         {
             InitializeComponent();
@@ -42,7 +43,11 @@ namespace GUI.UserControls
         }
         private void ucDanhSachNhanVien_Load(object sender, EventArgs e)
         {
-            btnReLoad.PerformClick();
+
+            dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
+            grDSNV.DataSource = dataTable;
+            deletedData = dataTable.Clone();
+            CustomColumn();
         }
 
         void CustomGioiTinh()
@@ -71,11 +76,19 @@ namespace GUI.UserControls
         }
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (deletedData.Rows.Count > 0)
+            {
+                DialogResult result = XtraMessageBox.Show($"Bạn vừa xóa{deletedData.Rows.Count} dòng nhưng chưa lưu, bạn có muốn lưu lại?", "Thông báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.Cancel) return;
+                if (result == DialogResult.Yes)
+                {
+                    DeleteData();
+                    isDeleted = true;
+                }
+                deletedData.Rows.Clear();
+            }
             dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
             grDSNV.DataSource = dataTable;
-            CustomColumn();
-            dataTable.GetChanges();
-
         }
         DataTable dataTable = new DataTable();
         DataTable deletedData = null;
@@ -105,12 +118,12 @@ namespace GUI.UserControls
             }
             return true;
         }
-        void UpdateData()
+        int UpdateData()
         {
+            int updatedCount = 0;
             DataTable modifiedData = dataTable.GetChanges(DataRowState.Modified);
             if (modifiedData != null)
             {
-                int successCount = 0;
                 foreach (DataRow row in modifiedData.Rows)
                 {
                     string username = row["username"].ToString();
@@ -128,56 +141,71 @@ namespace GUI.UserControls
                     if (!ValidateBeforeUpdate(nhanVien)) continue;
 
                     TrangThai trangThai = NhanVienBLL.Instance.CapNhatThongTin(nhanVien, maChucVu, username);
-                    if (trangThai == TrangThai.ThanhCong) successCount++;
+                    if (trangThai == TrangThai.ThanhCong) updatedCount++;
                 }
-                if (successCount == modifiedData.Rows.Count)
+                if (updatedCount == modifiedData.Rows.Count)
                 {
-                    XtraMessageBox.Show($"Đã cập nhật {successCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show($"Đã cập nhật {updatedCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    XtraMessageBox.Show($"Có {modifiedData.Rows.Count - successCount} dòng cập nhật lỗi, hãy xem lại dữ liệu đầu vào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show($"Có {modifiedData.Rows.Count - updatedCount} dòng cập nhật lỗi, hãy xem lại dữ liệu đầu vào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
+            return updatedCount;
         }
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             grvDSNV.CloseEditor();
             grvDSNV.UpdateCurrentRow();
+            int updatedCount = UpdateData();
+            int deletedCount = DeleteData();
+            if (updatedCount + deletedCount == 0)
+            {
+                XtraMessageBox.Show($"Không có gì thay đổi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-            UpdateData();
-            DeleteData();
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmDangKy frmDangKy = new frmDangKy();
             frmDangKy.ShowDialog();
-            btnReLoad.PerformClick();
+            dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
 
+            DataTable newData = dataTable.Clone();
+            var rowsNotDeletedOnly = dataTable.AsEnumerable().Except(deletedData.AsEnumerable(), DataRowComparer.Default);
+            foreach (var item in rowsNotDeletedOnly)
+            {
+                newData.Rows.Add(item.ItemArray);
+            }
+
+            grDSNV.DataSource = newData;
         }
 
-        void DeleteData()
+        int DeleteData()
         {
+            int deletedCount = 0;
             if (deletedData != null)
             {
                 int deletedRows = deletedData.Rows.Count;
-                int deletedCount = 0;
                 foreach (DataRow row in deletedData.Rows)
                 {
                     TrangThai trangThai = TaiKhoanBLL.Instance.XoaTaiKhoan(row["username"].ToString());
-                    if (trangThai == TrangThai.ThanhCong) deletedCount++;
+                    if (trangThai == TrangThai.ThanhCong)
+                    {
+                        deletedCount++;
+                    }
                 }
-                if (deletedCount == deletedRows)
+                if (deletedCount > 0)
                 {
-                    XtraMessageBox.Show($"Xóa thành công {deletedRows} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show($"Xóa thành công {deletedCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                {
-                    XtraMessageBox.Show($"Có {deletedRows - deletedCount} dòng chưa xóa được, hãy xem lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                isDeleted = true;
+                deletedData.Rows.Clear();
             }
+            return deletedCount;
         }
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -188,7 +216,7 @@ namespace GUI.UserControls
             }
             if (deletedData == null) deletedData = dataTable.Clone();
 
-            deletedData.Clear();
+            if (isDeleted) deletedData.Rows.Clear();
 
             int[] selectedRows = grvDSNV.GetSelectedRows();
 
@@ -200,7 +228,6 @@ namespace GUI.UserControls
 
             }
             grvDSNV.UpdateCurrentRow();
-
         }
 
         private void btnExportExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
