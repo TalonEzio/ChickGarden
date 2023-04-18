@@ -100,7 +100,7 @@ namespace GUI.UserControls
                 else if (rdoNu.Checked) nhanVien.GioiTinh = 1;
                 else nhanVien.GioiTinh = 2;
 
-                int MaChucVu = taiKhoan.isAdmin ? 0 : 1;
+                int MaChucVu = taiKhoan.isAdmin ? 1 : 2;
 
                 TrangThai trangThai = NhanVienBLL.Instance.CapNhatThongTin(nhanVien, MaChucVu, taiKhoan.Username);
                 if(trangThai == TrangThai.ThanhCong)

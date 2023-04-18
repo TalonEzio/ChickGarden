@@ -38,7 +38,7 @@
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnReLoad = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
-            this.btnExportExcel = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExport = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -147,7 +147,7 @@
             this.btnAdd,
             this.btnSave,
             this.btnDelete,
-            this.btnExportExcel});
+            this.btnExport});
             this.barManager1.MaxItemId = 15;
             this.barManager1.OptionsStubGlyphs.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.barManager1.OptionsStubGlyphs.UseFont = true;
@@ -168,7 +168,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDelete),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnReLoad),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnExportExcel)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExport)});
             this.bar1.Text = "Tools";
             // 
             // btnAdd
@@ -207,16 +207,16 @@
             this.btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
-            // btnExportExcel
+            // btnExport
             // 
-            this.btnExportExcel.Caption = "Xuất ra Excel";
-            this.btnExportExcel.Id = 13;
-            this.btnExportExcel.ImageOptions.DisabledSvgImageSize = new System.Drawing.Size(30, 30);
-            this.btnExportExcel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExportExcel.ImageOptions.SvgImage")));
-            this.btnExportExcel.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnExportExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExportExcel_ItemClick);
+            this.btnExport.Caption = "Xuất file";
+            this.btnExport.Id = 13;
+            this.btnExport.ImageOptions.DisabledSvgImageSize = new System.Drawing.Size(30, 30);
+            this.btnExport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExportExcel.ImageOptions.SvgImage")));
+            this.btnExport.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExportExcel_ItemClick);
             // 
             // bar3
             // 
@@ -316,7 +316,7 @@
         private DevExpress.XtraBars.BarButtonItem btnSave;
         internal DevExpress.XtraBars.BarButtonItem btnReLoad;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider err;
-        private DevExpress.XtraBars.BarButtonItem btnExportExcel;
+        private DevExpress.XtraBars.BarButtonItem btnExport;
         private DevExpress.XtraEditors.XtraSaveFileDialog sdExcel;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
     }
