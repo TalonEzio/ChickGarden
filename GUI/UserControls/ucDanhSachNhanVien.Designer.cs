@@ -211,7 +211,9 @@
             // 
             this.btnExportExcel.Caption = "Xuất ra Excel";
             this.btnExportExcel.Id = 13;
-            this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
+            this.btnExportExcel.ImageOptions.DisabledSvgImageSize = new System.Drawing.Size(30, 30);
+            this.btnExportExcel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExportExcel.ImageOptions.SvgImage")));
+            this.btnExportExcel.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnExportExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExportExcel_ItemClick);

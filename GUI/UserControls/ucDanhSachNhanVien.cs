@@ -14,6 +14,8 @@ using DevExpress.XtraGrid.Export;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils;
 using DevExpress.XtraExport.Helpers;
+using DevExpress.Export.Xl;
+using System.IO;
 
 namespace GUI.UserControls
 {
@@ -30,7 +32,6 @@ namespace GUI.UserControls
             new ChucVu(){MaChucVu = 1,TenChucVu = "Quản lý"},
             new ChucVu(){MaChucVu = 2,TenChucVu = "Nhân viên"},
         };
-        private bool isDeleted = false;
         public ucDanhSachNhanVien()
         {
             InitializeComponent();
@@ -76,17 +77,16 @@ namespace GUI.UserControls
         }
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (deletedData.Rows.Count > 0)
-            {
-                DialogResult result = XtraMessageBox.Show($"Bạn vừa xóa{deletedData.Rows.Count} dòng nhưng chưa lưu, bạn có muốn lưu lại?", "Thông báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                if (result == DialogResult.Cancel) return;
-                if (result == DialogResult.Yes)
-                {
-                    DeleteData();
-                    isDeleted = true;
-                }
-                deletedData.Rows.Clear();
-            }
+            //if (deletedData.Rows.Count > 0)
+            //{
+            //    DialogResult result = XtraMessageBox.Show($"Bạn vừa xóa{deletedData.Rows.Count} dòng nhưng chưa lưu, bạn có muốn lưu lại?", "Thông báo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            //    if (result == DialogResult.Cancel) return;
+            //    if (result == DialogResult.Yes)
+            //    {
+            //        DeleteData();
+            //    }
+            //    deletedData.Rows.Clear();
+            //}
             dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
             grDSNV.DataSource = dataTable;
         }
@@ -160,12 +160,10 @@ namespace GUI.UserControls
             grvDSNV.CloseEditor();
             grvDSNV.UpdateCurrentRow();
             int updatedCount = UpdateData();
-            int deletedCount = DeleteData();
-            if (updatedCount + deletedCount == 0)
+            if (updatedCount == 0)
             {
                 XtraMessageBox.Show($"Không có gì thay đổi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -173,39 +171,22 @@ namespace GUI.UserControls
             frmDangKy frmDangKy = new frmDangKy();
             frmDangKy.ShowDialog();
             dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
-
-            DataTable newData = dataTable.Clone();
-            var rowsNotDeletedOnly = dataTable.AsEnumerable().Except(deletedData.AsEnumerable(), DataRowComparer.Default);
-            foreach (var item in rowsNotDeletedOnly)
-            {
-                newData.Rows.Add(item.ItemArray);
-            }
-
-            grDSNV.DataSource = newData;
+            grDSNV.DataSource = dataTable;
         }
 
-        int DeleteData()
+        void DeleteData(DataTable deletedData)
         {
             int deletedCount = 0;
-            if (deletedData != null)
+
+            foreach (DataRow row in deletedData.Rows)
             {
-                int deletedRows = deletedData.Rows.Count;
-                foreach (DataRow row in deletedData.Rows)
+                TrangThai trangThai = TaiKhoanBLL.Instance.XoaTaiKhoan(row["username"].ToString());
+                if (trangThai == TrangThai.ThanhCong)
                 {
-                    TrangThai trangThai = TaiKhoanBLL.Instance.XoaTaiKhoan(row["username"].ToString());
-                    if (trangThai == TrangThai.ThanhCong)
-                    {
-                        deletedCount++;
-                    }
+                    deletedCount++;
                 }
-                if (deletedCount > 0)
-                {
-                    XtraMessageBox.Show($"Xóa thành công {deletedCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                isDeleted = true;
-                deletedData.Rows.Clear();
             }
-            return deletedCount;
+            XtraMessageBox.Show($"Xóa thành công {deletedCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -214,37 +195,64 @@ namespace GUI.UserControls
                 XtraMessageBox.Show("Chưa chọn dòng nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (deletedData == null) deletedData = dataTable.Clone();
 
-            if (isDeleted) deletedData.Rows.Clear();
+            if (deletedData == null) deletedData = dataTable.Clone();
 
             int[] selectedRows = grvDSNV.GetSelectedRows();
 
-
-            for (int i = selectedRows.Length - 1; i >= 0; i--)
+            DialogResult result = XtraMessageBox.Show($"bạn muốn xóa {selectedRows.Length} dòng đã chọn?","Xóa dữ liệu",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
             {
-                deletedData.Rows.Add(grvDSNV.GetDataRow(selectedRows[i]).ItemArray);
-                grvDSNV.DeleteRow(selectedRows[i]);
+                for (int i = selectedRows.Length - 1; i >= 0; i--)
+                {
+                    deletedData.Rows.Add(grvDSNV.GetDataRow(selectedRows[i]).ItemArray);
+                    grvDSNV.DeleteRow(selectedRows[i]);
+                }
 
+                DeleteData(deletedData);
             }
-            grvDSNV.UpdateCurrentRow();
+            deletedData.Rows.Clear();
         }
 
         private void btnExportExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            sdExcel.Title = "Lưu tập tin Excel";
-            sdExcel.Filter = "Excel files (*.xlsx)|*.xlsx";
-            sdExcel.FileName = "Danh sách nhân viên.xlsx";
+            sdExcel.Title = "Lưu tập tin";
+            sdExcel.Filter = "Excel files (*.xlsx)|*.xlsx|PDF files (*.pdf)|*.pdf|HTML files (*.html)|*.html|Word files (*.docx)|*.docx";
+            sdExcel.FileName = "Danh sách nhân viên";
 
             if (sdExcel.ShowDialog() == DialogResult.OK)
             {
                 string filePath = sdExcel.FileName;
-                grvDSNV.ExportToXlsx(filePath);
+                string fileExtension = Path.GetExtension(filePath).ToLower();
+
+                ExportTarget exportFormat;
+                switch (fileExtension)
+                {
+                    case ".xlsx":
+                        exportFormat = ExportTarget.Xlsx;
+                        break;
+                    case ".pdf":
+                        exportFormat = ExportTarget.Pdf;
+                        break;
+                    case ".html":
+                        exportFormat = ExportTarget.Html;
+                        break;
+                    case ".docx":
+                        exportFormat = ExportTarget.Docx;
+                        break;
+                    default:
+                        XtraMessageBox.Show("Định dạng file không hỗ trợ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                }
+
+                grvDSNV.Export(exportFormat, filePath);
+
                 if (XtraMessageBox.Show("Export thành công, bạn muốn xem chứ?", "Export", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK && !string.IsNullOrEmpty(filePath))
                 {
                     System.Diagnostics.Process.Start(filePath);
                 }
             }
         }
+
     }
 }

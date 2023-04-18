@@ -171,14 +171,14 @@ namespace GUI
 
         private void frmDangKy_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!forceExit)
+            if (!forceExit)
             {
                 DialogResult dialogResult = XtraMessageBox.Show("Bạn có muốn thoát không?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.No)
                 {
                     e.Cancel = true;
                 }
-            }    
+            }
         }
     }
 }
