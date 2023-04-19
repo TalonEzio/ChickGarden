@@ -46,6 +46,7 @@
     <Compile Include="CachThucHien.cs" />
     <Compile Include="ChucVu.cs" />
     <Compile Include="GioiTinh.cs" />
+    <Compile Include="LoaiDoAn.cs" />
     <Compile Include="NhanVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoan.cs" />

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChucVuDAO.cs" />
+    <Compile Include="DoAnDAO.cs" />
     <Compile Include="NhanVienDAO.cs" />
     <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="DatabaseAccess.cs" />

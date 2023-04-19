@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BLL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,10 +24,30 @@ namespace GUI.UserControls
             InitializeComponent();
             this.taiKhoan = taiKhoan;
         }
+        List<LoaiDoAn> DSLoaiDoAn = new List<LoaiDoAn>()
+        { 
+            new LoaiDoAn(){MaLDA = 0,TenLDA = "Tất cả"}
+        };
+        void TaiLoaiDoAn(ComboBox comboBox)
+        {
+            DSLoaiDoAn.AddRange(DoAnBLL.Instance.LayDanhSachLoaiDoAn());
+            comboBox.Items.Clear();
+            comboBox.DataSource = DSLoaiDoAn;
+            comboBox.DisplayMember = "TenLDA";
+            comboBox.ValueMember = "MaLDA";
 
+        }
         private void ucDanhSachDoAn_Load(object sender, EventArgs e)
         {
-            cmbLoaiDoAn.EditValue = "HEHE";
+            TaiLoaiDoAn(cmbLoaiDoAn);
+        }
+
+        private void cmbLoaiDoAn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbLoaiDoAn.SelectedItem == null)
+            {
+
+            }
         }
     }
 }
