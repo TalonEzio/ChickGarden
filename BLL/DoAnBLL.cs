@@ -30,5 +30,18 @@ namespace BLL
         {
             return DoAnDAO.Instance.LayDoAn(maLDA);
         }
+        public TrangThai ThemDoAn(string tenDoAn, int MaLDA)
+        {
+            return DoAnDAO.Instance.ThemDoAn(tenDoAn, MaLDA);
+        }
+        public  TrangThai XoaDoAn(int MaDoAn)
+        {
+            return DoAnDAO.Instance.XoaDoAn(MaDoAn);
+
+        }
+        public TrangThai CapNhatDoAn(int maDoAn, string tenDoAn, int maLDA)
+        {
+            return DoAnDAO.Instance.CapNhatDoAn(maDoAn,tenDoAn,maLDA);
+        }
     }
 }

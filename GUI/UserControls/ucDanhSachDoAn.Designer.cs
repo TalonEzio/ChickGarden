@@ -38,22 +38,22 @@
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.stkButton = new DevExpress.Utils.Layout.StackPanel();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnReLoad = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReLoad = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.Lọc = new DevExpress.XtraEditors.LabelControl();
             this.cmbLoaiDoAn = new System.Windows.Forms.ComboBox();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.grDSDA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDSDA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stkButton)).BeginInit();
             this.stkButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // grDSDA
@@ -127,6 +127,7 @@
             this.grvDSDA.Appearance.ViewCaption.Options.UseFont = true;
             this.grvDSDA.GridControl = this.grDSDA;
             this.grvDSDA.Name = "grvDSDA";
+            this.grvDSDA.OptionsSelection.MultiSelect = true;
             // 
             // barDockControl1
             // 
@@ -186,16 +187,6 @@
             this.panelControl1.Size = new System.Drawing.Size(786, 54);
             this.panelControl1.TabIndex = 1;
             // 
-            // panelControl2
-            // 
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.grDSDA);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 54);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(786, 466);
-            this.panelControl2.TabIndex = 2;
-            // 
             // stkButton
             // 
             this.stkButton.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -213,53 +204,57 @@
             this.stkButton.TabIndex = 0;
             this.stkButton.UseSkinIndents = true;
             // 
-            // btnSave
-            // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(279, 7);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnSave.Size = new System.Drawing.Size(74, 39);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Lưu";
-            // 
-            // btnReLoad
-            // 
-            this.btnReLoad.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.btnReLoad.Appearance.Options.UseFont = true;
-            this.btnReLoad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btnReLoad.Location = new System.Drawing.Point(185, 7);
-            this.btnReLoad.Name = "btnReLoad";
-            this.btnReLoad.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnReLoad.Size = new System.Drawing.Size(90, 39);
-            this.btnReLoad.TabIndex = 3;
-            this.btnReLoad.Text = "Tải lại";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(102, 7);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnDelete.Size = new System.Drawing.Size(79, 39);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Xóa";
-            // 
             // btnAdd
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
+            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
             this.btnAdd.Location = new System.Drawing.Point(13, 7);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAdd.Size = new System.Drawing.Size(85, 39);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Thêm";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(102, 7);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnDelete.Size = new System.Drawing.Size(79, 39);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnReLoad
+            // 
+            this.btnReLoad.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.Appearance.Options.UseFont = true;
+            this.btnReLoad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReLoad.ImageOptions.Image")));
+            this.btnReLoad.Location = new System.Drawing.Point(185, 7);
+            this.btnReLoad.Name = "btnReLoad";
+            this.btnReLoad.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnReLoad.Size = new System.Drawing.Size(90, 39);
+            this.btnReLoad.TabIndex = 3;
+            this.btnReLoad.Text = "Tải lại";
+            this.btnReLoad.Click += new System.EventHandler(this.btnReLoad_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
+            this.btnSave.Location = new System.Drawing.Point(279, 7);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnSave.Size = new System.Drawing.Size(74, 39);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Lọc
             // 
@@ -277,11 +272,21 @@
             // 
             this.cmbLoaiDoAn.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.cmbLoaiDoAn.FormattingEnabled = true;
-            this.cmbLoaiDoAn.Location = new System.Drawing.Point(527, 16);
+            this.cmbLoaiDoAn.Location = new System.Drawing.Point(527, 10);
             this.cmbLoaiDoAn.Name = "cmbLoaiDoAn";
             this.cmbLoaiDoAn.Size = new System.Drawing.Size(121, 34);
             this.cmbLoaiDoAn.TabIndex = 7;
             this.cmbLoaiDoAn.SelectedIndexChanged += new System.EventHandler(this.cmbLoaiDoAn_SelectedIndexChanged);
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.grDSDA);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(0, 54);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(786, 466);
+            this.panelControl2.TabIndex = 2;
             // 
             // ucDanhSachDoAn
             // 
@@ -296,11 +301,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvDSDA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stkButton)).EndInit();
             this.stkButton.ResumeLayout(false);
             this.stkButton.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
