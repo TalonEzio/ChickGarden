@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using BCrypt.Net;
 using DTO;
 using BC = BCrypt.Net.BCrypt;
-namespace DAL
+namespace DAO
 {
     public class TaiKhoanDAO
     {

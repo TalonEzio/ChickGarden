@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace DAO
 {
     public class DoAnDAO
     {
@@ -40,6 +40,9 @@ namespace DAL
                 });
             }
             return DSLoaiDoAn;
+        }
+        public DataTable LayDoAn(int? maLDA = 0) { 
+            return DatabaseAccess.Instance.ExecuteReader("usp_LayDoAn",CachThucHien.StoredProcedure,new string[] {"@MaLDA"},new object[] { maLDA });
         }
 
     }

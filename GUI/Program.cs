@@ -18,7 +18,8 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDangNhap());
+            //Application.Run(new frmDangNhap());
+            Application.Run(new frmTrangChu(new DTO.TaiKhoan() { Username = "TalonEzio", Password = "manhngu123", isAdmin = true, TaiKhoanId = 1 }));
         }
     }
 }

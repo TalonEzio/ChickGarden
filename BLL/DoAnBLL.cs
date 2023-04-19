@@ -1,6 +1,8 @@
-﻿using DTO;
+﻿using DAO;
+using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,11 @@ namespace BLL
 
         public List<LoaiDoAn> LayDanhSachLoaiDoAn(int? maLDA = 0)
         {
-            return DAL.DoAnDAO.Instance.LayDanhSachLoaiDoAn(maLDA);
+            return DoAnDAO.Instance.LayDanhSachLoaiDoAn(maLDA);
+        }
+        public DataTable LayDoAn(int? maLDA = 0)
+        {
+            return DoAnDAO.Instance.LayDoAn(maLDA);
         }
     }
 }

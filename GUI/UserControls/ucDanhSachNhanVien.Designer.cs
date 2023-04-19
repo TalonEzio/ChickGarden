@@ -133,6 +133,7 @@
             // 
             // barManager1
             // 
+            this.barManager1.AllowQuickCustomization = false;
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar1,
             this.bar3});
@@ -176,15 +177,47 @@
             this.btnAdd.Caption = "Thêm mới";
             this.btnAdd.Id = 10;
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
+            this.btnAdd.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnAdd.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnAdd.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnAdd.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnAdd.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnAdd.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnAdd.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnAdd.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnAdd.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnAdd.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnAdd.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnAdd.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnAdd.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnAdd.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnAdd.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnAdd.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
             // btnDelete
             // 
-            this.btnDelete.Caption = "Xóa dòng đã chọn";
+            this.btnDelete.Caption = "Xóa";
             this.btnDelete.Id = 12;
             this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
+            this.btnDelete.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnDelete.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnDelete.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnDelete.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnDelete.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnDelete.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnDelete.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnDelete.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnDelete.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
@@ -194,6 +227,22 @@
             this.btnReLoad.Caption = "Tải lại";
             this.btnReLoad.Id = 9;
             this.btnReLoad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReLoad.ImageOptions.Image")));
+            this.btnReLoad.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnReLoad.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnReLoad.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnReLoad.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnReLoad.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnReLoad.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnReLoad.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnReLoad.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnReLoad.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.btnReLoad.Name = "btnReLoad";
             this.btnReLoad.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnReLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
@@ -203,6 +252,22 @@
             this.btnSave.Caption = "Lưu";
             this.btnSave.Id = 11;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
+            this.btnSave.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnSave.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnSave.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnSave.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnSave.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnSave.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnSave.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnSave.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnSave.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.btnSave.Name = "btnSave";
             this.btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
@@ -212,8 +277,24 @@
             this.btnExport.Caption = "Xuất file";
             this.btnExport.Id = 13;
             this.btnExport.ImageOptions.DisabledSvgImageSize = new System.Drawing.Size(30, 30);
-            this.btnExport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExportExcel.ImageOptions.SvgImage")));
+            this.btnExport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExport.ImageOptions.SvgImage")));
             this.btnExport.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.btnExport.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnExport.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnExport.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnExport.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnExport.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnExport.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnExport.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnExport.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnExport.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnExport.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnExport.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnExport.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnExport.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnExport.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnExport.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 14F);
+            this.btnExport.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.btnExport.Name = "btnExport";
             this.btnExport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExportExcel_ItemClick);
