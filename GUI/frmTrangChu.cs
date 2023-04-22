@@ -102,6 +102,7 @@ namespace GUI
         private void frmTrangChu_Load(object sender, EventArgs e)
         {
             UsingRole();
+
         }
 
         private ucThongTinCaNhan ucThongTinCaNhan;
@@ -143,11 +144,23 @@ namespace GUI
         {
             if (ucPhieuNhap == null)
             {
-                ucPhieuNhap = new ucDanhSachDoAn(taiKhoan);
+                ucPhieuNhap = new ucPhieuNhap(taiKhoan);
                 ucPhieuNhap.Dock = DockStyle.Fill;
                 mainContainer.AddControl(ucPhieuNhap);
             }
             ucPhieuNhap.BringToFront();
         }
+        ucNguyenLieu ucNguyenLieu;
+        private void btnDA_DSNL_Click(object sender, EventArgs e)
+        {
+            if (ucNguyenLieu == null)
+            {
+                ucNguyenLieu = new ucNguyenLieu(taiKhoan);
+                ucNguyenLieu.Dock = DockStyle.Fill;
+                mainContainer.AddControl(ucNguyenLieu);
+            }
+            ucNguyenLieu.BringToFront();
+        }
+
     }
 }

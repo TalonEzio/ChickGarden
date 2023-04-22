@@ -60,19 +60,21 @@
   <ItemGroup>
     <Compile Include="ChucVuDAL.cs" />
     <Compile Include="DoAnDAL.cs" />
+    <Compile Include="LoaiNguyenLieuDAL.cs" />
+    <Compile Include="NguyenLieuDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
     <Compile Include="DatabaseAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{108d6cdd-ff1e-407e-a17d-cdb7a52df10c}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
