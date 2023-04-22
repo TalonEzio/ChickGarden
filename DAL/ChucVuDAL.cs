@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAO
+namespace DAL
 {
-    public class ChucVuDAO
+    public class ChucVuDAL
     {
-        private static ChucVuDAO instance;
-        public static ChucVuDAO Instance
+        private static ChucVuDAL instance;
+        public static ChucVuDAL Instance
         {
             get { 
                 if(instance == null)
                 {
-                    instance = new ChucVuDAO();
+                    instance = new ChucVuDAL();
                 }
                 return instance;
             } private set

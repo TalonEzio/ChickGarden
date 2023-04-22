@@ -125,6 +125,12 @@
     <Compile Include="UserControls\ucDoiMatKhau.Designer.cs">
       <DependentUpon>ucDoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucPhieuNhap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucPhieuNhap.Designer.cs">
+      <DependentUpon>ucPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucThongTinCaNhan.cs">
       <SubType>UserControl</SubType>
     </Compile>

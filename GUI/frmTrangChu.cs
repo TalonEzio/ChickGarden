@@ -138,5 +138,16 @@ namespace GUI
             }
             ucDanhSachDoAn.BringToFront();
         }
+        ucPhieuNhap ucPhieuNhap;
+        private void btnHD_PN_Click(object sender, EventArgs e)
+        {
+            if (ucPhieuNhap == null)
+            {
+                ucPhieuNhap = new ucDanhSachDoAn(taiKhoan);
+                ucPhieuNhap.Dock = DockStyle.Fill;
+                mainContainer.AddControl(ucPhieuNhap);
+            }
+            ucPhieuNhap.BringToFront();
+        }
     }
 }

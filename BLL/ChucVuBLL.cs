@@ -1,4 +1,4 @@
-﻿using DAO;
+﻿using DAL;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace BLL
 
         public List<ChucVu> LayChucVu()
         {
-            return ChucVuDAO.Instance.LayChucVu();
+            return ChucVuDAL.Instance.LayChucVu();
         }
     }
 }

@@ -143,7 +143,7 @@ namespace GUI.UserControls
 
             if (insertCount == insertData.Rows.Count)
             {
-                XtraMessageBox.Show($"Đã cập nhật {insertCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show($"Đã thêm {insertCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

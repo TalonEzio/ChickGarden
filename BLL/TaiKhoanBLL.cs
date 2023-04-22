@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAO;
+using DAL;
 namespace BLL
 {
 	public class TaiKhoanBLL
@@ -27,27 +27,27 @@ namespace BLL
 
 		public TrangThai DangNhap(TaiKhoan taiKhoan)
 		{
-			return TaiKhoanDAO.Instance.DangNhap(taiKhoan);
+			return TaiKhoanDAL.Instance.DangNhap(taiKhoan);
 		}
 		public TrangThai DangKy(TaiKhoan taiKhoan,NhanVien nhanVien,ChucVu chucVu)
 		{
-			return TaiKhoanDAO.Instance.DangKy(taiKhoan,nhanVien, chucVu);
+			return TaiKhoanDAL.Instance.DangKy(taiKhoan,nhanVien, chucVu);
 		}
 		public TrangThai DoiMatKhau(TaiKhoan taiKhoan,string newPassword)
 		{
-			return TaiKhoanDAO.Instance.DoiMatKhau(taiKhoan, newPassword);
+			return TaiKhoanDAL.Instance.DoiMatKhau(taiKhoan, newPassword);
 		}	
 		public void LayQuyen(TaiKhoan taiKhoan)
 		{
-            TaiKhoanDAO.Instance.LayQuyen(taiKhoan);
+            TaiKhoanDAL.Instance.LayQuyen(taiKhoan);
         }
         public TrangThai XoaTaiKhoan(string username)
         {
-            return TaiKhoanDAO.Instance.XoaTaiKhoan(username);
+            return TaiKhoanDAL.Instance.XoaTaiKhoan(username);
         }
 		public void LayId(TaiKhoan taiKhoan)
 		{
-			TaiKhoanDAO.Instance.LayId(taiKhoan);
+			TaiKhoanDAL.Instance.LayId(taiKhoan);
 		}
     }
 }

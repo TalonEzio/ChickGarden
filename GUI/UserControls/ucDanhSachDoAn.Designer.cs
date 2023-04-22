@@ -270,6 +270,7 @@
             // 
             // cmbLoaiDoAn
             // 
+            this.cmbLoaiDoAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoaiDoAn.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.cmbLoaiDoAn.FormattingEnabled = true;
             this.cmbLoaiDoAn.Location = new System.Drawing.Point(527, 10);

@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 using BCrypt.Net;
 using DTO;
 using BC = BCrypt.Net.BCrypt;
-namespace DAO
+namespace DAL
 {
-    public class TaiKhoanDAO
+    public class TaiKhoanDAL
     {
-        private static TaiKhoanDAO instance;
+        private static TaiKhoanDAL instance;
 
-        public static TaiKhoanDAO Instance
+        public static TaiKhoanDAL Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new TaiKhoanDAO();
+                    instance = new TaiKhoanDAL();
                 }
                 return instance;
             }

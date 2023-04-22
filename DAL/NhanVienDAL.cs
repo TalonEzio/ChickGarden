@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAO
+namespace DAL
 {
-    public class NhanVienDAO
+    public class NhanVienDAL
     {
-        private static NhanVienDAO instance;
-        public static NhanVienDAO Instance
+        private static NhanVienDAL instance;
+        public static NhanVienDAL Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new NhanVienDAO();
+                    instance = new NhanVienDAL();
                 return instance;
             }
             set

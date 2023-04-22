@@ -58,10 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChucVuDAO.cs" />
-    <Compile Include="DoAnDAO.cs" />
-    <Compile Include="NhanVienDAO.cs" />
-    <Compile Include="TaiKhoanDAO.cs" />
+    <Compile Include="ChucVuDAL.cs" />
+    <Compile Include="DoAnDAL.cs" />
+    <Compile Include="NhanVienDAL.cs" />
+    <Compile Include="TaiKhoanDAL.cs" />
     <Compile Include="DatabaseAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

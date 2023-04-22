@@ -6,18 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAO
+namespace DAL
 {
-    public class DoAnDAO
+    public class DoAnDAL
     {
-        private static DoAnDAO instance;
-        public static DoAnDAO Instance
+        private static DoAnDAL instance;
+        public static DoAnDAL Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new DoAnDAO();
+                    instance = new DoAnDAL();
                 }
                 return instance;
             }

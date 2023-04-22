@@ -1,4 +1,4 @@
-﻿using DAO;
+﻿using DAL;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -27,15 +27,15 @@ namespace BLL
         }
         public NhanVien LayThongTinNhanVien(string username)
         {
-            return NhanVienDAO.Instance.LayThongTinNhanVien(username);
+            return NhanVienDAL.Instance.LayThongTinNhanVien(username);
         }
         public TrangThai CapNhatThongTin(NhanVien nhanVien,int maChucVu,string username)
         {
-            return NhanVienDAO.Instance.CapNhatThongTin(nhanVien, maChucVu, username);
+            return NhanVienDAL.Instance.CapNhatThongTin(nhanVien, maChucVu, username);
         }
         public DataTable LayDanhSach(string username)
         {
-            return NhanVienDAO.Instance.LayDanhSach(username);
+            return NhanVienDAL.Instance.LayDanhSach(username);
         }
 
     }

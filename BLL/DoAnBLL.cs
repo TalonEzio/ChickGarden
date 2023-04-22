@@ -1,4 +1,4 @@
-﻿using DAO;
+﻿using DAL;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -24,24 +24,24 @@ namespace BLL
 
         public List<LoaiDoAn> LayDanhSachLoaiDoAn(int? maLDA = 0)
         {
-            return DoAnDAO.Instance.LayDanhSachLoaiDoAn(maLDA);
+            return DoAnDAL.Instance.LayDanhSachLoaiDoAn(maLDA);
         }
         public DataTable LayDoAn(int? maLDA = 0)
         {
-            return DoAnDAO.Instance.LayDoAn(maLDA);
+            return DoAnDAL.Instance.LayDoAn(maLDA);
         }
         public TrangThai ThemDoAn(string tenDoAn, int MaLDA)
         {
-            return DoAnDAO.Instance.ThemDoAn(tenDoAn, MaLDA);
+            return DoAnDAL.Instance.ThemDoAn(tenDoAn, MaLDA);
         }
         public  TrangThai XoaDoAn(int MaDoAn)
         {
-            return DoAnDAO.Instance.XoaDoAn(MaDoAn);
+            return DoAnDAL.Instance.XoaDoAn(MaDoAn);
 
         }
         public TrangThai CapNhatDoAn(int maDoAn, string tenDoAn, int maLDA)
         {
-            return DoAnDAO.Instance.CapNhatDoAn(maDoAn,tenDoAn,maLDA);
+            return DoAnDAL.Instance.CapNhatDoAn(maDoAn,tenDoAn,maLDA);
         }
     }
 }
