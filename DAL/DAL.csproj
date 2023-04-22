@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="ChucVuDAL.cs" />
     <Compile Include="DoAnDAL.cs" />
+    <Compile Include="LoaiNguyenLieuDAL.cs" />
+    <Compile Include="NguyenLieuDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
     <Compile Include="DatabaseAccess.cs" />

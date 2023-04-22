@@ -111,7 +111,7 @@ namespace GUI.UserControls
             insertCountTemp++;
 
         }
-        bool ValidateBeforeUpdate(string tenDoAn)
+        bool ValidateBefore(string tenDoAn)
         {
             if (tenDoAn.Length < 3)
             {
@@ -132,12 +132,11 @@ namespace GUI.UserControls
             {
                 string tenDoAn = row.ItemArray[0].ToString();
                 int MaLDA = (int)row.ItemArray[1];
-                if (ValidateBeforeUpdate(tenDoAn) == false) continue;
+                if (ValidateBefore(tenDoAn) == false) continue;
                 TrangThai trangThai = DoAnBLL.Instance.ThemDoAn(tenDoAn, MaLDA);
                 if (trangThai == TrangThai.ThanhCong)
                 {
                     insertCount++;
-                    insertCountTemp--;
                 }
             }
 
@@ -150,6 +149,7 @@ namespace GUI.UserControls
                 XtraMessageBox.Show($"Có {insertCountTemp} dòng cập nhật lỗi, hãy xem lại dữ liệu đầu vào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+            insertCountTemp = 0;
         }
         void UpdateData(DataTable updateData)
         {
@@ -162,7 +162,7 @@ namespace GUI.UserControls
                     int maLDA = (int)row.ItemArray[1];
                     int maDoAn = (int)row.ItemArray[2];
 
-                    if (!ValidateBeforeUpdate(tenDoAn)) continue;
+                    if (!ValidateBefore(tenDoAn)) continue;
                     TrangThai trangThai = DoAnBLL.Instance.CapNhatDoAn(maDoAn, tenDoAn, maLDA);
                     if (trangThai == TrangThai.ThanhCong) updatedCount++;
                 }

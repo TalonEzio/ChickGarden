@@ -125,6 +125,12 @@
     <Compile Include="UserControls\ucDoiMatKhau.Designer.cs">
       <DependentUpon>ucDoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucNguyenLieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucNguyenLieu.Designer.cs">
+      <DependentUpon>ucNguyenLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ucPhieuNhap.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucDoiMatKhau.resx">
       <DependentUpon>ucDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucNguyenLieu.resx">
+      <DependentUpon>ucNguyenLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucPhieuNhap.resx">
+      <DependentUpon>ucPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ucThongTinCaNhan.resx">
       <DependentUpon>ucThongTinCaNhan.cs</DependentUpon>
@@ -213,6 +225,8 @@
     <Content Include="Resources\Icons\DeleteUser.png" />
     <Content Include="Resources\Icons\ExportExcelNhanVien.png" />
     <Content Include="Resources\Icons\Filter.png" />
+    <Content Include="Resources\Icons\icons8_Ingredients_30px_1.png" />
+    <Content Include="Resources\Icons\Ingredients.png" />
     <Content Include="Resources\Icons\NhanVien.png" />
     <Content Include="Resources\Icons\DanhSachDoAn.png" />
     <None Include="Resources\Images\ThongTinCaNhan.png" />
