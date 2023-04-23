@@ -33,10 +33,13 @@ namespace BLL
         {
             return NhanVienDAL.Instance.CapNhatThongTin(nhanVien, maChucVu, username);
         }
-        public DataTable LayDanhSach(string username)
+        public DataTable LayDanhSachNgoaiTru(string username)
         {
-            return NhanVienDAL.Instance.LayDanhSach(username);
+            return NhanVienDAL.Instance.LayDanhSachNgoaiTru(username);
         }
-
+        public List<NhanVien> LayTatCaNhanVien()
+        {
+            return NhanVienDAL.Instance.LayTatCaNhanVien();
+        }
     }
 }

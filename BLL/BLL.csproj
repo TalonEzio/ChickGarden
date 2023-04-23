@@ -45,7 +45,9 @@
     <Compile Include="DoAnBLL.cs" />
     <Compile Include="LoaiNguyenLieuBLL.cs" />
     <Compile Include="NguyenLieuBLL.cs" />
+    <Compile Include="NhaCungCapBLL.cs" />
     <Compile Include="NhanVienBLL.cs" />
+    <Compile Include="PhieuNhapBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanBLL.cs" />
   </ItemGroup>

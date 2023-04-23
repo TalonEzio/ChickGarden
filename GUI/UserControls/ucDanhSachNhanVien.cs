@@ -45,7 +45,7 @@ namespace GUI.UserControls
         private void ucDanhSachNhanVien_Load(object sender, EventArgs e)
         {
 
-            dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
+            dataTable = NhanVienBLL.Instance.LayDanhSachNgoaiTru(taiKhoan.Username);
             grDSNV.DataSource = dataTable;
             deleteData = dataTable.Clone();
             CustomColumn();
@@ -87,7 +87,7 @@ namespace GUI.UserControls
             //    }
             //    deleteData.Rows.Clear();
             //}
-            dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
+            dataTable = NhanVienBLL.Instance.LayDanhSachNgoaiTru(taiKhoan.Username);
             grDSNV.DataSource = dataTable;
         }
         DataTable dataTable = new DataTable();
@@ -170,7 +170,7 @@ namespace GUI.UserControls
         {
             frmDangKy frmDangKy = new frmDangKy();
             frmDangKy.ShowDialog();
-            dataTable = NhanVienBLL.Instance.LayDanhSach(taiKhoan.Username);
+            dataTable = NhanVienBLL.Instance.LayDanhSachNgoaiTru(taiKhoan.Username);
             grDSNV.DataSource = dataTable;
         }
 

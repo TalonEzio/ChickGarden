@@ -50,14 +50,30 @@ namespace DAL
             if (result == 0) return TrangThai.ThatBai;
             return TrangThai.ThanhCong;   
         }
-        public DataTable LayDanhSach(string username)
+        public DataTable LayDanhSachNgoaiTru(string username)
         {
             return DatabaseAccess.Instance.ExecuteReader(
                 "usp_LayDanhSachNhanVien", CachThucHien.StoredProcedure,
                 new string[] {"@username"},
-                new object[] { username }
-
-                );
+                new object[] { username });
+        }
+        public List<NhanVien> LayTatCaNhanVien()
+        {
+            List<NhanVien> DSNV = new List<NhanVien>();
+            DataTable dt = DatabaseAccess.Instance.ExecuteReader("usp_LayTatCaNhanVien", CachThucHien.StoredProcedure);
+            foreach (DataRow dr in dt.Rows)
+            {
+                DSNV.Add(new NhanVien()
+                {
+                    Id = (int)dr.ItemArray[0],
+                    HoTen = dr.ItemArray[1].ToString(),
+                    NgaySinh = DateTime.Parse(dr.ItemArray[2].ToString()),
+                    GioiTinh = (int)dr.ItemArray[3],
+                    QueQuan = dr.ItemArray[4].ToString(),
+                    SoDienThoai = dr.ItemArray[5].ToString()
+                }); ;
+            }
+            return DSNV;
         }
     }
 }

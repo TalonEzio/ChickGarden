@@ -8,6 +8,7 @@ namespace DTO
 {
     public class NhanVien
     {
+        public int Id { get; set; }
         public string HoTen { get; set; }
         public DateTime NgaySinh { get; set; }
         public int GioiTinh { get;set; }
