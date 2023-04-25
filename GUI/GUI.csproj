@@ -138,46 +138,46 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucChiTietPhieuNhap.cs">
+    <Compile Include="UserControls_ChildForm\frmChiTietPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls_ChildForm\frmChiTietPhieuNhap.Designer.cs">
+      <DependentUpon>frmChiTietPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls_ChildForm\ucDanhSachDoAn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucChiTietPhieuNhap.Designer.cs">
-      <DependentUpon>ucChiTietPhieuNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ucDanhSachDoAn.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ucDanhSachDoAn.Designer.cs">
+    <Compile Include="UserControls_ChildForm\ucDanhSachDoAn.Designer.cs">
       <DependentUpon>ucDanhSachDoAn.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucDanhSachNhanVien.cs">
+    <Compile Include="UserControls_ChildForm\ucDanhSachNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucDanhSachNhanVien.Designer.cs">
+    <Compile Include="UserControls_ChildForm\ucDanhSachNhanVien.Designer.cs">
       <DependentUpon>ucDanhSachNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucDoiMatKhau.cs">
+    <Compile Include="UserControls_ChildForm\ucDoiMatKhau.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucDoiMatKhau.Designer.cs">
+    <Compile Include="UserControls_ChildForm\ucDoiMatKhau.Designer.cs">
       <DependentUpon>ucDoiMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucNguyenLieu.cs">
+    <Compile Include="UserControls_ChildForm\ucNguyenLieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucNguyenLieu.Designer.cs">
+    <Compile Include="UserControls_ChildForm\ucNguyenLieu.Designer.cs">
       <DependentUpon>ucNguyenLieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucPhieuNhap.cs">
+    <Compile Include="UserControls_ChildForm\ucPhieuNhap.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucPhieuNhap.Designer.cs">
+    <Compile Include="UserControls_ChildForm\ucPhieuNhap.Designer.cs">
       <DependentUpon>ucPhieuNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucThongTinCaNhan.cs">
+    <Compile Include="UserControls_ChildForm\ucThongTinCaNhan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ucThongTinCaNhan.Designer.cs">
+    <Compile Include="UserControls_ChildForm\ucThongTinCaNhan.Designer.cs">
       <DependentUpon>ucThongTinCaNhan.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmDangKy.resx">
@@ -195,25 +195,25 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucChiTietPhieuNhap.resx">
-      <DependentUpon>ucChiTietPhieuNhap.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls_ChildForm\frmChiTietPhieuNhap.resx">
+      <DependentUpon>frmChiTietPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucDanhSachDoAn.resx">
+    <EmbeddedResource Include="UserControls_ChildForm\ucDanhSachDoAn.resx">
       <DependentUpon>ucDanhSachDoAn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucDanhSachNhanVien.resx">
+    <EmbeddedResource Include="UserControls_ChildForm\ucDanhSachNhanVien.resx">
       <DependentUpon>ucDanhSachNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucDoiMatKhau.resx">
+    <EmbeddedResource Include="UserControls_ChildForm\ucDoiMatKhau.resx">
       <DependentUpon>ucDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucNguyenLieu.resx">
+    <EmbeddedResource Include="UserControls_ChildForm\ucNguyenLieu.resx">
       <DependentUpon>ucNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucPhieuNhap.resx">
+    <EmbeddedResource Include="UserControls_ChildForm\ucPhieuNhap.resx">
       <DependentUpon>ucPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ucThongTinCaNhan.resx">
+    <EmbeddedResource Include="UserControls_ChildForm\ucThongTinCaNhan.resx">
       <DependentUpon>ucThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />

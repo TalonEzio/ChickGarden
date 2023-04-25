@@ -35,15 +35,17 @@
             this.grvDSPN = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReLoad = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.sdDSPN = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grDSPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvDSPN)).BeginInit();
@@ -125,6 +127,7 @@
             this.grvDSPN.Appearance.ViewCaption.Options.UseFont = true;
             this.grvDSPN.GridControl = this.grDSPN;
             this.grvDSPN.Name = "grvDSPN";
+            this.grvDSPN.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.grvDSPN_InitNewRow);
             // 
             // barManager1
             // 
@@ -139,10 +142,11 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barButtonItem2,
-            this.barButtonItem3,
+            this.btnAdd,
             this.barButtonItem1,
-            this.btnSave});
-            this.barManager1.MaxItemId = 5;
+            this.btnSave,
+            this.btnReLoad});
+            this.barManager1.MaxItemId = 6;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -152,35 +156,37 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnAdd, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnReLoad),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
             this.bar1.Text = "Tools";
             // 
-            // barButtonItem3
+            // btnAdd
             // 
-            this.barButtonItem3.Caption = "Thêm phiếu nhập mới";
-            this.barButtonItem3.Id = 2;
-            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barButtonItem3.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.barButtonItem3.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem3.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.barButtonItem3.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem3.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.barButtonItem3.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem3.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.barButtonItem3.ItemAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem3.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.barButtonItem3.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem3.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.barButtonItem3.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.barButtonItem3.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.barButtonItem3.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem3.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 12F);
-            this.barButtonItem3.ItemInMenuAppearance.Pressed.Options.UseFont = true;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnAdd.Caption = "Thêm phiếu nhập mới";
+            this.btnAdd.Id = 2;
+            this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
+            this.btnAdd.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnAdd.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnAdd.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnAdd.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnAdd.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnAdd.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnAdd.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnAdd.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnAdd.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnAdd.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnAdd.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnAdd.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnAdd.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnAdd.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnAdd.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnAdd.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -205,12 +211,13 @@
             this.barButtonItem1.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // btnSave
             // 
             this.btnSave.Caption = "Lưu thay đổi";
             this.btnSave.Id = 4;
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
             this.btnSave.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
             this.btnSave.ItemAppearance.Disabled.Options.UseFont = true;
             this.btnSave.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
@@ -233,7 +240,7 @@
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "Xuất Excel";
+            this.barButtonItem2.Caption = "Xuất File";
             this.barButtonItem2.Id = 1;
             this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
             this.barButtonItem2.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
@@ -254,6 +261,32 @@
             this.barButtonItem2.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            // 
+            // btnReLoad
+            // 
+            this.btnReLoad.Caption = "Tải lại";
+            this.btnReLoad.Id = 5;
+            this.btnReLoad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.btnReLoad.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReLoad.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnReLoad.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReLoad.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnReLoad.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReLoad.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnReLoad.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReLoad.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnReLoad.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReLoad.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnReLoad.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReLoad.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnReLoad.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReLoad.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnReLoad.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReLoad.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnReLoad.Name = "btnReLoad";
+            this.btnReLoad.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnReLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReLoad_ItemClick);
             // 
             // bar3
             // 
@@ -299,6 +332,10 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 463);
             // 
+            // sdDSPN
+            // 
+            this.sdDSPN.FileName = "xtraSaveFileDialog1";
+            // 
             // ucPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,8 +369,10 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem btnAdd;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btnSave;
+        private DevExpress.XtraEditors.XtraSaveFileDialog sdDSPN;
+        private DevExpress.XtraBars.BarButtonItem btnReLoad;
     }
 }
