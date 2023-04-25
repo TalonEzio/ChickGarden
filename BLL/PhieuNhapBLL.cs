@@ -29,5 +29,9 @@ namespace BLL
         {
             return PhieuNhapDAL.Instance.CapNhatPhieuNhap(phieuNhap);
         }
+        public TrangThai ThemPhieuNhap(PhieuNhap phieuNhap)
+        {
+            return PhieuNhapDAL.Instance.ThemPhieuNhap(phieuNhap);
+        }
     }
 }

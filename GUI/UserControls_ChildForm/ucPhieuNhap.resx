@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="barButtonItem3.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAdd.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAeJJREFUSEvN
         l81Kw0AUhQOioksXCooKigtx2ZXaplBBKQiugjVJu+xzdFEz01ZcuPOngiAKPoALEUUQXKlvoK+gYhHd
@@ -151,7 +151,23 @@
         YII=
 </value>
   </data>
-  <data name="barButtonItem4.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="barButtonItem3.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAm5JREFUSEvt
+        VjtrFFEUXhtRUEGwUFCwECwEQSxEknk0WvgAUVd2Z24R7BRBsVEEcQoz946Kf8DC0ldtUCT+DBUxlSLE
+        FJIoRDCb9Tt3z5DJnbOzk6yvIh987M5857F77znn3sYa/jt4anxHEOuLfqxfgm/AGSa+py+CyFwIx+5s
+        Z/PhESq9x1f6KRJ0wO4AdsiWfNh9dfCUPoNg353gdfjNU+kpDrMyBCq9igCLTsCVsOPF6RUOVw9eZFpw
+        HCZpzkVfmXMcthphnO2Ew5wTIOcM9jAZjfTBw837G/c1k/Vee3x/oMwNaJ8d25yzVJgcvj9QuQ8FZ0tP
+        meNsVkLYTDZhex5JfkGkH7CZjLCld8Owb/WiYD5g3876sXmN50/gNFbg+VIhddehtZ4UfZgLfuv2rp6N
+        AOzHZcGpFr3YZBRj5Hy2Gc/TJV3pSzaJBBoErgP+kbF030uM0mMUB0luCvqETSIB4vtlxkjIElZjcHIv
+        1q/IlopP0N/aQBIgLlVzIWmOwcnNV7JD4q2CPmuDSIBYmlKH4mQLa/1arMdIX7NBCqB3BZs5fl0GxOVL
+        TWzpA1aL9GRJc1lI7iTtok3fsVSGWFyRvkVa0DYnS5pESugkZVYUl9ROSn+h4cD63ZJek5XtVDFAHtNw
+        IBu0zGk8T9APwudH/LtJPsWm2FZi9QAh9BuZQWye5YUmYTROT0h+xIEjkzDgkMBEMtdHVLaXDohwLNlA
+        xWcHRm8FJJ96hwQBxkfBhYLzavkzUNkRDlsP/+QikIOL5u9efXKE7XvbeFTOO8ElzpMt+bD78HCut1No
+        ox+Wto3+wPV2Db8HjcYvrIlz7c/GKdAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnSave.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAQVJREFUSEvt
         lkEOwVAURbsREdbRfGIoFsAv6zCVEL/7EdsxENZBcTXf8y59/BknuZPed25nTbM/v0derEeuKHeuCKd7
@@ -175,4 +191,7 @@
         7s8rl/sEk7yH60bbsZwAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="sdDSPN.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>142, 17</value>
+  </metadata>
 </root>

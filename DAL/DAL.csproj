@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietPhieuNhapDAL.cs" />
     <Compile Include="ChucVuDAL.cs" />
     <Compile Include="DoAnDAL.cs" />
     <Compile Include="LoaiNguyenLieuDAL.cs" />

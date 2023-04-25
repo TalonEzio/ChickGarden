@@ -37,5 +37,14 @@ namespace DAL
                 ) == 0) return TrangThai.ThatBai;
             return TrangThai.ThanhCong;
         }
+        public TrangThai ThemPhieuNhap(PhieuNhap phieuNhap)
+        {
+            if (DatabaseAccess.Instance.ExecuteNonQuery(
+                "usp_ThemPhieuNhap", CachThucHien.StoredProcedure,
+                new string[] { "@NgayNhap", "@MaNCC", "@MaNV", "@MoTa" },
+                new object[] { phieuNhap.NgayNhap, phieuNhap.MaNCC, phieuNhap.MaNV, phieuNhap.MoTa }
+                ) == 0) return TrangThai.ThatBai;
+            return TrangThai.ThanhCong;
+        }
     }
 }
