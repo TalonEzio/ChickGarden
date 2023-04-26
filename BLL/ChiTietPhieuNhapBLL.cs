@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,6 +25,20 @@ namespace BLL
         {
             return ChiTietPhieuNhapDAL.Instance.LayChiTietPhieuNhap(maPhieuNhap);
         }
+        public TrangThai ThemNguyenLieuVaoCTPN(object[] input)
+        {
+            return ChiTietPhieuNhapDAL.Instance.ThemNguyenLieuVaoCTPN(input);
+        }
+        public TrangThai CapNhatNguyenLieuTrongCTPN(object[] input)
+        {
+            return ChiTietPhieuNhapDAL.Instance.CapNhatNguyenLieuTrongCTPN(input);
+
+        }
+        public TrangThai XoaNguyenLieuKhoiCTPN(int maPhieuNhap, int maNguyenLieu)
+        {
+            return ChiTietPhieuNhapDAL.Instance.XoaNguyenLieuKhoiCTPN(maPhieuNhap, maNguyenLieu);
+        }
+
 
     }
 }

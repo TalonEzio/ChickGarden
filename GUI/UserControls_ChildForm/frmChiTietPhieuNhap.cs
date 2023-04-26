@@ -24,7 +24,7 @@ namespace GUI.UserControls
             InitializeComponent();
             this.phieuNhap = phieuNhap;
         }
-        DataTable dt;
+        DataTable dt, insertData, deleteData, updateData;
         List<NguyenLieu> DSNL = new List<NguyenLieu>();
         void LoadData()
         {
@@ -40,7 +40,7 @@ namespace GUI.UserControls
                 {
                     MaNguyenLieu = (int)dr.ItemArray[4],
                     TenNguyenLieu = dr.ItemArray[0].ToString(),
-                    SoLuongTon =(int) dr.ItemArray[1],
+                    SoLuongTon = (int)dr.ItemArray[1],
                     DonViTinh = dr.ItemArray[2].ToString()
                 });
             }
@@ -70,14 +70,17 @@ namespace GUI.UserControls
             }
 
             bool isDuplicate = false;
-            for (int i = 0; i < grvCTPN.RowCount; i++)
+            for (int i = 0; i < grvCTPN.DataRowCount; i++)
             {
                 if (currentValue == (int)grvCTPN.GetRowCellValue(i, "Nguyên liệu"))
                 {
                     XtraMessageBox.Show("Nguyên liệu này đã có trong phiếu nhập, không thể chọn được!");
                     if (previousValue == -1)
                     {
-                        previousValue = (int)leNguyenLieu.OldEditValue;
+                        if (leNguyenLieu.OldEditValue != System.DBNull.Value)
+                        {
+                            previousValue = (int)leNguyenLieu.OldEditValue;
+                        }
                     }
                     leNguyenLieu.EditValue = previousValue;
 
@@ -85,22 +88,22 @@ namespace GUI.UserControls
                     break;
                 }
             }
+
             if (!isDuplicate)
             {
                 DataRow dr = grvCTPN.GetDataRow(grvCTPN.FocusedRowHandle);
 
                 dr["Nguyên liệu"] = currentValue;
                 grvCTPN.SetRowCellValue(grvCTPN.FocusedRowHandle, "Nguyên liệu", currentValue);
-                grvCTPN.RefreshData();
+                grvCTPN.PostEditor();
+                grvCTPN.UpdateCurrentRow();
+
 
                 previousValue = currentValue;
 
             }
 
         }
-
-
-
 
         void CustomSoLuong()
         {
@@ -119,6 +122,158 @@ namespace GUI.UserControls
         {
             LoadData();
             CustomColumn();
+        }
+        int insertCountTemp = 0;
+        private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            grvCTPN.AddNewRow();
+            insertCountTemp++;
+
+        }
+
+        private void grvCTPN_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            grvCTPN.SetRowCellValue(e.RowHandle, "Hạn sử dụng", DateTime.Now);
+            grvCTPN.SetRowCellValue(e.RowHandle, "Số lượng", 0);
+        }
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (grvCTPN.SelectedRowsCount == 0)
+            {
+                XtraMessageBox.Show("Chưa chọn dòng nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (deleteData == null) deleteData = dt.Clone();
+
+
+            int[] selectedRows = grvCTPN.GetSelectedRows();
+
+            DialogResult result = XtraMessageBox.Show($"bạn muốn xóa {selectedRows.Length} dòng đã chọn?", "Xóa dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                for (int i = selectedRows.Length - 1; i >= 0; i--)
+                {
+                    deleteData.Rows.Add(grvCTPN.GetDataRow(selectedRows[i]).ItemArray);
+                    grvCTPN.DeleteRow(selectedRows[i]);
+                }
+                DeleteData(deleteData);
+            }
+        }
+
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            grvCTPN.CloseEditor();
+            grvCTPN.UpdateCurrentRow();
+            insertData = dt.GetChanges(DataRowState.Added);
+            InsertData(insertData);
+
+            updateData = dt.GetChanges(DataRowState.Modified);
+            UpdateData(updateData);
+            LoadData();
+        }
+
+        void DeleteData(DataTable deleteData)
+        {
+            int deletedCount = 0;
+
+            foreach (DataRow row in deleteData.Rows)
+            {
+                int maNguyenLieu = (int)row[0];
+                TrangThai trangThai = ChiTietPhieuNhapBLL.Instance.XoaNguyenLieuKhoiCTPN(phieuNhap.MaPhieuNhap,maNguyenLieu);
+                if (trangThai == TrangThai.ThanhCong)
+                {
+                    deletedCount++;
+                }
+            }
+            XtraMessageBox.Show($"Xóa thành công {deletedCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            deleteData.Rows.Clear();
+        }
+
+        private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (insertCountTemp > 0)
+            {
+                DialogResult result = XtraMessageBox.Show($"Có {insertCountTemp} dòng chưa thêm, bạn muốn tải lại chứ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.No) { return; }
+
+                if (result == DialogResult.Yes)
+                {
+                    insertData.Rows.Clear();
+                    insertCountTemp = 0;
+                }
+            }
+        }
+        void InsertData(DataTable insertData)
+        {
+            int insertCount = 0;
+            if (insertData == null)
+            {
+                return;
+            }
+            foreach (DataRow row in insertData.Rows)
+            {
+                int maNguyenLieu = (int)row.ItemArray[0];
+                double donGia = 0;
+             
+                bool convert = double.TryParse(row.ItemArray[1].ToString(),out donGia);
+                if (convert == false) continue;
+
+                int soLuong = (int)row.ItemArray[2]; 
+                DateTime hanSuDung = DateTime.Parse(row.ItemArray[3].ToString());
+
+                TrangThai trangThai = ChiTietPhieuNhapBLL.Instance.ThemNguyenLieuVaoCTPN
+                    (new object[] { phieuNhap.MaPhieuNhap, maNguyenLieu, donGia, soLuong, hanSuDung });
+
+                if (trangThai == TrangThai.ThanhCong)
+                {
+                    insertCount++;
+                }
+            }
+
+            if (insertCount == insertData.Rows.Count)
+            {
+                XtraMessageBox.Show($"Đã thêm {insertCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show($"Có {insertCountTemp} dòng cập nhật lỗi, hãy xem lại dữ liệu đầu vào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            insertCountTemp = 0;
+            insertData.Rows.Clear();
+        }
+        void UpdateData(DataTable updateData)
+        {
+            if (updateData != null)
+            {
+                int updatedCount = 0;
+                foreach (DataRow row in updateData.Rows)
+                {
+                    int maNguyenLieu = (int)row.ItemArray[0];
+                    double donGia = 0;
+
+                    bool convert = double.TryParse(row.ItemArray[1].ToString(), out donGia);
+                    if (convert == false) continue;
+
+                    int soLuong = (int)row.ItemArray[2];
+                    DateTime hanSuDung = DateTime.Parse(row.ItemArray[3].ToString());
+
+                    TrangThai trangThai = ChiTietPhieuNhapBLL.Instance.CapNhatNguyenLieuTrongCTPN(
+                        new object[] { phieuNhap.MaPhieuNhap, maNguyenLieu, donGia, soLuong, hanSuDung });
+                    if (trangThai == TrangThai.ThanhCong) updatedCount++;
+                }
+                if (updatedCount == updateData.Rows.Count)
+                {
+                    XtraMessageBox.Show($"Đã cập nhật {updatedCount} dòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show($"Có {updateData.Rows.Count - updatedCount} dòng cập nhật lỗi, hãy xem lại dữ liệu đầu vào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                updateData.Rows.Clear();
+
+            }
         }
     }
 }

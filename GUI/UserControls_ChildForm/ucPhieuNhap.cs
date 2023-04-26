@@ -70,7 +70,7 @@ namespace GUI.UserControls
             cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("DiaChi", "Địa chỉ ", 120));
             cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("SoDienThoai", "Số điện thoại", 30));
             cmbNhaCungCap.Columns["MaNCC"].Visible = false;
-            cmbNhaCungCap.ShowHeader = false;
+            //cmbNhaCungCap.ShowHeader = false;
             grvDSPN.Columns[1].ColumnEdit = cmbNhaCungCap;
         }
         void CustomNgayNhap()
@@ -267,6 +267,8 @@ namespace GUI.UserControls
                 this.Controls.Remove(frmChiTietPhieuNhap);
             }
             frmChiTietPhieuNhap.ShowDialog();
+            TaiDanhSachPhieuNhap();
+
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

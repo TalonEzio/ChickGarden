@@ -162,5 +162,9 @@ namespace GUI
             ucNguyenLieu.BringToFront();
         }
 
+        private void btnHD_PX_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

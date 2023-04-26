@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Navigation.AccordionContextButton accordionContextButton2 = new DevExpress.XtraBars.Navigation.AccordionContextButton();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
+            DevExpress.XtraBars.Navigation.AccordionContextButton accordionContextButton2 = new DevExpress.XtraBars.Navigation.AccordionContextButton();
             this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.btnNhanVien = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnNV_DSNV = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -61,8 +61,8 @@
             this.btnDA_LDA = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnHD_NCC = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mainContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +78,17 @@
             this.mainContainer.Size = new System.Drawing.Size(771, 680);
             this.mainContainer.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(771, 114);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // fluentFormDefaultManager1
             // 
             this.fluentFormDefaultManager1.Form = this;
@@ -90,17 +101,6 @@
             this.barHeaderItem1.Caption = "barHeaderItem1";
             this.barHeaderItem1.Id = 0;
             this.barHeaderItem1.Name = "barHeaderItem1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(771, 114);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // accordionControl1
             // 
@@ -237,10 +237,10 @@
             // 
             // btnHD_PX
             // 
-            this.btnHD_PX.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHD_PX.ImageOptions.SvgImage")));
             this.btnHD_PX.Name = "btnHD_PX";
             this.btnHD_PX.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnHD_PX.Text = "Phiếu xuất";
+            this.btnHD_PX.Click += new System.EventHandler(this.btnHD_PX_Click);
             // 
             // accordionControlSeparator1
             // 
@@ -366,8 +366,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTrangChu_FormClosing);
             this.Load += new System.EventHandler(this.frmTrangChu_Load);
             this.mainContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             this.ResumeLayout(false);

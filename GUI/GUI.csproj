@@ -267,6 +267,7 @@
     <Content Include="Resources\Icons\Filter.png" />
     <Content Include="Resources\Icons\Bill.png" />
     <Content Include="Resources\Icons\AddBill.png" />
+    <Content Include="Resources\Icons\Delete.png" />
     <Content Include="Resources\Icons\icons8_Ingredients_30px_1.png" />
     <Content Include="Resources\Icons\Detail.png" />
     <Content Include="Resources\Icons\Ingredients.png" />
