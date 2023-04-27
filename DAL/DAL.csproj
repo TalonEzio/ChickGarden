@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChiTietPhieuNhapDAL.cs" />
+    <Compile Include="ChiTietPhieuXuatDAL.cs" />
     <Compile Include="ChucVuDAL.cs" />
     <Compile Include="DoAnDAL.cs" />
     <Compile Include="LoaiNguyenLieuDAL.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="NhaCungCapDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="PhieuNhapDAL.cs" />
+    <Compile Include="PhieuXuatDAL.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
     <Compile Include="DatabaseAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

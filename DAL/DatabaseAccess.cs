@@ -11,7 +11,7 @@ namespace DAL
 {
     internal class DatabaseAccess
     {
-        string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["strConn"].ToString();
+        readonly string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["strConn"].ToString();
 
         public SqlConnection conn = null;
 

@@ -29,6 +29,7 @@ namespace GUI.UserControls
         void LoadData()
         {
             dt = ChiTietPhieuNhapBLL.Instance.LayDanhSachPhieuNhap(phieuNhap.MaPhieuNhap);
+            dt.Columns[0].Unique = true;
             grCTPN.DataSource = dt;
         }
         void CustomNguyenLieu()
@@ -51,60 +52,11 @@ namespace GUI.UserControls
             cmbNguyenLieu.ShowHeader = false;
             cmbNguyenLieu.NullText = "Chọn loại nguyên liệu";
             grvCTPN.Columns[0].ColumnEdit = cmbNguyenLieu;
-
-            cmbNguyenLieu.EditValueChanged += CmbNguyenLieu_EditValueChanged;
-
         }
 
         private int previousValue = -1;
 
-        private void CmbNguyenLieu_EditValueChanged(object sender, EventArgs e)
-        {
-            LookUpEdit leNguyenLieu = (sender as LookUpEdit);
-
-            int currentValue = (int)leNguyenLieu.EditValue;
-
-            if (currentValue == previousValue)
-            {
-                return;
-            }
-
-            bool isDuplicate = false;
-            for (int i = 0; i < grvCTPN.DataRowCount; i++)
-            {
-                if (currentValue == (int)grvCTPN.GetRowCellValue(i, "Nguyên liệu"))
-                {
-                    XtraMessageBox.Show("Nguyên liệu này đã có trong phiếu nhập, không thể chọn được!");
-                    if (previousValue == -1)
-                    {
-                        if (leNguyenLieu.OldEditValue != System.DBNull.Value)
-                        {
-                            previousValue = (int)leNguyenLieu.OldEditValue;
-                        }
-                    }
-                    leNguyenLieu.EditValue = previousValue;
-
-                    isDuplicate = true;
-                    break;
-                }
-            }
-
-            if (!isDuplicate)
-            {
-                DataRow dr = grvCTPN.GetDataRow(grvCTPN.FocusedRowHandle);
-
-                dr["Nguyên liệu"] = currentValue;
-                grvCTPN.SetRowCellValue(grvCTPN.FocusedRowHandle, "Nguyên liệu", currentValue);
-                grvCTPN.PostEditor();
-                grvCTPN.UpdateCurrentRow();
-
-
-                previousValue = currentValue;
-
-            }
-
-        }
-
+        
         void CustomSoLuong()
         {
             RepositoryItemSpinEdit spinEdit = new RepositoryItemSpinEdit();
@@ -202,6 +154,7 @@ namespace GUI.UserControls
                     insertCountTemp = 0;
                 }
             }
+            LoadData();
         }
         void InsertData(DataTable insertData)
         {

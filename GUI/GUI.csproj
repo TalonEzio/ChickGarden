@@ -144,6 +144,12 @@
     <Compile Include="UserControls_ChildForm\frmChiTietPhieuNhap.Designer.cs">
       <DependentUpon>frmChiTietPhieuNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls_ChildForm\frmChiTietPhieuXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls_ChildForm\frmChiTietPhieuXuat.Designer.cs">
+      <DependentUpon>frmChiTietPhieuXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls_ChildForm\ucDanhSachDoAn.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,6 +180,12 @@
     <Compile Include="UserControls_ChildForm\ucPhieuNhap.Designer.cs">
       <DependentUpon>ucPhieuNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls_ChildForm\ucPhieuXuat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls_ChildForm\ucPhieuXuat.Designer.cs">
+      <DependentUpon>ucPhieuXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls_ChildForm\ucThongTinCaNhan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -198,6 +210,9 @@
     <EmbeddedResource Include="UserControls_ChildForm\frmChiTietPhieuNhap.resx">
       <DependentUpon>frmChiTietPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls_ChildForm\frmChiTietPhieuXuat.resx">
+      <DependentUpon>frmChiTietPhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls_ChildForm\ucDanhSachDoAn.resx">
       <DependentUpon>ucDanhSachDoAn.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls_ChildForm\ucPhieuNhap.resx">
       <DependentUpon>ucPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls_ChildForm\ucPhieuXuat.resx">
+      <DependentUpon>ucPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls_ChildForm\ucThongTinCaNhan.resx">
       <DependentUpon>ucThongTinCaNhan.cs</DependentUpon>
@@ -268,6 +286,7 @@
     <Content Include="Resources\Icons\Bill.png" />
     <Content Include="Resources\Icons\AddBill.png" />
     <Content Include="Resources\Icons\Delete.png" />
+    <Content Include="Resources\Icons\PhieuNhap.png" />
     <Content Include="Resources\Icons\icons8_Ingredients_30px_1.png" />
     <Content Include="Resources\Icons\Detail.png" />
     <Content Include="Resources\Icons\Ingredients.png" />

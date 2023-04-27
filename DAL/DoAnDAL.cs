@@ -41,6 +41,22 @@ namespace DAL
             }
             return DSLoaiDoAn;
         }
+        public List<DoAn> LayTatCaDoAn()
+        {
+            List<DoAn> DSDA = new List<DoAn>();
+            DataTable dataTable = DatabaseAccess.Instance.ExecuteReader("usp_LayTatCaDoAn", CachThucHien.StoredProcedure);
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                DSDA.Add(new DoAn()
+                {
+                    MaDoAn = (int)dataRow[0],
+                    TenDoAn = dataRow[1].ToString(),
+                    MaLDA = (int)dataRow[2]
+                });
+            }
+            return DSDA;
+
+        }
         public DataTable LayDoAn(int? maLDA = 0)
         {
             return DatabaseAccess.Instance.ExecuteReader("usp_LayDoAn", CachThucHien.StoredProcedure, new string[] { "@MaLDA" }, new object[] { maLDA });
@@ -74,8 +90,8 @@ namespace DAL
             if (DatabaseAccess.Instance.ExecuteNonQuery(
                 "usp_CapNhatDoAn",
                 CachThucHien.StoredProcedure,
-                new string[] { "@MaDoAn","@TenDoAn", "@MaLDA"  },
-                new object[] { maDoAn,tenDoAn,maLDA }
+                new string[] { "@MaDoAn", "@TenDoAn", "@MaLDA" },
+                new object[] { maDoAn, tenDoAn, maLDA }
                 ) == 0
             )
                 return TrangThai.ThatBai;

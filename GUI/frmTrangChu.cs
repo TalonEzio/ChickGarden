@@ -3,6 +3,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DTO;
 using GUI.UserControls;
+using GUI.UserControls_ChildForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -161,10 +162,17 @@ namespace GUI
             }
             ucNguyenLieu.BringToFront();
         }
+        ucPhieuXuat ucPhieuXuat;
 
         private void btnHD_PX_Click(object sender, EventArgs e)
         {
-
+            if (ucPhieuXuat == null)
+            {
+                ucPhieuXuat = new ucPhieuXuat(taiKhoan);
+                ucPhieuXuat.Dock = DockStyle.Fill;
+                mainContainer.AddControl(ucPhieuXuat);
+            }
+            ucPhieuXuat.BringToFront();
         }
     }
 }

@@ -43,5 +43,9 @@ namespace BLL
         {
             return DoAnDAL.Instance.CapNhatDoAn(maDoAn,tenDoAn,maLDA);
         }
+        public List<DoAn> LayTatCaDoAn()
+        {
+            return DoAnDAL.Instance.LayTatCaDoAn();
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace GUI.UserControls
         void TaiDanhSachPhieuNhap()
         {
             dt = PhieuNhapBLL.Instance.LayDanhSachPhieuNhap();
+            grDSPN.BeginUpdate();
             grDSPN.DataSource = dt;
             if (insertData == null) insertData = dt.Clone();
             grDSPN.EndUpdate();
@@ -49,12 +50,12 @@ namespace GUI.UserControls
             cmbNhanVien.DataSource = DSNV;
             cmbNhanVien.DisplayMember = "HoTen";
             cmbNhanVien.ValueMember = "Id";
-            cmbNhanVien.Columns.Add(new LookUpColumnInfo("Id", "Mã nhân viên", 20));
-            cmbNhanVien.Columns.Add(new LookUpColumnInfo("HoTen", "Họ tên", 50));
-            cmbNhanVien.Columns.Add(new LookUpColumnInfo("SoDienThoai", "Số điện thoại", 50));
-            cmbNhanVien.Columns.Add(new LookUpColumnInfo("NgaySinh", "Ngày sinh", 50));
-            cmbNhanVien.Columns.Add(new LookUpColumnInfo("GioiTinh", "Giới tính", 50));
-            cmbNhanVien.Columns.Add(new LookUpColumnInfo("QueQuan", "Quê quán", 50));
+            cmbNhanVien.Columns.Add(new LookUpColumnInfo("Id", "Mã nhân viên"));
+            cmbNhanVien.Columns.Add(new LookUpColumnInfo("HoTen", "Họ tên"));
+            cmbNhanVien.Columns.Add(new LookUpColumnInfo("SoDienThoai", "Số điện thoại"));
+            cmbNhanVien.Columns.Add(new LookUpColumnInfo("NgaySinh", "Ngày sinh"));
+            cmbNhanVien.Columns.Add(new LookUpColumnInfo("GioiTinh", "Giới tính"));
+            cmbNhanVien.Columns.Add(new LookUpColumnInfo("QueQuan", "Quê quán"));
             cmbNhanVien.Columns["Id"].Visible = false;
 
             grvDSPN.Columns[0].ColumnEdit = cmbNhanVien;
@@ -65,10 +66,10 @@ namespace GUI.UserControls
             cmbNhaCungCap.DataSource = DSNCC;
             cmbNhaCungCap.DisplayMember = "TenNCC";
             cmbNhaCungCap.ValueMember = "MaNCC";
-            cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("MaNCC", "Mã NCC", 20));
-            cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("TenNCC", "Tên NCC", 50));
-            cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("DiaChi", "Địa chỉ ", 120));
-            cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("SoDienThoai", "Số điện thoại", 30));
+            cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("MaNCC", "Mã NCC"));
+            cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("TenNCC", "Tên NCC"));
+            cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("DiaChi", "Địa chỉ "));
+            cmbNhaCungCap.Columns.Add(new LookUpColumnInfo("SoDienThoai", "Số điện thoại"));
             cmbNhaCungCap.Columns["MaNCC"].Visible = false;
             //cmbNhaCungCap.ShowHeader = false;
             grvDSPN.Columns[1].ColumnEdit = cmbNhaCungCap;
@@ -237,6 +238,7 @@ namespace GUI.UserControls
                     insertCountTemp = 0;
                 }
             }
+            TaiDanhSachPhieuNhap();
         }
 
         private void grvDSPN_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -265,6 +267,7 @@ namespace GUI.UserControls
             else
             {
                 this.Controls.Remove(frmChiTietPhieuNhap);
+                frmChiTietPhieuNhap = new frmChiTietPhieuNhap(phieuNhap);
             }
             frmChiTietPhieuNhap.ShowDialog();
             TaiDanhSachPhieuNhap();
