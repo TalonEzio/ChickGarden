@@ -35,6 +35,10 @@ namespace GUI.UserControls_ChildForm
         void TaiDanhSachPhieuXuat()
         {
             dt = PhieuXuatBLL.Instance.LayDanhSachPhieuXuat();
+            foreach (DataColumn dc in dt.Columns)
+            {
+                dc.AllowDBNull = false;
+            }
             grPhieuXuat.BeginUpdate();
             grPhieuXuat.DataSource = dt;
 

@@ -75,5 +75,10 @@ namespace DAL
             }
             return DSNV;
         }
+        public int LayMaNhanVien(string userName)
+        {
+            return (int)DatabaseAccess.Instance.ExecuteScalar("usp_LayMaNhanVien", CachThucHien.StoredProcedure,
+                new string[] { "@UserName" }, new object[] { userName });
+        }
     }
 }

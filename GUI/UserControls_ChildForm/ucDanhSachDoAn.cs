@@ -58,7 +58,13 @@ namespace GUI.UserControls
         {
             grDSDA.DataSource = null;
             dt = DoAnBLL.Instance.LayDoAn(MaLDA);
+
             if (insertData == null) insertData = dt.Clone();
+
+            foreach (DataColumn dc in dt.Columns)
+            {
+                dc.AllowDBNull = false;
+            }
             grDSDA.DataSource = dt;
             grvDSDA.Columns[grvDSDA.Columns.Count - 1].Visible = false;
             grDSDA.RefreshDataSource();

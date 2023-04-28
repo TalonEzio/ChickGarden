@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DevExpress.CodeParser;
+using DevExpress.Pdf.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
@@ -33,11 +34,17 @@ namespace GUI.UserControls
             InitializeComponent();
             this.taiKhoan = taiKhoan;
             nhanVien = NhanVienBLL.Instance.LayThongTinNhanVien(taiKhoan.Username);
+            nhanVien.Id = NhanVienBLL.Instance.LayMaNhanVien(taiKhoan.Username);
         }
 
         void TaiDanhSachPhieuNhap()
         {
             dt = PhieuNhapBLL.Instance.LayDanhSachPhieuNhap();
+            foreach (DataColumn dc in dt.Columns)
+            {
+                dc.AllowDBNull = false;
+            }
+            dt.Columns[4].AllowDBNull = true;
             grDSPN.BeginUpdate();
             grDSPN.DataSource = dt;
             if (insertData == null) insertData = dt.Clone();
@@ -244,7 +251,11 @@ namespace GUI.UserControls
         private void grvDSPN_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView view = sender as GridView;
+            view.SetRowCellValue(e.RowHandle, view.Columns[0],nhanVien.Id);
             view.SetRowCellValue(e.RowHandle, view.Columns[2], DateTimeOffset.Now);
+            view.SetRowCellValue(e.RowHandle, view.Columns[4], 0);
+
+
         }
         frmChiTietPhieuNhap frmChiTietPhieuNhap = null;
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

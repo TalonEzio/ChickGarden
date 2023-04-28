@@ -46,6 +46,10 @@ namespace GUI.UserControls
         {
 
             dataTable = NhanVienBLL.Instance.LayDanhSachNgoaiTru(taiKhoan.Username);
+            foreach (DataColumn dc in dataTable.Columns)
+            {
+                dc.AllowDBNull = false;
+            }
             grDSNV.DataSource = dataTable;
             deleteData = dataTable.Clone();
             CustomColumn();
@@ -164,6 +168,7 @@ namespace GUI.UserControls
             {
                 XtraMessageBox.Show($"Không có gì thay đổi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            btnReLoad.PerformClick();
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

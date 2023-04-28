@@ -30,6 +30,11 @@ namespace GUI.UserControls
         {
             dt = ChiTietPhieuNhapBLL.Instance.LayDanhSachPhieuNhap(phieuNhap.MaPhieuNhap);
             dt.Columns[0].Unique = true;
+
+            foreach (DataColumn dc in dt.Columns)
+            {
+                dc.AllowDBNull = false;
+            }
             grCTPN.DataSource = dt;
         }
         void CustomNguyenLieu()
@@ -78,6 +83,8 @@ namespace GUI.UserControls
         int insertCountTemp = 0;
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            grvCTPN.CloseEditor();
+            grvCTPN.UpdateCurrentRow();
             grvCTPN.AddNewRow();
             insertCountTemp++;
 
@@ -90,6 +97,8 @@ namespace GUI.UserControls
         }
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            grvCTPN.CloseEditor();
+            grvCTPN.UpdateCurrentRow();
             if (grvCTPN.SelectedRowsCount == 0)
             {
                 XtraMessageBox.Show("Chưa chọn dòng nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -143,6 +152,7 @@ namespace GUI.UserControls
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
             if (insertCountTemp > 0)
             {
                 DialogResult result = XtraMessageBox.Show($"Có {insertCountTemp} dòng chưa thêm, bạn muốn tải lại chứ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

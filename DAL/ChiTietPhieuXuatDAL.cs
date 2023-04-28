@@ -48,11 +48,11 @@ namespace DAL
             if (result == 0) return TrangThai.ThatBai;
             return TrangThai.ThanhCong;
         }
-        public TrangThai XoaDoAnKhoiCTPX(object[] input)
+        public TrangThai XoaDoAnKhoiCTPX(int maPhieuXuat, int madoAn)
         {
             int result = DatabaseAccess.Instance.ExecuteNonQuery("usp_XoaDoAnKhoiCTPX", CachThucHien.StoredProcedure,
                 new string[] { "@MaHoaDon", "@MaDoAn" },
-                input);
+                new object[] {maPhieuXuat,madoAn});
             if (result == 0) return TrangThai.ThatBai;
             return TrangThai.ThanhCong;
         }

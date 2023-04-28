@@ -78,6 +78,10 @@ namespace GUI.UserControls
         {
             grDSNL.DataSource = null;
             dt = NguyenLieuBLL.Instance.LayNguyenLieu(maLNL);
+            foreach (DataColumn dc in dt.Columns)
+            {
+                dc.AllowDBNull = false;
+            }
             if (insertData == null) insertData = dt.Clone();
             grDSNL.DataSource = dt;
             grvDSNL.Columns[grvDSNL.Columns.Count - 1].Visible = false;

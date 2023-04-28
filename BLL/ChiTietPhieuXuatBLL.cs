@@ -36,9 +36,9 @@ namespace BLL
             return ChiTietPhieuXuatDAL.Instance.CapNhatDoAnTrongCTPX(input);
 
         }
-        public TrangThai XoaDoAnKhoiCTPX(object[] input)
+        public TrangThai XoaDoAnKhoiCTPX(int maPhieuXuat,int madoAn)
         {
-            return ChiTietPhieuXuatDAL.Instance.XoaDoAnKhoiCTPX(input);
+            return ChiTietPhieuXuatDAL.Instance.XoaDoAnKhoiCTPX(maPhieuXuat,madoAn);
 
         }
     }
