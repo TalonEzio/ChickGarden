@@ -326,9 +326,9 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
-        private DevExpress.XtraEditors.SimpleButton btnReLoad;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.LabelControl Lọc;
         private System.Windows.Forms.ComboBox cmbLoaiDoAn;
+        internal DevExpress.XtraEditors.SimpleButton btnReLoad;
     }
 }

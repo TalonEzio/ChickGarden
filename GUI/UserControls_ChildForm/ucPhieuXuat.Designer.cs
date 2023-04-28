@@ -315,6 +315,6 @@
         private DevExpress.XtraBars.BarButtonItem btnAdd;
         private DevExpress.XtraBars.BarButtonItem btnDetail;
         private DevExpress.XtraBars.BarButtonItem btnSave;
-        private DevExpress.XtraBars.BarButtonItem btnReLoad;
+        internal DevExpress.XtraBars.BarButtonItem btnReLoad;
     }
 }

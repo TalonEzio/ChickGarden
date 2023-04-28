@@ -67,7 +67,9 @@ namespace GUI
                 ucDanhSachNhanVien.Dock = DockStyle.Fill;
                 mainContainer.AddControl(ucDanhSachNhanVien);
             }
+
             ucDanhSachNhanVien.BringToFront();
+            ucDanhSachNhanVien.btnReLoad.PerformClick();
 
         }
 
@@ -103,7 +105,6 @@ namespace GUI
         private void frmTrangChu_Load(object sender, EventArgs e)
         {
             UsingRole();
-
         }
 
         private ucThongTinCaNhan ucThongTinCaNhan;
@@ -119,6 +120,7 @@ namespace GUI
             ucThongTinCaNhan.BringToFront();
 
             ucThongTinCaNhan.ForceSend += UcThongTinCaNhan_ForceSend;
+
         }
 
         private void UcThongTinCaNhan_ForceSend(object sender, bool forceExit)
@@ -139,6 +141,7 @@ namespace GUI
                 mainContainer.AddControl(ucDanhSachDoAn);
             }
             ucDanhSachDoAn.BringToFront();
+            ucDanhSachDoAn.btnReLoad.PerformClick();
         }
         ucPhieuNhap ucPhieuNhap;
         private void btnHD_PN_Click(object sender, EventArgs e)
@@ -150,6 +153,8 @@ namespace GUI
                 mainContainer.AddControl(ucPhieuNhap);
             }
             ucPhieuNhap.BringToFront();
+            ucPhieuNhap.btnReLoad.PerformClick();
+
         }
         ucNguyenLieu ucNguyenLieu;
         private void btnDA_DSNL_Click(object sender, EventArgs e)
@@ -161,6 +166,8 @@ namespace GUI
                 mainContainer.AddControl(ucNguyenLieu);
             }
             ucNguyenLieu.BringToFront();
+            ucNguyenLieu.btnReLoad.PerformClick();
+
         }
         ucPhieuXuat ucPhieuXuat;
 
@@ -173,6 +180,7 @@ namespace GUI
                 mainContainer.AddControl(ucPhieuXuat);
             }
             ucPhieuXuat.BringToFront();
+            ucPhieuXuat.btnReLoad.PerformClick();
         }
     }
 }

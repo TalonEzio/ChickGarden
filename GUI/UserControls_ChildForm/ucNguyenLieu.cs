@@ -142,16 +142,20 @@ namespace GUI.UserControls
 
 
             int[] selectedRows = grvDSNL.GetSelectedRows();
-
-            DialogResult result = XtraMessageBox.Show($"bạn muốn xóa {selectedRows.Length} dòng đã chọn?", "Xóa dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            DialogResult warningDialog = XtraMessageBox.Show("Xóa những dòng này sẽ xóa hết những dòng liên quan tới các hóa đơn?\n" +
+                "Bạn vẫn muốn xóa?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (warningDialog == DialogResult.Yes)
             {
-                for (int i = selectedRows.Length - 1; i >= 0; i--)
+                DialogResult result = XtraMessageBox.Show($"bạn muốn xóa {selectedRows.Length} dòng đã chọn?", "Xóa dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    deleteData.Rows.Add(grvDSNL.GetDataRow(selectedRows[i]).ItemArray);
-                    grvDSNL.DeleteRow(selectedRows[i]);
+                    for (int i = selectedRows.Length - 1; i >= 0; i--)
+                    {
+                        deleteData.Rows.Add(grvDSNL.GetDataRow(selectedRows[i]).ItemArray);
+                        grvDSNL.DeleteRow(selectedRows[i]);
+                    }
+                    DeleteData(deleteData);
                 }
-                DeleteData(deleteData);
             }
         }
 
@@ -245,7 +249,8 @@ namespace GUI.UserControls
                     {
                         TenNguyenLieu = tenNguyenLieu,
                         SoLuongTon = (int)row.ItemArray[1],
-                        DonViTinh = row.ItemArray[2].ToString(),MaNguyenLieu = (int)row.ItemArray[row.ItemArray.Length - 1]
+                        DonViTinh = row.ItemArray[2].ToString(),
+                        MaNguyenLieu = (int)row.ItemArray[row.ItemArray.Length - 1]
                     };
                     if (ValidateBefore(nguyenLieu) == false) continue;
                     int maLNL = (int)row.ItemArray[3];

@@ -58,9 +58,6 @@ namespace GUI.UserControls
             cmbNguyenLieu.NullText = "Chọn loại nguyên liệu";
             grvCTPN.Columns[0].ColumnEdit = cmbNguyenLieu;
         }
-
-        private int previousValue = -1;
-
         
         void CustomSoLuong()
         {

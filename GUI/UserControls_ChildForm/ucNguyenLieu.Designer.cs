@@ -323,8 +323,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView grvDSNL;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
-        private DevExpress.XtraEditors.SimpleButton btnReLoad;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.LabelControl Lọc;
         private DevExpress.Utils.Layout.StackPanel stkButton;
         private System.Windows.Forms.ComboBox cmbLoaiNguyenLieu;
@@ -335,5 +333,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControl2;
         private DevExpress.XtraBars.BarDockControl barDockControl1;
         private DevExpress.XtraBars.Bar bar1;
+        internal DevExpress.XtraEditors.SimpleButton btnReLoad;
+        internal DevExpress.XtraEditors.SimpleButton btnSave;
     }
 }
