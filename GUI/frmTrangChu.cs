@@ -196,7 +196,9 @@ namespace GUI
                 mainContainer.AddControl(ucThongKeDoanhThu);
             }
             ucThongKeDoanhThu.BringToFront();
-            
+            ucThongKeDoanhThu.btn.PerformClick();
+
+
         }
     }
 }

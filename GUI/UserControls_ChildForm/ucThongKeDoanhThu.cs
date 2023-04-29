@@ -13,13 +13,22 @@ namespace GUI.UserControls_ChildForm
         public ucThongKeDoanhThu()
         {
             InitializeComponent();
-            button1.Click += Button1_Click;
-
+            btn.Click += Btn_Click;
         }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            LoadDoanhThuTheoLoaiDoAnThangNay();
+            LoadSoTienTrongNam();
+        }
+
+        internal Button btn = new Button();
         void LoadDoanhThuTheoLoaiDoAnThangNay()
         {
             DataTable dt = ThongKeBLL.Instance.ThongKeDoanhThuTheoNhomDoAnThangNay();
             if (dt.Rows.Count == 0) return;
+            chartTongDoanhThuNhomDoAn.Series.Clear();
+
             DevExpress.XtraCharts.Series series = new DevExpress.XtraCharts.Series("Loại đồ ăn", DevExpress.XtraCharts.ViewType.Bar);
 
             foreach (DataRow dr in dt.Rows)
@@ -36,6 +45,7 @@ namespace GUI.UserControls_ChildForm
         {
             DataTable dt = ThongKeBLL.Instance.ThongKeDoanhThuNamNay();
             if (dt.Rows.Count == 0) return null;
+            chart2.Series.Clear();
             DevExpress.XtraCharts.Series series = new DevExpress.XtraCharts.Series("Doanh thu", DevExpress.XtraCharts.ViewType.Area);
 
             foreach (DataRow dr in dt.Rows)
@@ -81,14 +91,8 @@ namespace GUI.UserControls_ChildForm
 
         private void ucThongKeDoanhThu_Load(object sender, EventArgs e)
         {
-            button1.PerformClick();
-
+            btn.PerformClick();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            LoadDoanhThuTheoLoaiDoAnThangNay();
-            LoadSoTienTrongNam();
-        }
     }
 }

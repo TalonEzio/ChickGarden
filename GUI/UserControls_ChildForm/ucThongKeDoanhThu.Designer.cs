@@ -33,7 +33,6 @@
             this.chart2 = new DevExpress.XtraCharts.ChartControl();
             this.chartTongDoanhThuNhomDoAn = new DevExpress.XtraCharts.ChartControl();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTongDoanhThuNhomDoAn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
@@ -75,7 +74,6 @@
             // 
             this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 29.9F)});
-            this.tablePanel1.Controls.Add(this.button1);
             this.tablePanel1.Controls.Add(this.chart2);
             this.tablePanel1.Controls.Add(this.chartTongDoanhThuNhomDoAn);
             this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -87,15 +85,6 @@
             this.tablePanel1.Size = new System.Drawing.Size(1067, 640);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1064, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // ucThongKeDoanhThu
             // 
@@ -117,6 +106,5 @@
         private DevExpress.XtraCharts.ChartControl chart2;
         private DevExpress.XtraCharts.ChartControl chartTongDoanhThuNhomDoAn;
         private DevExpress.Utils.Layout.TablePanel tablePanel1;
-        private System.Windows.Forms.Button button1;
     }
 }
