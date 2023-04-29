@@ -59,10 +59,6 @@ namespace DAL
             }
             return null;
         }
-        public System.Data.DataTable PhieuNhapNguyenLieu(int maNCC)
-        {
-            return DatabaseAccess.Instance.ExecuteReader("usp_PhieuNhapNguyenLieu", CachThucHien.StoredProcedure,
-                new string[] { "@MaNCC" }, new object[] { maNCC });
-        }
+        
     }
 }

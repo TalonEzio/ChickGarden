@@ -33,5 +33,9 @@ namespace BLL
         {
             return PhieuNhapDAL.Instance.ThemPhieuNhap(phieuNhap);
         }
+        public System.Data.DataTable PhieuNhapNguyenLieu(int maPhieuNhap)
+        {
+            return PhieuNhapDAL.Instance.PhieuNhapNguyenLieu(maPhieuNhap);
+        }
     }
 }

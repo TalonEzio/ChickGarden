@@ -16,11 +16,12 @@ namespace GUI.Reports
     {
         NhaCungCap nhaCungCap;
         System.Data.DataTable dt;
-        public rpPhieuNhap(NhaCungCap nhaCungCap)
+        public rpPhieuNhap(NhaCungCap nhaCungCap, int maPhieuNhap)
         {
             InitializeComponent();
             this.nhaCungCap = nhaCungCap;
-            dt = NhaCungCapBLL.Instance.PhieuNhapNguyenLieu(nhaCungCap.MaNCC);
+
+            dt = PhieuNhapBLL.Instance.PhieuNhapNguyenLieu(maPhieuNhap);
 
             this.DataSource = dt;
             ShowInvoice();
@@ -51,7 +52,7 @@ namespace GUI.Reports
             double totalResult = 0;
             foreach (System.Data.DataRow dr in dt.Rows)
             {
-                totalResult += int.Parse(dr[1].ToString()) * double.Parse(dr[2].ToString());
+                totalResult += double.Parse(dr[3].ToString());
             }
             lblTongTien.Text = totalResult + " ₫";
         }

@@ -200,8 +200,9 @@ namespace GUI.UserControls
             if (rowHandle == -1) return;
 
             NhaCungCap nhaCungCap = NhaCungCapBLL.Instance.LayNhaCungCapTheoMa((int)grvDSPN.GetRowCellValue(rowHandle, "Nhà cung cấp"));
-            rpPhieuNhap rpPhieuNhap = new rpPhieuNhap(nhaCungCap);
-            rpPhieuNhap.ShowPreview();
+            int maPhieuNhap = (int)grvDSPN.GetRowCellValue(rowHandle, "MaPhieuNhap");
+            rpPhieuNhap rpPhieuNhap = new rpPhieuNhap(nhaCungCap, maPhieuNhap);
+            rpPhieuNhap.ShowPreviewDialog();
         }
         int insertCountTemp = 0;
 

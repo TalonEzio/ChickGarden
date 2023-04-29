@@ -38,6 +38,7 @@
             this.btnDetail = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnReLoad = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReport = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -134,8 +135,9 @@
             this.btnAdd,
             this.btnDetail,
             this.btnSave,
-            this.btnReLoad});
-            this.barManager1.MaxItemId = 4;
+            this.btnReLoad,
+            this.btnReport});
+            this.barManager1.MaxItemId = 5;
             // 
             // bar1
             // 
@@ -147,7 +149,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnAdd),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnDetail),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnReLoad)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnReLoad),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnReport)});
             this.bar1.Text = "Tools";
             // 
             // btnAdd
@@ -250,6 +253,31 @@
             this.btnReLoad.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnReLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReLoad_ItemClick);
             // 
+            // btnReport
+            // 
+            this.btnReport.Caption = "Xuất hóa đơn";
+            this.btnReport.Id = 4;
+            this.btnReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.ImageOptions.Image")));
+            this.btnReport.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReport.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btnReport.ItemAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReport.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btnReport.ItemAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReport.ItemAppearance.Normal.Options.UseFont = true;
+            this.btnReport.ItemAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReport.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btnReport.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReport.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btnReport.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReport.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btnReport.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReport.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btnReport.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("UTM Avo", 12F);
+            this.btnReport.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btnReport.Name = "btnReport";
+            this.btnReport.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReport_ItemClick);
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -316,5 +344,6 @@
         private DevExpress.XtraBars.BarButtonItem btnDetail;
         private DevExpress.XtraBars.BarButtonItem btnSave;
         internal DevExpress.XtraBars.BarButtonItem btnReLoad;
+        private DevExpress.XtraBars.BarButtonItem btnReport;
     }
 }

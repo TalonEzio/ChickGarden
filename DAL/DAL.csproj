@@ -71,6 +71,7 @@
     <Compile Include="TaiKhoanDAL.cs" />
     <Compile Include="DatabaseAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThongKeDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -49,8 +49,6 @@
             this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.btnThongKe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnTK_TKDT = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnTK_Excel = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnTK_PDF = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.btnHeThong = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnHT_TTCN = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -251,8 +249,6 @@
             // 
             this.btnThongKe.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnTK_TKDT,
-            this.btnTK_Excel,
-            this.btnTK_PDF,
             this.accordionControlSeparator4});
             this.btnThongKe.Expanded = true;
             this.btnThongKe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThongKe.ImageOptions.SvgImage")));
@@ -265,21 +261,7 @@
             this.btnTK_TKDT.Name = "btnTK_TKDT";
             this.btnTK_TKDT.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnTK_TKDT.Text = "Thống kê doanh thu";
-            // 
-            // btnTK_Excel
-            // 
-            this.btnTK_Excel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTK_Excel.ImageOptions.SvgImage")));
-            this.btnTK_Excel.Name = "btnTK_Excel";
-            this.btnTK_Excel.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnTK_Excel.Text = "Xuất excel";
-            this.btnTK_Excel.Click += new System.EventHandler(this.btnTK_Excel_Click);
-            // 
-            // btnTK_PDF
-            // 
-            this.btnTK_PDF.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTK_PDF.ImageOptions.SvgImage")));
-            this.btnTK_PDF.Name = "btnTK_PDF";
-            this.btnTK_PDF.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnTK_PDF.Text = "Xuất PDF";
+            this.btnTK_TKDT.Click += new System.EventHandler(this.btnTK_TKDT_Click);
             // 
             // accordionControlSeparator4
             // 
@@ -391,8 +373,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnThongKe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnTK_TKDT;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement btnTK_Excel;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement btnTK_PDF;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHeThong;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHT_DMK;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnHT_DX;

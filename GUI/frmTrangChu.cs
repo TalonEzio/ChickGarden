@@ -34,11 +34,13 @@ namespace GUI
         public frmTrangChu()
         {
             InitializeComponent();
+            
         }
         public frmTrangChu(TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.taiKhoan = taiKhoan;
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -184,8 +186,17 @@ namespace GUI
             ucPhieuXuat.btnReLoad.PerformClick();
         }
 
-        private void btnTK_Excel_Click(object sender, EventArgs e)
+        ucThongKeDoanhThu ucThongKeDoanhThu;
+        private void btnTK_TKDT_Click(object sender, EventArgs e)
         {
+            if (ucThongKeDoanhThu == null)
+            {
+                ucThongKeDoanhThu = new ucThongKeDoanhThu();
+                ucThongKeDoanhThu.Dock = DockStyle.Fill;
+                mainContainer.AddControl(ucThongKeDoanhThu);
+            }
+            ucThongKeDoanhThu.BringToFront();
+            
         }
     }
 }
