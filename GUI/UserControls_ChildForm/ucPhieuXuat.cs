@@ -3,7 +3,9 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using DTO;
+using GUI.Reports;
 using GUI.UserControls;
 using System;
 using System.Collections.Generic;
@@ -140,6 +142,15 @@ namespace GUI.UserControls_ChildForm
             }
             frmChiTietPhieuXuat.ShowDialog();
             TaiDanhSachPhieuXuat();
+        }
+
+        private void btnReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int rowHandle = grvPhieuXuat.GetSelectedRows()[0];
+            if (rowHandle == -1) return;
+            int maPhieuXuat = (int)grvPhieuXuat.GetRowCellValue(rowHandle, "MaHoaDon");
+            rpPhieuXuat rpPhieuXuat = new rpPhieuXuat(maPhieuXuat); 
+            rpPhieuXuat.ShowPreviewDialog();
         }
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

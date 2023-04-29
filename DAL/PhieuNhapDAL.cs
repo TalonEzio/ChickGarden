@@ -46,5 +46,10 @@ namespace DAL
                 ) == 0) return TrangThai.ThatBai;
             return TrangThai.ThanhCong;
         }
+        public System.Data.DataTable PhieuNhapNguyenLieu(int maPhieuNhap)
+        {
+            return DatabaseAccess.Instance.ExecuteReader("usp_PhieuNhapNguyenLieu", CachThucHien.StoredProcedure,
+                new string[] { "@maPhieuNhap" }, new object[] { maPhieuNhap });
+        }
     }
 }

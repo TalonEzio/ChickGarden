@@ -265,7 +265,7 @@
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "Xuất File";
+            this.barButtonItem2.Caption = "Xuất phiếu";
             this.barButtonItem2.Id = 1;
             this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
             this.barButtonItem2.ItemAppearance.Disabled.Font = new System.Drawing.Font("UTM Avo", 12F);

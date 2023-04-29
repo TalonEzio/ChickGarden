@@ -33,9 +33,6 @@ namespace BLL
         {
             return NhaCungCapDAL.Instance.LayNhaCungCapTheoMa(maNCC);
         }
-        public System.Data.DataTable PhieuNhapNguyenLieu(int maNCC)
-        {
-            return NhaCungCapDAL.Instance.PhieuNhapNguyenLieu(maNCC);
-        }
+        
     }
 }

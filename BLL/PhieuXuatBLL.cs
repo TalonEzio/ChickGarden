@@ -32,6 +32,10 @@ namespace BLL
         {
             return PhieuXuatDAL.Instance.CapNhatPhieuXuat(phieuXuat);
         }
+        public DataTable PhieuXuatDoAn(int maPhieuXuat)
+        {
+            return PhieuXuatDAL.Instance.PhieuXuatDoAn(maPhieuXuat);
+        }
 
     }
 }

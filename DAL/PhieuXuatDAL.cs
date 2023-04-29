@@ -47,6 +47,15 @@ namespace DAL
                 return TrangThai.ThanhCong;
             return TrangThai.ThatBai;
         }
-
+        public System.Data.DataTable PhieuNhapNguyenLieu(int maPhieuXuat)
+        {
+            return DatabaseAccess.Instance.ExecuteReader("usp_PhieuNhapNguyenLieu", CachThucHien.StoredProcedure,
+                new string[] { "@MaPhieuXuat" }, new object[] { maPhieuXuat });
+        }
+        public System.Data.DataTable PhieuXuatDoAn(int maPhieuXuat)
+        {
+            return DatabaseAccess.Instance.ExecuteReader("usp_PhieuXuatDoAn", CachThucHien.StoredProcedure
+                , new string[] { "@MaPhieuXuat" }, new object[] { maPhieuXuat });
+        }
     }
 }
