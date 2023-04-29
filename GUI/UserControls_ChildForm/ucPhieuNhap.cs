@@ -7,7 +7,9 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraReports.UI;
 using DTO;
+using GUI.UserControls_ChildForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GUI.Reports;
 
 namespace GUI.UserControls
 {
@@ -193,42 +196,12 @@ namespace GUI.UserControls
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            sdDSPN.Title = "Lưu tập tin";
-            sdDSPN.Filter = "Excel files (*.xlsx)|*.xlsx|PDF files (*.pdf)|*.pdf|HTML files (*.html)|*.html|Word files (*.docx)|*.docx";
-            sdDSPN.FileName = "Danh sách phiếu nhập";
+            int rowHandle = grvDSPN.GetSelectedRows()[0];
+            if (rowHandle == -1) return;
 
-            if (sdDSPN.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = sdDSPN.FileName;
-                string fileExtension = Path.GetExtension(filePath).ToLower();
-
-                ExportTarget exportFormat;
-                switch (fileExtension)
-                {
-                    case ".xlsx":
-                        exportFormat = ExportTarget.Xlsx;
-                        break;
-                    case ".pdf":
-                        exportFormat = ExportTarget.Pdf;
-                        break;
-                    case ".html":
-                        exportFormat = ExportTarget.Html;
-                        break;
-                    case ".docx":
-                        exportFormat = ExportTarget.Docx;
-                        break;
-                    default:
-                        XtraMessageBox.Show("Định dạng file không hỗ trợ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                }
-
-                grvDSPN.Export(exportFormat, filePath);
-
-                if (XtraMessageBox.Show("Export thành công, bạn muốn xem chứ?", "Export", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK && !string.IsNullOrEmpty(filePath))
-                {
-                    System.Diagnostics.Process.Start(filePath);
-                }
-            }
+            NhaCungCap nhaCungCap = NhaCungCapBLL.Instance.LayNhaCungCapTheoMa((int)grvDSPN.GetRowCellValue(rowHandle, "Nhà cung cấp"));
+            rpPhieuNhap rpPhieuNhap = new rpPhieuNhap(nhaCungCap);
+            rpPhieuNhap.ShowPreview();
         }
         int insertCountTemp = 0;
 

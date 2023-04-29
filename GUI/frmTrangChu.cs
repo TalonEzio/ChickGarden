@@ -1,6 +1,7 @@
 ﻿using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 using DTO;
 using GUI.UserControls;
 using GUI.UserControls_ChildForm;
@@ -181,6 +182,10 @@ namespace GUI
             }
             ucPhieuXuat.BringToFront();
             ucPhieuXuat.btnReLoad.PerformClick();
+        }
+
+        private void btnTK_Excel_Click(object sender, EventArgs e)
+        {
         }
     }
 }

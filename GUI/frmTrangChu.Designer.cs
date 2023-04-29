@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTrangChu));
-            DevExpress.XtraBars.Navigation.AccordionContextButton accordionContextButton2 = new DevExpress.XtraBars.Navigation.AccordionContextButton();
+            DevExpress.XtraBars.Navigation.AccordionContextButton accordionContextButton1 = new DevExpress.XtraBars.Navigation.AccordionContextButton();
             this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
@@ -154,12 +154,12 @@
             // 
             // btnNhanVien
             // 
-            accordionContextButton2.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
-            accordionContextButton2.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-            accordionContextButton2.Id = new System.Guid("57d51744-657d-4702-ae0e-76e2c1a18c54");
-            accordionContextButton2.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
-            accordionContextButton2.Name = "accordionContextButton1";
-            this.btnNhanVien.ContextButtons.Add(accordionContextButton2);
+            accordionContextButton1.AlignmentOptions.Panel = DevExpress.Utils.ContextItemPanel.Center;
+            accordionContextButton1.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+            accordionContextButton1.Id = new System.Guid("57d51744-657d-4702-ae0e-76e2c1a18c54");
+            accordionContextButton1.ImageOptionsCollection.ItemNormal.UseDefaultImage = true;
+            accordionContextButton1.Name = "accordionContextButton1";
+            this.btnNhanVien.ContextButtons.Add(accordionContextButton1);
             this.btnNhanVien.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnNV_DSNV,
             this.accordionControlSeparator3});
@@ -272,6 +272,7 @@
             this.btnTK_Excel.Name = "btnTK_Excel";
             this.btnTK_Excel.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnTK_Excel.Text = "Xuất excel";
+            this.btnTK_Excel.Click += new System.EventHandler(this.btnTK_Excel_Click);
             // 
             // btnTK_PDF
             // 

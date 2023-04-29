@@ -140,6 +140,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rpPhieuNhap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rpPhieuNhap.Designer.cs">
+      <DependentUpon>rpPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls_ChildForm\frmChiTietPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rpPhieuNhap.resx">
+      <DependentUpon>rpPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls_ChildForm\frmChiTietPhieuNhap.resx">
       <DependentUpon>frmChiTietPhieuNhap.cs</DependentUpon>

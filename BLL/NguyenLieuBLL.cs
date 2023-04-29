@@ -32,13 +32,12 @@ namespace BLL
         }
         public TrangThai ThemNguyenLieu(NguyenLieu nguyenLieu, int maLNL)
         {
-            return NguyenLieuDAL.Instance.ThemNguyenLieu(nguyenLieu,maLNL);
+            return NguyenLieuDAL.Instance.ThemNguyenLieu(nguyenLieu, maLNL);
         }
-      public TrangThai CapNhatNguyenLieu(NguyenLieu nguyenLieu, int maLNL)
+        public TrangThai CapNhatNguyenLieu(NguyenLieu nguyenLieu, int maLNL)
         {
             return NguyenLieuDAL.Instance.CapNhatNguyenLieu(nguyenLieu, maLNL);
         }
-
 
     }
 }

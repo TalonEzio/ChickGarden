@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,13 @@ namespace BLL
         {
             return NhaCungCapDAL.Instance.LayToanBoNhaCungCap();
         }
-
+        public NhaCungCap LayNhaCungCapTheoMa(int maNCC)
+        {
+            return NhaCungCapDAL.Instance.LayNhaCungCapTheoMa(maNCC);
+        }
+        public System.Data.DataTable PhieuNhapNguyenLieu(int maNCC)
+        {
+            return NhaCungCapDAL.Instance.PhieuNhapNguyenLieu(maNCC);
+        }
     }
 }

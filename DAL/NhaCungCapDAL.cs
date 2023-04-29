@@ -42,5 +42,27 @@ namespace DAL
             }
             return DSNCC;
         }
+        public NhaCungCap LayNhaCungCapTheoMa(int maNCC)
+        {
+            DataTable dt = DatabaseAccess.Instance.ExecuteReader("usp_LayNhaCungCapTheoMa", CachThucHien.StoredProcedure
+                , new string[] { "@MaNCC" }, new object[] { maNCC });
+            if(dt != null)
+            {
+                DataRow dr = dt.Rows[0];
+                return new NhaCungCap()
+                {
+                    MaNCC = (int)dr[0],
+                    TenNCC = dr[1].ToString(),
+                    DiaChi = dr[2].ToString(),
+                    SoDienThoai = dr[3].ToString()
+                };
+            }
+            return null;
+        }
+        public System.Data.DataTable PhieuNhapNguyenLieu(int maNCC)
+        {
+            return DatabaseAccess.Instance.ExecuteReader("usp_PhieuNhapNguyenLieu", CachThucHien.StoredProcedure,
+                new string[] { "@MaNCC" }, new object[] { maNCC });
+        }
     }
 }
