@@ -34,7 +34,7 @@ namespace GUI
         public frmTrangChu()
         {
             InitializeComponent();
-            
+
         }
         public frmTrangChu(TaiKhoan taiKhoan)
         {
@@ -44,7 +44,7 @@ namespace GUI
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
-        { 
+        {
             this.Close();
         }
 
@@ -108,6 +108,10 @@ namespace GUI
         private void frmTrangChu_Load(object sender, EventArgs e)
         {
             UsingRole();
+            ucThongKeDoanhThu = new ucThongKeDoanhThu();
+            ucThongKeDoanhThu.Dock = DockStyle.Fill;
+            mainContainer.AddControl(ucThongKeDoanhThu);
+            ucThongKeDoanhThu.BringToFront();
         }
 
         private ucThongTinCaNhan ucThongTinCaNhan;
@@ -196,7 +200,6 @@ namespace GUI
                 mainContainer.AddControl(ucThongKeDoanhThu);
             }
             ucThongKeDoanhThu.BringToFront();
-            ucThongKeDoanhThu.btn.PerformClick();
 
 
         }

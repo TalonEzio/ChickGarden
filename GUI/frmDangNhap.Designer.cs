@@ -79,7 +79,7 @@
             this.btnDangNhap.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.btnDangNhap.Appearance.Options.UseBorderColor = true;
             this.btnDangNhap.Appearance.Options.UseFont = true;
-            this.btnDangNhap.Location = new System.Drawing.Point(124, 33);
+            this.btnDangNhap.Location = new System.Drawing.Point(222, 33);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(160, 52);
             this.btnDangNhap.TabIndex = 4;
@@ -139,8 +139,8 @@
             // panelControl2
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.btnDangKy);
             this.panelControl2.Controls.Add(this.btnDangNhap);
+            this.panelControl2.Controls.Add(this.btnDangKy);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(4, 158);
             this.panelControl2.Name = "panelControl2";
@@ -151,11 +151,12 @@
             // 
             this.btnDangKy.Appearance.Font = new System.Drawing.Font("UTM Avo", 14F);
             this.btnDangKy.Appearance.Options.UseFont = true;
-            this.btnDangKy.Location = new System.Drawing.Point(352, 33);
+            this.btnDangKy.Location = new System.Drawing.Point(222, 33);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(160, 52);
             this.btnDangKy.TabIndex = 5;
             this.btnDangKy.Text = "Đăng Ký";
+            this.btnDangKy.Visible = false;
             this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // err

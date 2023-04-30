@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public  class ThongKeDAL
+    public class ThongKeDAL
     {
         private static ThongKeDAL instance;
         public static ThongKeDAL Instance
@@ -23,17 +23,22 @@ namespace DAL
                 instance = value;
             }
         }
-        public DataTable ThongKeDoanhThuTheoNhomDoAnThangNay()
+        public DataTable ThongKeDoanhThuTheoNhomDoAn(DateTime ngayBatDau, DateTime ngayKetThuc)
         {
-            return DatabaseAccess.Instance.ExecuteReader("usp_ThongKeDoanhThuTheoNhomDoAn", DTO.CachThucHien.StoredProcedure);
+            return DatabaseAccess.Instance.ExecuteReader("usp_ThongKeDoanhThuTheoNhomDoAn", DTO.CachThucHien.StoredProcedure,
+                new string[] { "@NgayBatDau", "@NgayKetThuc" },
+                new object[] { ngayBatDau, ngayKetThuc });
         }
-        public DataTable ThongKeDoanhThuNamNay()
+        public DataTable ThongKeDoanhThuTheoNam(int nam)
         {
-            return DatabaseAccess.Instance.ExecuteReader("usp_ThongKeDoanhThuNamNay", DTO.CachThucHien.StoredProcedure);
+            return DatabaseAccess.Instance.ExecuteReader("usp_ThongKeDoanhThuTheoNam", DTO.CachThucHien.StoredProcedure,
+                new string[] { "@Nam" }, new object[] { nam });
         }
-        public DataTable ThongKeChiTieuNamNay()
+        public DataTable ThongKeChiTieuTheoNam(int nam)
         {
-            return DatabaseAccess.Instance.ExecuteReader("usp_ThongKeChiTieuNamNay", DTO.CachThucHien.StoredProcedure);
+            return DatabaseAccess.Instance.ExecuteReader("usp_ThongKeChiTieuTheoNam",
+                DTO.CachThucHien.StoredProcedure,
+                 new string[] { "@Nam" }, new object[] { nam });
 
         }
     }

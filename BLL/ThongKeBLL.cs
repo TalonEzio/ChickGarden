@@ -24,17 +24,17 @@ namespace BLL
                 instance = value;
             }
         }
-        public DataTable ThongKeDoanhThuTheoNhomDoAnThangNay()
+        public DataTable ThongKeDoanhThuTheoNhomDoAn(DateTime ngayBatDau, DateTime ngayKetThuc)
         {
-            return ThongKeDAL.Instance.ThongKeDoanhThuTheoNhomDoAnThangNay();
+            return ThongKeDAL.Instance.ThongKeDoanhThuTheoNhomDoAn(ngayBatDau, ngayKetThuc);
         }
-        public DataTable ThongKeDoanhThuNamNay()
+        public DataTable ThongKeDoanhThuTheoNam(int nam)
         {
-            return ThongKeDAL.Instance.ThongKeDoanhThuNamNay();
+            return ThongKeDAL.Instance.ThongKeDoanhThuTheoNam(nam);
         }
-        public DataTable ThongKeChiTieuNamNay()
+        public DataTable ThongKeChiTieuTheoNam(int nam)
         {
-            return ThongKeDAL.Instance.ThongKeChiTieuNamNay();
+            return ThongKeDAL.Instance.ThongKeChiTieuTheoNam(nam);
 
         }
     }
