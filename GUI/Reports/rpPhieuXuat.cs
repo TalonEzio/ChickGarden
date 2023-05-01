@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DevExpress.DataAccess.Native.Data;
+using DevExpress.Utils.Extensions;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraSpreadsheet.Commands;
 using System;
@@ -17,6 +18,7 @@ namespace GUI.Reports
             InitializeComponent();
             this.DataSource = dt = PhieuXuatBLL.Instance.PhieuXuatDoAn(maPhieuXuat);
             ShowReport();
+
         }
 
 
