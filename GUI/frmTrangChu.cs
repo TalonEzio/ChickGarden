@@ -108,10 +108,10 @@ namespace GUI
         private void frmTrangChu_Load(object sender, EventArgs e)
         {
             UsingRole();
-            ucThongKeDoanhThu = new ucThongKeDoanhThu();
-            ucThongKeDoanhThu.Dock = DockStyle.Fill;
-            mainContainer.AddControl(ucThongKeDoanhThu);
-            ucThongKeDoanhThu.BringToFront();
+            ucLoiNhuanTheoNam = new ucLoiNhuanTheoNam();
+            ucLoiNhuanTheoNam.Dock = DockStyle.Fill;
+            mainContainer.AddControl(ucLoiNhuanTheoNam);
+            ucLoiNhuanTheoNam.BringToFront();
         }
 
         private ucThongTinCaNhan ucThongTinCaNhan;
@@ -190,18 +190,27 @@ namespace GUI
             ucPhieuXuat.btnReLoad.PerformClick();
         }
 
-        ucThongKeDoanhThu ucThongKeDoanhThu;
+        ucDoanhThuTheoThoiGian ucDoanhThuTheoThoiGian;
         private void btnTK_TKDT_Click(object sender, EventArgs e)
         {
-            if (ucThongKeDoanhThu == null)
+            if (ucDoanhThuTheoThoiGian == null)
             {
-                ucThongKeDoanhThu = new ucThongKeDoanhThu();
-                ucThongKeDoanhThu.Dock = DockStyle.Fill;
-                mainContainer.AddControl(ucThongKeDoanhThu);
+                ucDoanhThuTheoThoiGian = new ucDoanhThuTheoThoiGian();
+                ucDoanhThuTheoThoiGian.Dock = DockStyle.Fill;
+                mainContainer.AddControl(ucDoanhThuTheoThoiGian);
             }
-            ucThongKeDoanhThu.BringToFront();
-
-
+            ucDoanhThuTheoThoiGian.BringToFront();
+        }
+        ucLoiNhuanTheoNam ucLoiNhuanTheoNam;
+        private void btnTK_LNTN_Click(object sender, EventArgs e)
+        {
+            if (ucLoiNhuanTheoNam == null)
+            {
+                ucLoiNhuanTheoNam = new ucLoiNhuanTheoNam();
+                ucDoanhThuTheoThoiGian.Dock = DockStyle.Fill;
+                mainContainer.AddControl(ucLoiNhuanTheoNam);
+            }
+            ucLoiNhuanTheoNam.BringToFront();
         }
     }
 }
